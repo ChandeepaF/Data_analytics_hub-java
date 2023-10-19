@@ -153,7 +153,7 @@ public class Database_Handler {
 			
 			resultSet = prepareStatement.executeQuery();
 			
-			if (resultSet.next()) {
+			while (resultSet.next()) {
 				System.out.printf("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
 						resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("author"), resultSet.getInt("likes"),
 						resultSet.getInt("shares"), resultSet.getString("date_time"));
@@ -168,6 +168,42 @@ public class Database_Handler {
 			
 		}
 	
+	
+	
+	public ResultSet retrieve_LikesPosts(int number) {
+		
+		
+		final String TABLE_NAME = "PostDetails";
+		
+		ResultSet resultSet = null;
+		
+		int i = 0;
+		
+		
+		try (Connection con = Database_Connection.getConnection();
+				
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM" + TABLE_NAME + " ORDER BY likes DESC LIMIT ?")){
+			prepareStatement.setLong(1, number);
+						
+			resultSet = prepareStatement.executeQuery();
+			
+			
+			while (resultSet.next()) {
+				System.out.printf("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
+						resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("author"), resultSet.getInt("likes"),
+						resultSet.getInt("shares"), resultSet.getString("date_time"));
+			}
+			
+				
+		} catch(SQLException e) {
+			
+			e.printStackTrace();
+		}
+				
+		return resultSet;
+			
+	}
+		
 	
 	
 	

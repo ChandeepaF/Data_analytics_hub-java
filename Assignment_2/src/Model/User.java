@@ -59,4 +59,18 @@ public class User {
 	}
 	
 	
+	public String validateLogIn(String lastnameData) throws Invalid_Lastname_Exception {
+		
+//		if(lastnameData == null) {
+//			throw new Invalid_Lastname_Exception("Last name is null");
+//		}
+//		
+//		char lastname = lastnameData.charAt(0);
+//		if(!Character.isLetter(lastname)) {
+//			throw new Invalid_Lastname_Exception("Invalid last name");
+//		}
+//		
+//		return lastnameData;
+//	}
+	
 }

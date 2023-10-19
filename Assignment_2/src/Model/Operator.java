@@ -3,6 +3,7 @@ package Model;
 import Model.Exceptions.Invalid_DateFormat_Exception;
 import Model.Exceptions.Invalid_ID_Exception;
 import Model.Exceptions.Invalid_Likes_Exception;
+import Model.Exceptions.Invalid_PostNumber_Exception;
 import Model.Exceptions.Invalid_Shares_Exception;
 
 public class Operator {
@@ -155,19 +156,29 @@ public class Operator {
 	
 	
 	
-	public String getPost(int retrieveID) throws Invalid_ID_Exception {
 		
-	}
-	
-	
-	public String deletePost(int deleteID) throws Invalid_ID_Exception {
+	public int validateLikesPost(String postNumber) throws Invalid_PostNumber_Exception {
 		
-	}
-	
-	
-	public String likesPost(int postNumber) throws Invalid_PostNumber_Exception {
+		if(postNumber == null) {
+			throw new Invalid_PostNumber_Exception("Post number is null");
+		}
 		
-	}
+		int intPosts = 0;
+		
+		try {
+			intPosts = Integer.parseInt(postNumber);
+			
+		}catch(NumberFormatException e) {
+			throw new Invalid_PostNumber_Exception("Amount of posts is not a number");
+		}
+		
+		if(intPosts <= 0) {
+			throw new Invalid_PostNumber_Exception("ID is not positive");
+		}
+		
+		return intPosts;
+	}	
+	
 	
 	
 	

@@ -7,6 +7,7 @@ import Model.Exceptions.Invalid_ID_Exception;
 import Model.Exceptions.Invalid_Lastname_Exception;
 import Model.Exceptions.Invalid_Likes_Exception;
 import Model.Exceptions.Invalid_Password_Exception;
+import Model.Exceptions.Invalid_PostNumber_Exception;
 import Model.Exceptions.Invalid_Shares_Exception;
 import Model.Exceptions.Invalid_Username_Exception;
 import Model.Exceptions.Invalid_DateFormat_Exception;
@@ -51,6 +52,11 @@ public class TestModel {
 	
 	public String save_Post_Data(String IDData, String contentData, String authorData, String likesData, String sharesData, String date_timeData) {
 		return dbHandler.Save_Posts(IDData, contentData, authorData, likesData, sharesData, date_timeData);
+	}
+	
+	
+	public String check_Login_Data(String usernameLoginData, String passwordLoginData) {
+		return dbHandler.check_Login_Details(usernameLoginData, passwordLoginData);
 	}
 	
 	
@@ -141,17 +147,18 @@ public class TestModel {
 
 	
 	
-	public String editProfile(String newUsernameData, String newPasswordData, String newFirstnameData, String newLastnameData) {
+	public String editProfile(String currentUsernameData, String newUsernameData, String newPasswordData, String newFirstnameData, String newLastnameData) {
 		
 		String output = null;
 		
-		String Username = null;
-		String Password = null;
-		String FirstName = null;
-		String LastName = null;
+		String current_username = null;
+		String new_username = null;
+		String new_password = null;
+		String new_first_name = null;
+		String new_last_name = null;
 		
 		try {
-			Username = user.validateUsernameData(newUsernameData);
+			current_username = user.validateUsernameData(currentUsernameData);
 		}catch (Invalid_Username_Exception e7) {
 			output = e7.getMessage();
 			return output;
@@ -159,7 +166,14 @@ public class TestModel {
 		
 		
 		try {
-			Password = user.validatePasswordData(newPasswordData);
+			new_username = user.validateUsernameData(newUsernameData);
+		}catch (Invalid_Username_Exception e7) {
+			output = e7.getMessage();
+			return output;
+		}
+		
+		try {
+			new_password = user.validatePasswordData(newPasswordData);
 		}catch (Invalid_Password_Exception e8) {
 			output = e8.getMessage();
 			return output;
@@ -167,7 +181,7 @@ public class TestModel {
 		
 		
 		try {
-			FirstName = user.validateFirstNameData(newFirstnameData);
+			new_first_name = user.validateFirstNameData(newFirstnameData);
 		}catch (Invalid_Firstname_Exception e9) {
 			output = e9.getMessage();
 			return output;
@@ -175,13 +189,14 @@ public class TestModel {
 		
 		
 		try {
-			Username = user.validateLastNameData(newLastnameData);
+			new_last_name = user.validateLastNameData(newLastnameData);
 		}catch (Invalid_Lastname_Exception e10) {
 			output = e10.getMessage();
 			return output;
 		}
 		
-		output = "User data succesfully changed!";
+//		output = "User data succesfully changed!";
+		output = update_Personal_Data(current_username, new_username, new_password, new_first_name, new_last_name);
 		
 		return output;
 	}
@@ -293,22 +308,23 @@ public class TestModel {
 	
 	
 	
-	public String retrieveTopLikes(int postNumber) {
+	public ResultSet retrieveTopLikes(String postNumber) {
 		
-		String output = null;
+		ResultSet output = null;
 		int Number = 0;
 		
 		try {
-			Number = operator.likesPost(postNumber);
+			Number = operator.validateLikesPost(postNumber);
 		}catch (Invalid_PostNumber_Exception e11) {
-			output = e11.getMessage();
+//			output = e11.getMessage();
 			return output;
 		}
 		
-	////	output = ;
+		output = dbHandler.retrieve_LikesPosts(Number);
 		
 		return output;
 	}
+	
 	
 	
 	public String exportCsvPost(int exportID) {
