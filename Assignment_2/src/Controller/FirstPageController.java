@@ -1,13 +1,16 @@
 package Controller;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
 public class FirstPageController {
 
 
 	@FXML
-	private label loginLabel;
+	private Label loginLabel;
 	
 	@FXML
-	private label signupLabel;
+	private Label signupLabel;
 	
 	
 		

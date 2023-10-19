@@ -1,16 +1,18 @@
-import Scene.AreaCalculatorScene;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 public class Main extends Application{
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		AreaCalculatorScene areaCalculatorScene = new AreaCalculatorScene();
+//		AreaCalculatorScene areaCalculatorScene = new AreaCalculatorScene();
 		
-		primaryStage.setTitle(areaCalculatorScene.getTitle());
-		
-		primaryStage.setScene(areaCalculatorScene.getScene());
-		
+//		primaryStage.setTitle(areaCalculatorScene.getTitle());
+//		
+//		primaryStage.setScene(areaCalculatorScene.getScene());
+//		
 		primaryStage.show();
 	}
 

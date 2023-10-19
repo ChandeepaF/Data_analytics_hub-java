@@ -1,29 +1,32 @@
 package Controller;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
 public class DashboardController {
 
 	@FXML
-	private label changedetailsLabel;
+	private Label changedetailsLabel;
 	
 	@FXML
-	private label addpostLabel;
+	private Label addpostLabel;
 	
 	@FXML
-	private label exportpostLabel;
+	private Label exportpostLabel;
 	
 	@FXML
-	private label removepostLabel;
+	private Label removepostLabel;
 	
 	@FXML
-	private label retrievepostLabel;
+	private Label retrievepostLabel;
 	
 	@FXML
-	private label retrievelikesLabel;
+	private Label retrievelikesLabel;
 	
 	@FXML
-	private label logoutLabel;
+	private Label logoutLabel;
 	
 	@FXML
-	private label nameLabel;
+	private Label nameLabel;
 	
 }

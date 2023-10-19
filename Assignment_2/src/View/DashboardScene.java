@@ -6,15 +6,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-public class RetrivePostScene {
+public class DashboardScene {
 
 	public String getTitle() {
-		return "Retrieve a post";
+		return "Sign Up";
 	}
 	
 	public Scene getScene() {
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("retrieve_post.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
 		
 		Parent parent = null;
 		try {

@@ -181,20 +181,11 @@ public class Operator {
 	
 	
 	
-	
-	public String exportPost(int exportID) throws Invalid_ID_Exception {
-		
-	}
 
 
 
 
-	
-	
-	
-//	public double validateWidthValue(String widthValue) throws InvalidDimensionException {
-//		return validateDimensionValue("width", widthValue);
-//	}
+
 	
 	
 	

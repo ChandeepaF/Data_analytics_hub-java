@@ -5,6 +5,9 @@ package Controller;
 import java.awt.Label;
 
 import Model.TestModel;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 public class SignUpController {
 
@@ -34,16 +37,6 @@ public class SignUpController {
 				passwordTextField.getText(),firstnameTextField.getText(),lastnameTextField.getText());
 		
 		outputLabelVerify.setText(result);
-	}
-	
-	
-	@FXML
-	public void saveToDatabaseHandler(ActionEvent event) {
-		
-		String output = TestModel.getInstance().Save_Personal_Details(usernameTextField.getText(),
-				passwordTextField.getText(),firstnameTextField.getText(),lastnameTextField.getText());
-		
-		outputLabelSave.setText(output);
 	}
 		
 }

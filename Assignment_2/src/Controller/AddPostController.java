@@ -1,6 +1,10 @@
 package Controller;
 
 import Model.TestModel;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class AddPostController {
 
@@ -41,14 +45,5 @@ public class AddPostController {
 	}
 	
 	
-	@FXML
-	public void saveToDatabaseHandler(ActionEvent event) {
-		
-		String output = TestModel.getInstance().Save_Posts(idTextField.getText(),
-				contentTextField.getText(),authorTextField.getText(),likesTextField.getText(),
-				sharesTextField.getText(),datetimeTextField.getText());
-		
-		outputLabelSave.setText(output);
-	}
 		
 }
