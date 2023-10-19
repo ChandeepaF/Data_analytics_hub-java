@@ -25,7 +25,7 @@ public class Database_Handler {
 			int result = prepareStatement.executeUpdate();
 			
 			if (result == 1) {
-				outputMessage = "Data saved to file";
+				outputMessage = "Data saved succesfully";
 			}
 			
 		} catch(SQLException e) {
@@ -71,6 +71,39 @@ public class Database_Handler {
 		return outputMessage;
 				
 	}	
+	
+	
+	
+	public String validate_Login_Details(String Username) {
+		
+		final String TABLE_NAME = "PersonalDetails";
+		
+		ResultSet resultSet = null;
+		
+		String output = null;
+		
+		
+		try (Connection con = Database_Connection.getConnection();
+				
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM" + TABLE_NAME + " WHERE username = ?")){
+			prepareStatement.setString(1, Username);
+		
+			
+			resultSet = prepareStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				output =  resultSet.getString("password");
+				
+			}
+			
+		} catch(SQLException e) {
+			output = e.getMessage();
+			e.printStackTrace();
+		}
+				
+		return output;
+							
+	}
 		
 	
 	
@@ -93,7 +126,7 @@ public class Database_Handler {
 			int result = prepareStatement.executeUpdate();
 			
 			if (result == 1) {
-				outputMessage = "Data saved to file";
+				outputMessage = "Post saved succesfully";
 			}
 			
 		} catch(SQLException e) {
@@ -137,12 +170,14 @@ public class Database_Handler {
 		
 		
 		
-	public ResultSet retrieve_Posts(int iD) {
+	public String retrieve_Posts(int iD) {
 		
 		
 		final String TABLE_NAME = "PostDetails";
 		
 		ResultSet resultSet = null;
+		
+		String output = null;
 		
 		
 		try (Connection con = Database_Connection.getConnection();
@@ -154,30 +189,30 @@ public class Database_Handler {
 			resultSet = prepareStatement.executeQuery();
 			
 			while (resultSet.next()) {
-				System.out.printf("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
+				output = String.format("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
 						resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("author"), resultSet.getInt("likes"),
 						resultSet.getInt("shares"), resultSet.getString("date_time"));
 			}
 			
 		} catch(SQLException e) {
-			
+			output = e.getMessage();
 			e.printStackTrace();
 		}
 				
-		return resultSet;
+		return output;
 			
 		}
 	
 	
 	
-	public ResultSet retrieve_LikesPosts(int number) {
+	public String retrieve_LikesPosts(int number) {
 		
 		
 		final String TABLE_NAME = "PostDetails";
 		
 		ResultSet resultSet = null;
 		
-		int i = 0;
+		String output = null;
 		
 		
 		try (Connection con = Database_Connection.getConnection();
@@ -189,23 +224,20 @@ public class Database_Handler {
 			
 			
 			while (resultSet.next()) {
-				System.out.printf("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
+				output = String.format("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
 						resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("author"), resultSet.getInt("likes"),
 						resultSet.getInt("shares"), resultSet.getString("date_time"));
 			}
 			
 				
 		} catch(SQLException e) {
-			
+			output = e.getMessage();
 			e.printStackTrace();
 		}
 				
-		return resultSet;
+		return output;
 			
 	}
-		
-	
-	
-	
+
 		
 }

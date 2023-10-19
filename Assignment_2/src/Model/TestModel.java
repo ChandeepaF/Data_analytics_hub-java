@@ -55,8 +55,8 @@ public class TestModel {
 	}
 	
 	
-	public String check_Login_Data(String usernameLoginData, String passwordLoginData) {
-		return dbHandler.check_Login_Details(usernameLoginData, passwordLoginData);
+	public String check_Login_Data(String usernameLoginData) {
+		return dbHandler.validate_Login_Details(usernameLoginData);
 	}
 	
 	
@@ -68,6 +68,31 @@ public class TestModel {
 //	public ResultSet retrieve_Post_Data(String IDData) {
 //		return dbHandler.retrieve_Posts(IDData);
 //	}
+	
+	
+	
+	public String verify_Login_Data(String usernameLoginData, String passwordLoginData) throws Invalid_Password_Exception {
+		
+		String output = null;
+		String password = null;
+		
+		try {
+			password =  dbHandler.validate_Login_Details(usernameLoginData);
+		}catch (Exception e) {
+			output = e.getMessage();
+			return output;
+		}
+		
+		if(password == passwordLoginData) {
+			output = "Access granted";
+		}
+		
+		else {
+			throw new Invalid_Password_Exception("Password is invalid");
+		}
+		
+		return output;
+	}
 	
 	
 	
@@ -105,47 +130,19 @@ public class TestModel {
 		
 		
 		try {
-			Username = user.validateLastNameData(lastnameData);
+			LastName = user.validateLastNameData(lastnameData);
 		}catch (Invalid_Lastname_Exception e10) {
 			output = e10.getMessage();
 			return output;
 		}
 		
-		output = "User succesfully registered!";
+		output = save_Personal_Data(Username, Password, FirstName, LastName);
 		
 		return output;
 	}
 	
 	
-	
-	public String login(String usernameLogin, String passwordLogin) {
-		
-		String output = null;
-		
-		String Username = null;
-		String Password = null;
-		
-		try {
-			Username = user.checkLoginUsername(usernameLogin);
-		}catch (Invalid_Username_Exception e7) {
-			output = e7.getMessage();
-			return output;
-		}
-		
-		
-		try {
-			Password = user.checkLoginPassword(passwordLogin);
-		}catch (Invalid_Password_Exception e8) {
-			output = e8.getMessage();
-			return output;
-		}
-		
-		output = "Login succesfull!";
-		
-		return output;
-	}
 
-	
 	
 	public String editProfile(String currentUsernameData, String newUsernameData, String newPasswordData, String newFirstnameData, String newLastnameData) {
 		
@@ -195,7 +192,6 @@ public class TestModel {
 			return output;
 		}
 		
-//		output = "User data succesfully changed!";
 		output = update_Personal_Data(current_username, new_username, new_password, new_first_name, new_last_name);
 		
 		return output;
@@ -213,7 +209,7 @@ public class TestModel {
 		int Likes = 0;
 		int Shares = 0;
 		String Date_time = null;
-		
+
 		
 		try {
 			ID = operator.validateIdData(IDData);
@@ -262,22 +258,26 @@ public class TestModel {
 			return output;
 		}
 		
-		output = "Post succesfully added!";
+		String ID1 = Integer.toString(ID);
+		String Likes1 = Integer.toString(Likes);
+		String Shares1 = Integer.toString(Shares);
+		
+		output = save_Post_Data(ID1, Content, Author, Likes1, Shares1, Date_time);
 		
 		return output;
 	}
 
 
 
-	public ResultSet retrieveExistingPost(String retrieveID) {
+	public String retrieveExistingPost(String retrieveID) {
 		
-		ResultSet output = null;
+		String output = null;
 		int ID = 0;
 		
 		try {
 			ID = operator.validateIdData(retrieveID);
 		}catch (Invalid_ID_Exception e1) {
-//			output = e1.getMessage();
+			output = e1.getMessage();
 			return output;
 		}
 		
@@ -308,15 +308,15 @@ public class TestModel {
 	
 	
 	
-	public ResultSet retrieveTopLikes(String postNumber) {
+	public String retrieveTopLikes(String postNumber) {
 		
-		ResultSet output = null;
+		String output = null;
 		int Number = 0;
 		
 		try {
 			Number = operator.validateLikesPost(postNumber);
 		}catch (Invalid_PostNumber_Exception e11) {
-//			output = e11.getMessage();
+			output = e11.getMessage();
 			return output;
 		}
 		
@@ -327,20 +327,20 @@ public class TestModel {
 	
 	
 	
-	public String exportCsvPost(int exportID) {
+	public String exportCsvPost(String exportID) {
 		
 		String output = null;
-		int ID = 0;
+		int retID = 0;
 		
 		try {
-			ID = operator.exportPost(exportID);
+			retID = operator.validateIdData(exportID);
 		}catch (Invalid_ID_Exception e1) {
 			output = e1.getMessage();
 			return output;
 		}
 		
-	////	output = ;
-		
+		output = dbHandler.retrieve_Posts(retID);
+				
 		return output;
 	}
 	
