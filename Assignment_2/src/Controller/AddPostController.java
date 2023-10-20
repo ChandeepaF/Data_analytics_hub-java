@@ -28,10 +28,8 @@ public class AddPostController {
 	private TextField datetimeTextField;
 	
 	@FXML
-	private Label outputLabelVerify;
+	private Label outputLabel;
 	
-	@FXML
-	private Label outputLabelSave;
 	
 	
 	@FXML
@@ -41,9 +39,14 @@ public class AddPostController {
 				contentTextField.getText(),authorTextField.getText(),likesTextField.getText(),
 				sharesTextField.getText(),datetimeTextField.getText());
 		
-		outputLabelVerify.setText(result);
+		outputLabel.setText(result);
 	}
 	
 	
+	@FXML
+	public void previousButtonHandler(ActionEvent event) {
+		
+		
+	}
 		
 }

@@ -12,7 +12,7 @@ public class RetrivePostController {
 	private TextField idTextField;
 	
 	@FXML
-	private Label outputLabelVerify;
+	private Label outputLabel;
 	
 		
 	@FXML
@@ -20,7 +20,7 @@ public class RetrivePostController {
 		
 		String result = TestModel.getInstance().retrieveExistingPost(idTextField.getText());
 		
-		outputLabelVerify.setText(result);
+		outputLabel.setText(result);
 	}
 	
 }

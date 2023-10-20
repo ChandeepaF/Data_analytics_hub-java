@@ -12,10 +12,8 @@ public class RemovePostController {
 	private TextField idTextField;
 	
 	@FXML
-	private Label outputLabelVerify;
+	private Label outputLabel;
 	
-	@FXML
-	private Label outputLabelSave;
 	
 	
 	@FXML
@@ -23,7 +21,14 @@ public class RemovePostController {
 		
 		String result = TestModel.getInstance().deleteExistingPost(idTextField.getText());
 		
-		outputLabelVerify.setText(result);
+		outputLabel.setText(result);
+	}
+	
+	
+	@FXML
+	public void previousButtonHandler(ActionEvent event) {
+		
+		
 	}
 	
 }

@@ -12,7 +12,7 @@ public class RetriveLikesController {
 	private TextField idTextField;
 	
 	@FXML
-	private Label outputLabelVerify;
+	private Label outputLabel;
 	
 		
 	@FXML
@@ -20,7 +20,14 @@ public class RetriveLikesController {
 		
 		String result = TestModel.getInstance().retrieveTopLikes(idTextField.getText());
 		
-		outputLabelVerify.setText(result);
+		outputLabel.setText(result);
+	}
+	
+	
+	@FXML
+	public void previousButtonHandler(ActionEvent event) {
+		
+		
 	}
 	
 }
