@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 
 public class FirstPageScene {
 
@@ -23,7 +24,7 @@ public class FirstPageScene {
 			e.printStackTrace();
 		}
 		
-		Scene scene = new Scene(parent);
+		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		
 		return scene;
 		

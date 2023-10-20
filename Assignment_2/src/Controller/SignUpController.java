@@ -24,10 +24,7 @@ public class SignUpController {
 	private TextField lastnameTextField;
 	
 	@FXML
-	private Label outputLabelVerify;
-	
-	@FXML
-	private Label outputLabelSave;
+	private Label outputLabel;
 	
 	
 	@FXML
@@ -36,7 +33,7 @@ public class SignUpController {
 		String result = TestModel.getInstance().addPersonalData(usernameTextField.getText(),
 				passwordTextField.getText(),firstnameTextField.getText(),lastnameTextField.getText());
 		
-		outputLabelVerify.setText(result);
+		outputLabel.setText(result);
 	}
 		
 }
