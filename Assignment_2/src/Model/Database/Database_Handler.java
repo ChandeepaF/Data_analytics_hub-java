@@ -60,7 +60,7 @@ public class Database_Handler {
 				outputMessage = "Personal data updated succesfully";
 			}
 			else {
-				outputMessage = "No existing record found";
+				outputMessage = "Invalid current username";
 			}
 			
 		} catch(SQLException e) {
@@ -157,6 +157,9 @@ public class Database_Handler {
 			
 			if (result == 1) {
 				outputMessage = "Post deleted succesfully";
+			}
+			else {
+				outputMessage = "Post not found";
 			}
 			
 		} catch(SQLException e) {

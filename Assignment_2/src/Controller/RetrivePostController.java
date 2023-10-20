@@ -23,4 +23,11 @@ public class RetrivePostController {
 		outputLabel.setText(result);
 	}
 	
+	
+	@FXML
+	public void previousButtonHandler(ActionEvent event) {
+		
+		
+	}
+	
 }

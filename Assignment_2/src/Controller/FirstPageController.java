@@ -7,13 +7,6 @@ import javafx.scene.control.Label;
 
 public class FirstPageController {
 
-
-	@FXML
-	private Button loginLabel;
-	
-	@FXML
-	private Button signupLabel;
-	
 	
 	@FXML
 	public void loginButton(ActionEvent event) {

@@ -71,19 +71,18 @@ public class TestModel {
 	
 	
 	
-	public String verify_Login_Data(String usernameLoginData, String passwordLoginData) throws Invalid_Password_Exception {
+	public String verify_Login_Data(String usernameLoginData, String passwordLoginData) throws Invalid_Username_Exception, Invalid_Password_Exception{
 		
 		String output = null;
-		String password = null;
+		String savedPassword = null;
 		
 		try {
-			password =  dbHandler.validate_Login_Details(usernameLoginData);
+			savedPassword =  dbHandler.validate_Login_Details(usernameLoginData);
 		}catch (Exception e) {
-			output = e.getMessage();
-			return output;
+			throw new Invalid_Username_Exception("Username is invalid");
 		}
 		
-		if(password == passwordLoginData) {
+		if(savedPassword == passwordLoginData) {
 			output = "Access granted";
 		}
 		
@@ -265,6 +264,8 @@ public class TestModel {
 		output = save_Post_Data(ID1, Content, Author, Likes1, Shares1, Date_time);
 		
 		return output;
+		
+		
 	}
 
 
@@ -327,7 +328,7 @@ public class TestModel {
 	
 	
 	
-	public String exportCsvPost(String exportID) {
+	public String exportCsvPost(String exportID, String exportFolder, String exportFilename) {
 		
 		String output = null;
 		int retID = 0;
