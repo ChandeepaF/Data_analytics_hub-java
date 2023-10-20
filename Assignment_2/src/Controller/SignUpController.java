@@ -35,5 +35,12 @@ public class SignUpController {
 		
 		outputLabel.setText(result);
 	}
+	
+	
+	@FXML
+	public void previousButtonHandler(ActionEvent event) {
+		
+		
+	}
 		
 }

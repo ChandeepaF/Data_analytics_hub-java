@@ -18,7 +18,7 @@ public class ExportPostController {
 	private TextField filenameTextField;
 	
 	@FXML
-	private Label outputLabelVerify;
+	private Label outputLabel;
 	
 		
 	@FXML
@@ -27,7 +27,14 @@ public class ExportPostController {
 		String result = TestModel.getInstance().exportCsvPost(idTextField.getText(),
 				folderTextField.getText(), filenameTextField.getText());
 		
-		outputLabelVerify.setText(result);
+		outputLabel.setText(result);
+	}
+	
+	
+	@FXML
+	public void previousButtonHandler(ActionEvent event) {
+		
+		
 	}
 	
 }
