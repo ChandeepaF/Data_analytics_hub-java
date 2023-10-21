@@ -2,6 +2,7 @@ package View;
 
 import java.io.IOException;
 
+import Controller.AddPostController;
 import Controller.FirstPageController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -40,7 +41,7 @@ public class AddPostScene {
 			e.printStackTrace();
 		}
 		
-		FirstPageController controller = loader.getController();
+		AddPostController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);

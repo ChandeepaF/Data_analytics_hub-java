@@ -39,6 +39,7 @@ public class FirstPageScene {
 			e.printStackTrace();
 		}
 		
+		
 		FirstPageController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		

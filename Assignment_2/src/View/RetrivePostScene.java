@@ -3,6 +3,7 @@ package View;
 import java.io.IOException;
 
 import Controller.FirstPageController;
+import Controller.RetrivePostController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -40,7 +41,7 @@ public class RetrivePostScene {
 		}
 		
 		
-		FirstPageController controller = loader.getController();
+		RetrivePostController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);

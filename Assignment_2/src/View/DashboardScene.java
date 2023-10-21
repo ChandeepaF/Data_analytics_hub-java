@@ -2,6 +2,7 @@ package View;
 
 import java.io.IOException;
 
+import Controller.DashboardController;
 import Controller.FirstPageController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -40,7 +41,7 @@ public class DashboardScene {
 		}
 		
 		
-		FirstPageController controller = loader.getController();
+		DashboardController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);

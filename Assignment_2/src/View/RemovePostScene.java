@@ -3,6 +3,7 @@ package View;
 import java.io.IOException;
 
 import Controller.FirstPageController;
+import Controller.RemovePostController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -40,7 +41,7 @@ public class RemovePostScene {
 		}
 		
 		
-		FirstPageController controller = loader.getController();
+		RemovePostController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);

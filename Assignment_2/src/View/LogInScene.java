@@ -3,6 +3,7 @@ package View;
 import java.io.IOException;
 
 import Controller.FirstPageController;
+import Controller.LogInController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -40,7 +41,7 @@ public class LogInScene {
 		}
 		
 		
-		FirstPageController controller = loader.getController();
+		LogInController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
