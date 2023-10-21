@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 
 public class AddPostScene {
 	
@@ -23,7 +24,7 @@ public class AddPostScene {
 			e.printStackTrace();
 		}
 		
-		Scene scene = new Scene(parent);
+		Scene scene = new Scene(parent,Color.LIGHTBLUE);
 		
 		return scene;
 		

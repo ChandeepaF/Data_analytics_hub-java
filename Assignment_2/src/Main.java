@@ -10,6 +10,10 @@ import View.RetriveLikesScene;
 import View.RetrivePostScene;
 import View.SignUpScene;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class Main extends Application{
@@ -65,7 +69,26 @@ public class Main extends Application{
 		primaryStage.setHeight(420);
 		
 		primaryStage.show();
+		
+		primaryStage.setOnCloseRequest(event -> {
+			event.consume();
+			logoutButtonHandler(primaryStage);
+		});
 	}
+	
+	
+	public void logoutButtonHandler(Stage stage) {
+			
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Logout");
+			alert.setHeaderText("You are about to logout!");
+			alert.setContentText("Are you sure you want to exit?: ");
+			
+			if(alert.showAndWait().get() == ButtonType.OK)
+				System.out.println("You successfully logged out!");
+				stage.close();
+			
+		}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
