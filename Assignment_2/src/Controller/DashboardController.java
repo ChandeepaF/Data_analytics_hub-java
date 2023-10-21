@@ -13,6 +13,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class DashboardController {
+	
+	private Stage primaryStage;
+	
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
+	
 
 	@FXML
 	private Label nameLabel;
@@ -20,7 +27,6 @@ public class DashboardController {
 	@FXML
 	private AnchorPane scenePane;
 	
-	Stage stage;
 	
 
 	public void displayName(String firstName) {
