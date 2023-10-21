@@ -2,14 +2,24 @@ package Controller;
 
 
 
-import java.awt.Label;
+
 
 import Model.TestModel;
+import View.FirstPageScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class SignUpController {
+	
+	private Stage primaryStage;
+	
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
+	
 
 	@FXML
 	private TextField usernameTextField;
@@ -40,7 +50,11 @@ public class SignUpController {
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
 		
+		FirstPageScene firstPageScene = new FirstPageScene(primaryStage);
+		primaryStage.setTitle(firstPageScene.getTitle());
+		primaryStage.setScene(firstPageScene.getScene());
 		
+		primaryStage.show();
 	}
 		
 }
