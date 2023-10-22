@@ -16,7 +16,7 @@ public class Database_Handler {
 		
 		try (Connection con = Database_Connection.getConnection();
 				
-				PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO" + TABLE_NAME + " VALUES(?, ?, ?, ?)")){
+				PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO " + TABLE_NAME + " VALUES(?, ?, ?, ?)")){
 			prepareStatement.setString(1, username);
 			prepareStatement.setString(2, password);
 			prepareStatement.setString(3, first_name);
@@ -46,7 +46,7 @@ public class Database_Handler {
 		
 		try (Connection con = Database_Connection.getConnection();
 				
-				PreparedStatement prepareStatement = con.prepareStatement("UPDATE" + TABLE_NAME + " SET username = ?, password = ?, first_name = ?, "
+				PreparedStatement prepareStatement = con.prepareStatement("UPDATE " + TABLE_NAME + " SET username = ?, password = ?, first_name = ?, "
 						+ "last_name = ? WHERE username = ?")){
 			prepareStatement.setString(1, new_username);
 			prepareStatement.setString(2, new_password);
@@ -85,7 +85,7 @@ public class Database_Handler {
 		
 		try (Connection con = Database_Connection.getConnection();
 				
-				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM" + TABLE_NAME + " WHERE username = ?")){
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE username = ?")){
 			prepareStatement.setString(1, Username);
 		
 			
@@ -118,7 +118,7 @@ public class Database_Handler {
 		
 		try (Connection con = Database_Connection.getConnection();
 				
-				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM" + TABLE_NAME + " WHERE username = ?")){
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE username = ?")){
 			prepareStatement.setString(1, username);
 		
 			
@@ -148,7 +148,7 @@ public class Database_Handler {
 		
 		try (Connection con = Database_Connection.getConnection();
 				
-				PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO" + TABLE_NAME + " VALUES(?, ?, ?, ?, ?, ?)")){
+				PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO " + TABLE_NAME + " VALUES(?, ?, ?, ?, ?, ?)")){
 			prepareStatement.setString(1, ID);
 			prepareStatement.setString(2, content);
 			prepareStatement.setString(3, author);
@@ -182,7 +182,7 @@ public class Database_Handler {
 		
 		try (Connection con = Database_Connection.getConnection();
 				
-				PreparedStatement prepareStatement = con.prepareStatement("DELETE FROM" + TABLE_NAME + " WHERE id = ?")){
+				PreparedStatement prepareStatement = con.prepareStatement("DELETE FROM " + TABLE_NAME + " WHERE id = ?")){
 			prepareStatement.setLong(1, iD);
 		
 			
@@ -218,7 +218,7 @@ public class Database_Handler {
 		
 		try (Connection con = Database_Connection.getConnection();
 				
-				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM" + TABLE_NAME + " WHERE id = ?")){
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE id = ?")){
 			prepareStatement.setLong(1, iD);
 		
 			
@@ -253,7 +253,7 @@ public class Database_Handler {
 		
 		try (Connection con = Database_Connection.getConnection();
 				
-				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM" + TABLE_NAME + " ORDER BY likes DESC LIMIT ?")){
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM " + TABLE_NAME + " ORDER BY likes DESC LIMIT ?")){
 			prepareStatement.setLong(1, number);
 						
 			resultSet = prepareStatement.executeQuery();

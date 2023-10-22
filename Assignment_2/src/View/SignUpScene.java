@@ -2,6 +2,7 @@ package View;
 
 import java.io.IOException;
 
+import Controller.LogInController;
 import Controller.SignUpController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -41,8 +42,9 @@ public class SignUpScene {
 		}
 		
 		
-		SignUpController controller = new SignUpController();
+		SignUpController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
+		
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		

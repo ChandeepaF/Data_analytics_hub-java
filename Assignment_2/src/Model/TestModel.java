@@ -40,9 +40,9 @@ public class TestModel {
 	
 	
 	
-	public String save_Personal_Data(String usernameData, String passwordData, String firstnameData, String lastnameData) {
-		return dbHandler.Save_Personal_Details(usernameData, passwordData, firstnameData, lastnameData);
-	}
+//	public String save_Personal_Data(String usernameData, String passwordData, String firstnameData, String lastnameData) {
+//		return dbHandler.Save_Personal_Details(usernameData, passwordData, firstnameData, lastnameData);
+//	}
 	
 	
 	public String update_Personal_Data(String current_username, String new_username, String new_password, String new_first_name, String new_last_name) {
@@ -73,7 +73,7 @@ public class TestModel {
 			throw new Invalid_Username_Exception("Username is invalid");
 		}
 		
-		if(savedPassword == passwordLoginData) {
+		if(savedPassword.equals(savedPassword)) {
 			output = "Access granted";
 		}
 		
@@ -144,9 +144,10 @@ public class TestModel {
 			return output;
 		}
 		
-		output = save_Personal_Data(Username, Password, FirstName, LastName);
-		
-		return output;
+//		output = save_Personal_Data(Username, Password, FirstName, LastName);
+//		
+//		return output;
+		return dbHandler.Save_Personal_Details(Username, Password, FirstName, LastName);
 	}
 	
 

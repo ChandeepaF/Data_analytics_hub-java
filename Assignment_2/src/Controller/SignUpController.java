@@ -1,9 +1,5 @@
 package Controller;
 
-
-
-
-
 import Model.TestModel;
 import View.FirstPageScene;
 import javafx.event.ActionEvent;
@@ -58,5 +54,6 @@ public class SignUpController {
 	}
 		
 }
+
 
 
