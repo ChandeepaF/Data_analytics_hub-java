@@ -157,6 +157,59 @@ public class Database_Handler {
 		
 	
 	
+	public String create_Post_Table(String userName) {
+		
+		String outputMessage = null;
+		
+		final String TABLE_NAME = userName + "_Post_Details";
+
+		try (Connection con = Database_Connection.getConnection();
+				Statement stmt = con.createStatement();) {
+			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS " + TABLE_NAME 
+										+ "(id INT NOT NULL,"
+										+ "content VARCHAR(15) NOT NULL,"
+										+ "author VARCHAR(15) NOT NULL,"
+										+ "likes INT NOT NULL,"
+										+ "shares INT NOT NULL,"
+										+ "date_time VARCHAR(15) NOT NULL,"
+										+ "PRIMARY KEY (id))");
+			
+			outputMessage = "Table created sucesfully";
+			
+		} catch (SQLException e) {
+			outputMessage = e.getMessage();
+		}
+		
+		return outputMessage;
+	}
+	
+	
+	
+	public String rename_Post_Table(String currentTableName, String newTableName) {
+		
+		String outputMessage = null;
+		
+		String CURRENT_TABLE_NAME = currentTableName;
+		String NEW_TABLE_NAME = newTableName;
+
+		try (Connection con = Database_Connection.getConnection();
+				Statement stmt = con.createStatement();) {
+			
+			String renameTableSQL = "ALTER TABLE " + CURRENT_TABLE_NAME + " RENAME TO " + NEW_TABLE_NAME;
+			
+			stmt.execute(renameTableSQL);
+			
+			outputMessage = "Table renamed sucesfully";
+			
+		} catch (SQLException e) {
+			outputMessage = e.getMessage();
+		}
+		
+		return outputMessage;
+	}
+	
+	
+	
 	public String Save_Posts(String ID, String content, String author, String likes, String shares, String date_time) {
 		
 		String outputMessage = null;
