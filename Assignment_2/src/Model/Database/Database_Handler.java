@@ -104,6 +104,39 @@ public class Database_Handler {
 		return output;
 							
 	}
+	
+	
+	
+	public String getFirstName(String username) {
+		
+		final String TABLE_NAME = "PersonalDetails";
+		
+		ResultSet resultSet = null;
+		
+		String output = null;
+		
+		
+		try (Connection con = Database_Connection.getConnection();
+				
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM" + TABLE_NAME + " WHERE username = ?")){
+			prepareStatement.setString(1, username);
+		
+			
+			resultSet = prepareStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				output =  resultSet.getString("first_name");
+				
+			}
+			
+		} catch(SQLException e) {
+			output = e.getMessage();
+			e.printStackTrace();
+		}
+				
+		return output;
+						
+	}
 		
 	
 	

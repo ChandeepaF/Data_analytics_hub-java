@@ -37,7 +37,7 @@ public class DashboardController {
 	
 	
 	public void displayName(String firstName) {
-		nameLabel.setText(firstName);
+		nameLabel.setText("Hello " +firstName);
 	}
 	
 	

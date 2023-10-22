@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import Controller.DashboardController;
 import Controller.FirstPageController;
+import Model.TestModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,6 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class DashboardScene {
+	
+	String firstName = null;
 	
 	private Stage primaryStage;
 	
@@ -21,6 +24,7 @@ public class DashboardScene {
 		scene = null;
 	}
 
+	
 	public String getTitle() {
 		return "Sign Up";
 	}
@@ -43,6 +47,8 @@ public class DashboardScene {
 		
 		DashboardController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
+
+		controller.displayName(firstName);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		
