@@ -57,16 +57,17 @@ public class Database_Handler {
 			int result = prepareStatement.executeUpdate();
 			
 			if (result == 1) {
-				outputMessage = "Personal data updated succesfully";
+				outputMessage = "Personal data updated succesfully!";
 			}
 			else {
-				outputMessage = "Invalid current username";
+				outputMessage = "Invalid current username!";
 			}
 			
 		} catch(SQLException e) {
 			outputMessage = e.getMessage();
 			e.printStackTrace();
 		}
+		
 				
 		return outputMessage;
 				
@@ -224,11 +225,19 @@ public class Database_Handler {
 			
 			resultSet = prepareStatement.executeQuery();
 			
-			while (resultSet.next()) {
-				output = String.format("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
-						resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("author"), resultSet.getInt("likes"),
-						resultSet.getInt("shares"), resultSet.getString("date_time"));
+			if (resultSet.next()) {
+				
+				do {
+					output = String.format("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
+							resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("author"), resultSet.getInt("likes"),
+							resultSet.getInt("shares"), resultSet.getString("date_time"));
+				
+				} while (resultSet.next());
+				
+			} else {
+				output = "Post not found";
 			}
+			
 			
 		} catch(SQLException e) {
 			output = e.getMessage();

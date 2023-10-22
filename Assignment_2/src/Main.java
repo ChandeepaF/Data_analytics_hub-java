@@ -65,7 +65,7 @@ public class Main extends Application{
 		
 		
 		primaryStage.setWidth(750);
-		primaryStage.setHeight(650);
+		primaryStage.setHeight(700);
 		
 		primaryStage.show();
 		

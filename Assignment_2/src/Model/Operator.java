@@ -121,7 +121,7 @@ public class Operator {
 		String tokens2 = tokens[1];
 		
 		String[] tokens3 = tokens1.split("/");
-		String[] tokens4 = tokens1.split(":");
+		String[] tokens4 = tokens2.split(":");
 		
 		// 17/07/2023 10:00
 		int date = Integer.parseInt(tokens3[0]);
@@ -139,7 +139,7 @@ public class Operator {
 			throw new Invalid_DateFormat_Exception("Invalid month");
 		}
 		
-		if(year > 12) {
+		if(year > 2023) {
 			throw new Invalid_DateFormat_Exception("Invalid year");
 		}
 		
