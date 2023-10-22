@@ -9,7 +9,7 @@ public class CheckTableExist {
 
 
 	public static void main(String[] args) {
-		final String TABLE_NAME = "Employee";
+		final String TABLE_NAME = "User_Details";
 
 		try (Connection con = Database_Connection.getConnection()) {
 

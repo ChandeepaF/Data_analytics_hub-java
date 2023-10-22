@@ -12,7 +12,7 @@ public class Database_Handler {
 		
 		String outputMessage = null;
 		
-		final String TABLE_NAME = "PersonalDetails";
+		final String TABLE_NAME = "User_Details";
 		
 		try (Connection con = Database_Connection.getConnection();
 				
@@ -42,7 +42,7 @@ public class Database_Handler {
 		
 		String outputMessage = null;
 		
-		final String TABLE_NAME = "PersonalDetails";
+		final String TABLE_NAME = "User_Details";
 		
 		try (Connection con = Database_Connection.getConnection();
 				
@@ -76,7 +76,7 @@ public class Database_Handler {
 	
 	public String validate_Login_Details(String Username) {
 		
-		final String TABLE_NAME = "PersonalDetails";
+		final String TABLE_NAME = "User_Details";
 		
 		ResultSet resultSet = null;
 		
@@ -109,7 +109,7 @@ public class Database_Handler {
 	
 	public String getFirstName(String username) {
 		
-		final String TABLE_NAME = "PersonalDetails";
+		final String TABLE_NAME = "User_Details";
 		
 		ResultSet resultSet = null;
 		
@@ -144,7 +144,7 @@ public class Database_Handler {
 		
 		String outputMessage = null;
 		
-		final String TABLE_NAME = "PostDetails";
+		final String TABLE_NAME = "Post_Details";
 		
 		try (Connection con = Database_Connection.getConnection();
 				
@@ -177,7 +177,7 @@ public class Database_Handler {
 		
 		String outputMessage = null;
 		
-		final String TABLE_NAME = "PostDetails";
+		final String TABLE_NAME = "Post_Details";
 		
 		
 		try (Connection con = Database_Connection.getConnection();
@@ -209,7 +209,7 @@ public class Database_Handler {
 	public String retrieve_Posts(int iD) {
 		
 		
-		final String TABLE_NAME = "PostDetails";
+		final String TABLE_NAME = "Post_Details";
 		
 		ResultSet resultSet = null;
 		
@@ -244,7 +244,7 @@ public class Database_Handler {
 	public String retrieve_LikesPosts(int number) {
 		
 		
-		final String TABLE_NAME = "PostDetails";
+		final String TABLE_NAME = "Post_Details";
 		
 		ResultSet resultSet = null;
 		
