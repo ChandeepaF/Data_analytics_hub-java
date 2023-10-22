@@ -1,5 +1,6 @@
 package Controller;
 
+import View.LogInScene;
 import View.SignUpScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,11 @@ public class FirstPageController {
 	@FXML
 	public void loginButton(ActionEvent event) {
 		
+		LogInScene logInScene = new LogInScene(primaryStage);
+		primaryStage.setTitle(logInScene.getTitle());
+		primaryStage.setScene(logInScene.getScene());
+		
+		primaryStage.show();
 	}
 		
 	

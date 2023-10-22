@@ -16,7 +16,7 @@ public class DashboardScene {
 	
 	private Scene scene;
 	
-	public void DashboardScene(Stage primaryStage) {
+	public DashboardScene(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		scene = null;
 	}

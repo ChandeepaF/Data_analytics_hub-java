@@ -3,6 +3,8 @@ package Controller;
 import Model.TestModel;
 import Model.Exceptions.Invalid_Password_Exception;
 import Model.Exceptions.Invalid_Username_Exception;
+import View.DashboardScene;
+import View.FirstPageScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -35,13 +37,27 @@ public class LogInController {
 				passwordLoginTextField.getText());
 		
 		outputLabel.setText(result);
+		
+		if(result == "Access granted") {
+			
+			DashboardScene dashboardScene = new DashboardScene(primaryStage);
+			primaryStage.setTitle(dashboardScene.getTitle());
+			primaryStage.setScene(dashboardScene.getScene());
+			
+			primaryStage.show();
+		}
 	}
 	
 	
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
 		
+		FirstPageScene firstPageScene = new FirstPageScene(primaryStage);
+		primaryStage.setTitle(firstPageScene.getTitle());
+		primaryStage.setScene(firstPageScene.getScene());
 		
+		primaryStage.show();
+	
 	}
 		
 }

@@ -16,7 +16,7 @@ public class AddPostScene {
 	
 	private Scene scene;
 	
-	public void AddPostScene(Stage primaryStage) {
+	public AddPostScene(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		scene = null;
 	}

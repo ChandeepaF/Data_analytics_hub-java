@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.TestModel;
+import View.DashboardScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -35,7 +36,11 @@ public class RemovePostController {
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
 		
-		
+		DashboardScene dashboardScene = new DashboardScene(primaryStage);
+		primaryStage.setTitle(dashboardScene.getTitle());
+		primaryStage.setScene(dashboardScene.getScene());
+
+		primaryStage.show();
 	}
 	
 }
