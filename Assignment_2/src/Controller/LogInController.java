@@ -37,9 +37,7 @@ public class LogInController {
 		String result = TestModel.getInstance().verify_Login_Data(usernameLoginTextField.getText(),
 				passwordLoginTextField.getText());
 		
-		outputLabel.setText(result);
-		
-		String name = TestModel.getInstance().getName(usernameLoginTextField.getText());
+//		String name = TestModel.getInstance().getName(usernameLoginTextField.getText());
 		
 		
 		if(result.equals("Access granted")) {
@@ -50,7 +48,10 @@ public class LogInController {
 			
 			primaryStage.show();
 			
-			this.sendName(name);
+//			this.sendName(name);
+		}
+		else {
+			outputLabel.setText(result);
 		}
 				
 	}

@@ -92,10 +92,18 @@ public class Database_Handler {
 			
 			resultSet = prepareStatement.executeQuery();
 			
-			while (resultSet.next()) {
-				output =  resultSet.getString("password");
+			if (resultSet.next()) {
 				
+				do {
+					output = resultSet.getString("password");
+				
+				} while (resultSet.next());
+				
+				
+			} else {
+				output = "Username not found!";
 			}
+			
 			
 		} catch(SQLException e) {
 			output = e.getMessage();

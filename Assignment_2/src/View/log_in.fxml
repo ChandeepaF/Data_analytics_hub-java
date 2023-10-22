@@ -34,7 +34,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="outputLabel" layoutX="208.0" layoutY="403.0" prefHeight="30.0" prefWidth="260.0" textFill="#ab3b3b">
+      <Label fx:id="outputLabel" layoutX="146.0" layoutY="403.0" prefHeight="30.0" prefWidth="322.0" textFill="#ab3b3b">
          <font>
             <Font size="20.0" />
          </font>

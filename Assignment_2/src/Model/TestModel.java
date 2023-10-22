@@ -70,15 +70,22 @@ public class TestModel {
 		try {
 			savedPassword =  dbHandler.validate_Login_Details(usernameLoginData);
 		}catch (Exception e) {
-			throw new Invalid_Username_Exception("Username is invalid");
+			throw new Invalid_Username_Exception("Invalid username");
 		}
 		
-		if(savedPassword.equals(savedPassword)) {
+		if(savedPassword.equals(passwordLoginData)) {
 			output = "Access granted";
 		}
 		
-		else {
-			throw new Invalid_Password_Exception("Password is invalid");
+		if(savedPassword.equals("Username not found!")) {
+			output = "Username is invalid";
+		}
+		
+//		else {
+//			output = "Password is invalid";
+//		}
+		if(!savedPassword.equals(passwordLoginData) && !savedPassword.equals("Username not found!")) {
+			output = "Password is invalid";
 		}
 		
 		return output;
