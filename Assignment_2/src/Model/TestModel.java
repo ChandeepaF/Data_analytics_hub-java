@@ -40,9 +40,9 @@ public class TestModel {
 	
 	
 	
-//	public String save_Personal_Data(String usernameData, String passwordData, String firstnameData, String lastnameData) {
-//		return dbHandler.Save_Personal_Details(usernameData, passwordData, firstnameData, lastnameData);
-//	}
+	public String save_Personal_Data(String usernameData, String passwordData, String firstnameData, String lastnameData) {
+		return dbHandler.Save_Personal_Details(usernameData, passwordData, firstnameData, lastnameData);
+	}
 	
 	
 	public String update_Personal_Data(String current_username, String new_username, String new_password, String new_first_name, String new_last_name) {
@@ -80,10 +80,7 @@ public class TestModel {
 		if(savedPassword.equals("Username not found!")) {
 			output = "Username is invalid";
 		}
-		
-//		else {
-//			output = "Password is invalid";
-//		}
+
 		if(!savedPassword.equals(passwordLoginData) && !savedPassword.equals("Username not found!")) {
 			output = "Password is invalid";
 		}
@@ -96,7 +93,6 @@ public class TestModel {
 	public String getName(String username) {
 		
 		String output = null;
-		
 
 		try {
 			output = dbHandler.getFirstName(username);
@@ -151,10 +147,10 @@ public class TestModel {
 			return output;
 		}
 		
-//		output = save_Personal_Data(Username, Password, FirstName, LastName);
-//		
-//		return output;
-		return dbHandler.Save_Personal_Details(Username, Password, FirstName, LastName);
+		output = save_Personal_Data(Username, Password, FirstName, LastName);
+		
+		return output;
+
 	}
 	
 

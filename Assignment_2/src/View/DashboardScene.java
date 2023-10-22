@@ -19,8 +19,9 @@ public class DashboardScene {
 	
 	private Scene scene;
 	
-	public DashboardScene(Stage primaryStage) {
+	public DashboardScene(Stage primaryStage, String firstName) {
 		this.primaryStage = primaryStage;
+		this.firstName = firstName;
 		scene = null;
 	}
 

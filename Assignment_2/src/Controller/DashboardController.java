@@ -29,22 +29,22 @@ public class DashboardController {
 	
 
 	@FXML
-	private static Label nameLabel;
+	private Label nameLabel;
 	
 	@FXML
 	private AnchorPane scenePane;
 	
 	
 	
-	public static String displayName(String firstName) {
+	public void displayName(String firstName) {
 		
 		try {
-			nameLabel.setText("Hello " +firstName);
+			nameLabel.setText("Hello " + firstName);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return firstName;
+
 		
 	}
 	

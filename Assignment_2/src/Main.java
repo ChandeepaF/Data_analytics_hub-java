@@ -76,7 +76,7 @@ public class Main extends Application{
 	}
 	
 	
-	public void logoutButtonHandler(Stage stage) {
+	public void logoutButtonHandler(Stage primaryStage) {
 			
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Logout");
@@ -85,7 +85,7 @@ public class Main extends Application{
 			
 			if(alert.showAndWait().get() == ButtonType.OK)
 				System.out.println("You successfully logged out!");
-				stage.close();
+			primaryStage.close();
 			
 		}
 	

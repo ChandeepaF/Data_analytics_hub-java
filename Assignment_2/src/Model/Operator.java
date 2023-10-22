@@ -179,37 +179,4 @@ public class Operator {
 		return intPosts;
 	}	
 	
-	
-	
-
-
-
-
-
-	
-	
-	
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

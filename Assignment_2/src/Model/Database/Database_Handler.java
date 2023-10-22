@@ -133,10 +133,18 @@ public class Database_Handler {
 			
 			resultSet = prepareStatement.executeQuery();
 			
-			while (resultSet.next()) {
-				output =  resultSet.getString("first_name");
+			if (resultSet.next()) {
 				
+				do {
+					output = resultSet.getString("first_name");
+				
+				} while (resultSet.next());
+				
+				
+			} else {
+				output = "First name not found!";
 			}
+			
 			
 		} catch(SQLException e) {
 			output = e.getMessage();

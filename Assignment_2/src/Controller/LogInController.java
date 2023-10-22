@@ -37,30 +37,28 @@ public class LogInController {
 		String result = TestModel.getInstance().verify_Login_Data(usernameLoginTextField.getText(),
 				passwordLoginTextField.getText());
 		
-//		String name = TestModel.getInstance().getName(usernameLoginTextField.getText());
+		String name = TestModel.getInstance().getName(usernameLoginTextField.getText());
 		
 		
 		if(result.equals("Access granted")) {
 			
-			DashboardScene dashboardScene = new DashboardScene(primaryStage);
+			DashboardController dashboardController = new DashboardController();
+			dashboardController.displayName(name);
+			
+			DashboardScene dashboardScene = new DashboardScene(primaryStage, name);
 			primaryStage.setTitle(dashboardScene.getTitle());
 			primaryStage.setScene(dashboardScene.getScene());
 			
 			primaryStage.show();
 			
-//			this.sendName(name);
 		}
 		else {
 			outputLabel.setText(result);
 		}
 				
 	}
+
 	
-	
-	public String sendName(String name) {
-		return DashboardController.displayName(name);
-	}
-		
 	
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
