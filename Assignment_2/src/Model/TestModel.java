@@ -104,7 +104,7 @@ public class TestModel {
 	
 	
 
-		public String addPersonalData(String usernameData, String passwordData, String firstnameData, String lastnameData) {
+	public String addPersonalData(String usernameData, String passwordData, String firstnameData, String lastnameData) {
 		
 		String output = null;
 		
@@ -148,7 +148,6 @@ public class TestModel {
 		
 		return output;
 	}
-	
 	
 
 	

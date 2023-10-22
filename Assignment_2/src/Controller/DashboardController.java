@@ -122,10 +122,14 @@ public class DashboardController {
 		alert.setHeaderText("You are about to logout!");
 		alert.setContentText("Are you sure you want to exit?: ");
 		
-		if(alert.showAndWait().get() == ButtonType.OK)
-			primaryStage = (Stage) scenePane.getScene().getWindow();
-			System.out.println("You successfully logged out!");
-			primaryStage.close();
+		if(alert.showAndWait().get() == ButtonType.OK) {
+			
+			FirstPageScene firstPageScene = new FirstPageScene(primaryStage);
+			primaryStage.setTitle(firstPageScene.getTitle());
+			primaryStage.setScene(firstPageScene.getScene());
+			primaryStage.show();
+			
+		}
 		
 	}
 	

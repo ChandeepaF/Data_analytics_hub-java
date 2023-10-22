@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardController">
    <children>
       <Label layoutX="269.0" layoutY="22.0" text="Dashboard" underline="true">
@@ -23,27 +22,27 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="retrievelikesButtonHandler" layoutX="61.0" layoutY="460.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="299.0" text="Retrieve Posts with Most Likes">
+      <Button layoutX="61.0" layoutY="460.0" mnemonicParsing="false" onAction="#retrievelikesButtonHandler" prefHeight="45.0" prefWidth="299.0" text="Retrieve Posts with Most Likes">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="removepostButtonHandler" layoutX="111.0" layoutY="380.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="176.0" text="Remove a Post">
+      <Button layoutX="111.0" layoutY="380.0" mnemonicParsing="false" onAction="#removepostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Remove a Post">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="exportpostButtonHandler" layoutX="445.0" layoutY="225.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="145.0" text="Export a Post">
+      <Button layoutX="445.0" layoutY="225.0" mnemonicParsing="false" onAction="#exportpostButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Export a Post">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="changedetailsButtonHandler" layoutX="405.0" layoutY="316.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" text="Change User Details">
+      <Button layoutX="405.0" layoutY="316.0" mnemonicParsing="false" onAction="#changedetailsButtonHandler" prefHeight="45.0" prefWidth="225.0" text="Change User Details">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="logoutButtonHandler" layoutX="445.0" layoutY="404.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="145.0" text="Log Out">
+      <Button layoutX="445.0" layoutY="404.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Log Out">
          <font>
             <Font size="20.0" />
          </font>

@@ -30,7 +30,7 @@ public class Main extends Application{
 //		primaryStage.setScene(addPostScene.getScene());
 //		
 //		
-//		DashboardScene dashboardScene = new DashboardScene();
+//		DashboardScene dashboardScene = new DashboardScene(primaryStage);
 //		primaryStage.setTitle(dashboardScene.getTitle());
 //		primaryStage.setScene(dashboardScene.getScene());
 //		
@@ -64,8 +64,8 @@ public class Main extends Application{
 		
 		
 		
-//		primaryStage.setWidth(420);
-//		primaryStage.setHeight(420);
+		primaryStage.setWidth(750);
+		primaryStage.setHeight(650);
 		
 		primaryStage.show();
 		
@@ -88,6 +88,7 @@ public class Main extends Application{
 				stage.close();
 			
 		}
+	
 
 	public static void main(String[] args) {
 
