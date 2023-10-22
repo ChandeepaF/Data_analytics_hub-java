@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 public class LogInController {
 	
+	
 	private Stage primaryStage;
 	
 	public void setPrimaryStage(Stage primaryStage) {
@@ -38,18 +39,27 @@ public class LogInController {
 		
 		outputLabel.setText(result);
 		
-		if(result == "Access granted") {
+		String name = TestModel.getInstance().getName(usernameLoginTextField.getText());
+		
+		
+		if(result.equals("Access granted")) {
 			
 			DashboardScene dashboardScene = new DashboardScene(primaryStage);
 			primaryStage.setTitle(dashboardScene.getTitle());
 			primaryStage.setScene(dashboardScene.getScene());
 			
 			primaryStage.show();
+			
+			this.sendName(name);
 		}
-		
-		
+				
 	}
 	
+	
+	public String sendName(String name) {
+		return DashboardController.displayName(name);
+	}
+		
 	
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {

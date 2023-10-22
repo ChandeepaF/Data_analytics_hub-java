@@ -59,16 +59,7 @@ public class TestModel {
 		return dbHandler.validate_Login_Details(usernameLoginData);
 	}
 	
-	
-//	public String remove_Post_Data(String IDData) {
-//		return dbHandler.Remove_Posts(IDData);
-//	}
-	
-	
-//	public ResultSet retrieve_Post_Data(String IDData) {
-//		return dbHandler.retrieve_Posts(IDData);
-//	}
-	
+
 	
 	
 	public String verify_Login_Data(String usernameLoginData, String passwordLoginData) throws Invalid_Username_Exception, Invalid_Password_Exception{
@@ -95,6 +86,24 @@ public class TestModel {
 	
 	
 	
+	public String getName(String username) {
+		
+		String output = null;
+		
+
+		try {
+			output = dbHandler.getFirstName(username);
+			
+		}catch (Exception e) {
+			output = e.getMessage();
+			return output;
+		}
+		
+		return output;
+	}
+	
+	
+
 		public String addPersonalData(String usernameData, String passwordData, String firstnameData, String lastnameData) {
 		
 		String output = null;
