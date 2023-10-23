@@ -257,7 +257,7 @@ public class Database_Handler {
 		try (Connection con = Database_Connection.getConnection();
 				
 				PreparedStatement prepareStatement = con.prepareStatement("DELETE FROM " + TABLE_NAME + " WHERE id = ?")){
-			prepareStatement.setLong(1, iD);
+			prepareStatement.setInt(1, iD);
 		
 			
 			int result = prepareStatement.executeUpdate();
@@ -293,7 +293,7 @@ public class Database_Handler {
 		try (Connection con = Database_Connection.getConnection();
 				
 				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE id = ?")){
-			prepareStatement.setLong(1, iD);
+			prepareStatement.setInt(1, iD);
 		
 			
 			resultSet = prepareStatement.executeQuery();
@@ -336,15 +336,24 @@ public class Database_Handler {
 		try (Connection con = Database_Connection.getConnection();
 				
 				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM " + TABLE_NAME + " ORDER BY likes DESC LIMIT ?")){
-			prepareStatement.setLong(1, number);
+			prepareStatement.setInt(1, number);
 						
 			resultSet = prepareStatement.executeQuery();
 			
 			
-			while (resultSet.next()) {
-				output = String.format("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
-						resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("author"), resultSet.getInt("likes"),
-						resultSet.getInt("shares"), resultSet.getString("date_time"));
+			if (resultSet.next()) {
+				
+				output = "";
+				
+				do {
+					output += String.format("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
+							resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("author"), resultSet.getInt("likes"),
+							resultSet.getInt("shares"), resultSet.getString("date_time"));
+				
+				} while (resultSet.next());
+				
+			} else {
+				output = "No posts found!";
 			}
 			
 				

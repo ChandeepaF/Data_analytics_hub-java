@@ -18,14 +18,14 @@ public class TestModel {
 
 	private static TestModel testModel;
 	
-	private Operator operator;
+	private Post post;
 	
 	private User user;
 	
 	private Database_Handler dbHandler;
 	
 	private TestModel() {
-		operator = new Operator();
+		post = new Post();
 		user = new User();
 		dbHandler = new Database_Handler();
 	}
@@ -60,6 +60,9 @@ public class TestModel {
 		return dbHandler.validate_Login_Details(usernameLoginData);
 	}
 	
+	
+	
+	public static ArrayList<String> Store_username = new ArrayList<String>();
 
 	
 	
@@ -95,10 +98,6 @@ public class TestModel {
 		
 		return output;
 	}
-	
-	
-	
-	public static ArrayList<String> Store_username = new ArrayList<String>();
 	
 	
 	
@@ -240,7 +239,7 @@ public class TestModel {
 
 		
 		try {
-			ID = operator.validateIdData(IDData);
+			ID = post.validateIdData(IDData);
 		}catch (Invalid_ID_Exception e1) {
 			output = e1.getMessage();
 			return output;
@@ -248,7 +247,7 @@ public class TestModel {
 		
 		
 		try {
-			Content = operator.validateContentData(contentData);
+			Content = post.validateContentData(contentData);
 		}catch (Exception e2) {
 			output = e2.getMessage();
 			return output;
@@ -256,7 +255,7 @@ public class TestModel {
 		
 		
 		try {
-			Author = operator.validateAuthorData(authorData);
+			Author = post.validateAuthorData(authorData);
 		}catch (Exception e3) {
 			output = e3.getMessage();
 			return output;
@@ -264,7 +263,7 @@ public class TestModel {
 		
 		
 		try {
-			Likes = operator.validateLikesData(likesData);
+			Likes = post.validateLikesData(likesData);
 		}catch (Invalid_Likes_Exception e4) {
 			output = e4.getMessage();
 			return output;
@@ -272,7 +271,7 @@ public class TestModel {
 		
 		
 		try {
-			Shares = operator.validateSharesData(sharesData);
+			Shares = post.validateSharesData(sharesData);
 		}catch (Invalid_Shares_Exception e5) {
 			output = e5.getMessage();
 			return output;
@@ -280,7 +279,7 @@ public class TestModel {
 		
 		
 		try {
-			Date_time = operator.validateDateTimeData(date_timeData);
+			Date_time = post.validateDateTimeData(date_timeData);
 		}catch (Invalid_DateFormat_Exception e6) {
 			output = e6.getMessage();
 			return output;
@@ -309,7 +308,7 @@ public class TestModel {
 		
 		
 		try {
-			ID = operator.validateIdData(retrieveID);
+			ID = post.validateIdData(retrieveID);
 		}catch (Invalid_ID_Exception e1) {
 			output = e1.getMessage();
 			return output;
@@ -332,7 +331,7 @@ public class TestModel {
 		String Username = null;
 		
 		try {
-			ID = operator.validateIdData(deleteID);
+			ID = post.validateIdData(deleteID);
 		}catch (Invalid_ID_Exception e1) {
 			output = e1.getMessage();
 			return output;
@@ -354,7 +353,7 @@ public class TestModel {
 		String Username = null;
 		
 		try {
-			Number = operator.validateLikesPost(postNumber);
+			Number = post.validateLikesPost(postNumber);
 		}catch (Invalid_PostNumber_Exception e11) {
 			output = e11.getMessage();
 			return output;
@@ -376,7 +375,7 @@ public class TestModel {
 		String Username = null;
 		
 		try {
-			retID = operator.validateIdData(exportID);
+			retID = post.validateIdData(exportID);
 		}catch (Invalid_ID_Exception e1) {
 			output = e1.getMessage();
 			return output;
