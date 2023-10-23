@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 
 public class RemovePostController {
 	
+	String name = null;
+	
 	private Stage primaryStage;
 	
 	public void setPrimaryStage(Stage primaryStage) {
@@ -36,7 +38,7 @@ public class RemovePostController {
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
 		
-		DashboardScene dashboardScene = new DashboardScene(primaryStage);
+		DashboardScene dashboardScene = new DashboardScene(primaryStage, name);
 		primaryStage.setTitle(dashboardScene.getTitle());
 		primaryStage.setScene(dashboardScene.getScene());
 
