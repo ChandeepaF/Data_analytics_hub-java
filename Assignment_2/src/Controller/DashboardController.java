@@ -42,6 +42,7 @@ public class DashboardController {
 		DashboardController.name = name;
 	}
 	
+	
 	public void displayName(String name) {
 		
 		try {
@@ -50,15 +51,13 @@ public class DashboardController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 	}
 	
 	
 	@FXML
 	public void changedetailsButtonHandler(ActionEvent event) {
 		
-		EditProfileScene editProfileScene = new EditProfileScene(primaryStage);
+		EditProfileScene editProfileScene = new EditProfileScene(primaryStage, name);
 		primaryStage.setTitle(editProfileScene.getTitle());
 		primaryStage.setScene(editProfileScene.getScene());
 	
@@ -69,7 +68,7 @@ public class DashboardController {
 	@FXML
 	public void addpostButtonHandler(ActionEvent event) {
 		
-		AddPostScene addPostScene = new AddPostScene(primaryStage);
+		AddPostScene addPostScene = new AddPostScene(primaryStage, name);
 		primaryStage.setTitle(addPostScene.getTitle());
 		primaryStage.setScene(addPostScene.getScene());
 		
@@ -80,7 +79,7 @@ public class DashboardController {
 	@FXML
 	public void retrievepostButtonHandler(ActionEvent event) {
 		
-		RetrivePostScene retrivePostScene = new RetrivePostScene(primaryStage);
+		RetrivePostScene retrivePostScene = new RetrivePostScene(primaryStage, name);
 		primaryStage.setTitle(retrivePostScene.getTitle());
 		primaryStage.setScene(retrivePostScene.getScene());
 		
@@ -102,7 +101,7 @@ public class DashboardController {
 	@FXML
 	public void removepostButtonHandler(ActionEvent event) {
 		
-		RemovePostScene removePostScene = new RemovePostScene(primaryStage);
+		RemovePostScene removePostScene = new RemovePostScene(primaryStage, name);
 		primaryStage.setTitle(removePostScene.getTitle());
 		primaryStage.setScene(removePostScene.getScene());
 		
@@ -112,7 +111,7 @@ public class DashboardController {
 	@FXML
 	public void exportpostButtonHandler(ActionEvent event) {
 		
-		ExportPostScene exportPostScene = new ExportPostScene(primaryStage);
+		ExportPostScene exportPostScene = new ExportPostScene(primaryStage, name);
 		primaryStage.setTitle(exportPostScene.getTitle());
 		primaryStage.setScene(exportPostScene.getScene());
 		

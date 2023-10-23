@@ -17,6 +17,10 @@ public class AddPostController {
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 
 
 	@FXML

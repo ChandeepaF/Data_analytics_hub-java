@@ -13,11 +13,13 @@ import javafx.stage.Stage;
 public class EditProfileScene {
 	
 	private Stage primaryStage;
+	private String name;
 	
 	private Scene scene;
 	
-	public EditProfileScene(Stage primaryStage) {
+	public EditProfileScene(Stage primaryStage, String name) {
 		this.primaryStage = primaryStage;
+		this.name = name;
 		scene = null;
 	}
 
@@ -43,6 +45,7 @@ public class EditProfileScene {
 		
 		EditProfileController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
+		controller.setName(name);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		

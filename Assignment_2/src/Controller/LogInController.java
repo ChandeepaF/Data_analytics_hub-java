@@ -42,9 +42,6 @@ public class LogInController {
 		
 		if(result.equals("Access granted")) {
 			
-//			DashboardController dashboardController = new DashboardController();
-//			dashboardController.displayName(name);
-			
 			DashboardController.setName(name);
 			
 			DashboardScene dashboardScene = new DashboardScene(primaryStage, name);

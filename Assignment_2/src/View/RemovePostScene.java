@@ -13,11 +13,13 @@ import javafx.stage.Stage;
 public class RemovePostScene {
 	
 	private Stage primaryStage;
+	private String name;
 	
 	private Scene scene;
 	
-	public RemovePostScene(Stage primaryStage) {
+	public RemovePostScene(Stage primaryStage, String name) {
 		this.primaryStage = primaryStage;
+		this.name = name;
 		scene = null;
 	}
 
@@ -43,6 +45,7 @@ public class RemovePostScene {
 		
 		RemovePostController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
+		controller.setName(name);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		

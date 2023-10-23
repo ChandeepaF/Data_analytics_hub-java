@@ -13,11 +13,13 @@ import javafx.stage.Stage;
 public class AddPostScene {
 	
 	private Stage primaryStage;
+	private String name;
 	
 	private Scene scene;
 	
-	public AddPostScene(Stage primaryStage) {
+	public AddPostScene(Stage primaryStage, String name) {
 		this.primaryStage = primaryStage;
+		this.name = name;
 		scene = null;
 	}
 	
@@ -43,6 +45,7 @@ public class AddPostScene {
 		
 		AddPostController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
+		controller.setName(name);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		
