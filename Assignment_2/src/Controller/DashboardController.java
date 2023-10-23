@@ -22,9 +22,12 @@ import javafx.stage.Stage;
 public class DashboardController {
 	
 	private Stage primaryStage;
+
+	private static String name;
 	
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
+
 	}
 	
 
@@ -35,11 +38,14 @@ public class DashboardController {
 	private AnchorPane scenePane;
 	
 	
+	public static void setName(String name) {
+		DashboardController.name = name;
+	}
 	
-	public void displayName(String firstName) {
+	public void displayName(String name) {
 		
 		try {
-			nameLabel.setText("Hello " + firstName);
+			nameLabel.setText("Hello " + name);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,7 +91,7 @@ public class DashboardController {
 	@FXML
 	public void retrievelikesButtonHandler(ActionEvent event) {
 		
-		RetriveLikesScene retriveLikesScene = new RetriveLikesScene(primaryStage);
+		RetriveLikesScene retriveLikesScene = new RetriveLikesScene(primaryStage, name);
 		primaryStage.setTitle(retriveLikesScene.getTitle());
 		primaryStage.setScene(retriveLikesScene.getScene());
 		

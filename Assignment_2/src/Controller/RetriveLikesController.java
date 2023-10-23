@@ -18,6 +18,10 @@ public class RetriveLikesController {
 		this.primaryStage = primaryStage;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	@FXML
 	private TextField idTextField;
 	

@@ -13,15 +13,15 @@ import javafx.stage.Stage;
 
 public class DashboardScene {
 	
-	String firstName = null;
+	String name = null;
 	
 	private Stage primaryStage;
 	
 	private Scene scene;
 	
-	public DashboardScene(Stage primaryStage, String firstName) {
+	public DashboardScene(Stage primaryStage, String name) {
 		this.primaryStage = primaryStage;
-		this.firstName = firstName;
+		this.name = name;
 		scene = null;
 	}
 
@@ -49,7 +49,7 @@ public class DashboardScene {
 		DashboardController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 
-		controller.displayName(firstName);
+		controller.displayName(name);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		
