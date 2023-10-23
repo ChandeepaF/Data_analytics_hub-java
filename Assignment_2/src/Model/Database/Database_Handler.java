@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 
 public class Database_Handler {
@@ -14,26 +15,44 @@ public class Database_Handler {
 		
 		final String TABLE_NAME = "User_Details";
 		
-		try (Connection con = Database_Connection.getConnection();
+		try (Connection con = Database_Connection.getConnection()){
+			
+			try(PreparedStatement checkStatement = con.prepareStatement("SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE username = ?")){
+				checkStatement.setString(1, username);
 				
-				PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO " + TABLE_NAME + " VALUES(?, ?, ?, ?)")){
-			prepareStatement.setString(1, username);
-			prepareStatement.setString(2, password);
-			prepareStatement.setString(3, first_name);
-			prepareStatement.setString(4, last_name);
-			
-			int result = prepareStatement.executeUpdate();
-			
-			if (result == 1) {
-				outputMessage = "Data saved succesfully";
-				create_Post_Table(username);
+				ResultSet resultSet = checkStatement.executeQuery();
+				
+				resultSet.next();
+				
+				int existingUserCount = resultSet.getInt(1);
+				
+				if (existingUserCount > 0){
+					outputMessage = "Username already exists!";
+				}
+				else{
+					try(PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO " + TABLE_NAME + " VALUES(?, ?, ?, ?)")){
+						prepareStatement.setString(1, username);
+						prepareStatement.setString(2, password);
+						prepareStatement.setString(3, first_name);
+						prepareStatement.setString(4, last_name);
+						
+						int result = prepareStatement.executeUpdate();
+						
+						if (result == 1) {
+							outputMessage = "Data saved succesfully";
+							create_Post_Table(username);
+						}
+					}
+				}
+			} catch(SQLException e) {
+				outputMessage = e.getMessage();
+				e.printStackTrace();
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-			
-		} catch(SQLException e) {
-			outputMessage = e.getMessage();
-			e.printStackTrace();
-		}
-				
+					
 		return outputMessage;
 				
 	}		
@@ -70,41 +89,59 @@ public class Database_Handler {
 	
 	public String updatePersonalDetails(String current_username, String new_username, String new_password, String new_first_name, String new_last_name) {
 		
+		
 		String outputMessage = null;
 		
 		final String TABLE_NAME = "User_Details";
 		
-		try (Connection con = Database_Connection.getConnection();
-				
-				PreparedStatement prepareStatement = con.prepareStatement("UPDATE " + TABLE_NAME + " SET username = ?, password = ?, first_name = ?, "
-						+ "last_name = ? WHERE username = ?")){
-			prepareStatement.setString(1, new_username);
-			prepareStatement.setString(2, new_password);
-			prepareStatement.setString(3, new_first_name);
-			prepareStatement.setString(4, new_last_name);
-			prepareStatement.setString(5, current_username);
+		try (Connection con = Database_Connection.getConnection()){
 			
-			int result = prepareStatement.executeUpdate();
-			
-			if (result == 1) {
-				outputMessage = "Personal data updated succesfully!";
-				rename_Post_Table(current_username, new_username);
+			try(PreparedStatement checkStatement = con.prepareStatement("SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE username = ?")){
+				checkStatement.setString(1, new_username);
 				
+				ResultSet resultSet = checkStatement.executeQuery();
+				
+				resultSet.next();
+				
+				int existingUserCount = resultSet.getInt(1);
+				
+				if (existingUserCount > 0){
+					outputMessage = "Username already exists!";
+				}
+				else{
+					try(PreparedStatement prepareStatement = con.prepareStatement("UPDATE " + TABLE_NAME + " SET username = ?, password = ?, first_name = ?, "
+							+ "last_name = ? WHERE username = ?")){
+						prepareStatement.setString(1, new_username);
+						prepareStatement.setString(2, new_password);
+						prepareStatement.setString(3, new_first_name);
+						prepareStatement.setString(4, new_last_name);
+						prepareStatement.setString(5, current_username);
+						
+						int result = prepareStatement.executeUpdate();
+						
+						if (result == 1) {
+							outputMessage = "Personal data updated succesfully!";
+							rename_Post_Table(current_username, new_username);
+							
+						}
+						else {
+							outputMessage = "Invalid current username!";
+						}
+					}
+				}
+			} catch(SQLException e) {
+				outputMessage = e.getMessage();
+				e.printStackTrace();
+				}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-			else {
-				outputMessage = "Invalid current username!";
-			}
-			
-		} catch(SQLException e) {
-			outputMessage = e.getMessage();
-			e.printStackTrace();
-		}
-		
-				
+					
 		return outputMessage;
-				
-	}	
-	
+		
+	}
+			
 	
 	
 	public String rename_Post_Table(String current_username, String new_username) {
@@ -142,7 +179,7 @@ public class Database_Handler {
 		
 		
 		try (Connection con = Database_Connection.getConnection();
-				
+								
 				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE username = ?")){
 			prepareStatement.setString(1, Username);
 		
@@ -173,7 +210,7 @@ public class Database_Handler {
 	
 	
 	
-	public String getFirstName(String username) {
+	public String getUserName(String username) {
 		
 		final String TABLE_NAME = "User_Details";
 		
@@ -193,13 +230,13 @@ public class Database_Handler {
 			if (resultSet.next()) {
 				
 				do {
-					output = resultSet.getString("first_name");
+					output = String.format("%s %s", resultSet.getString("first_name"), resultSet.getString("last_name"));
 				
 				} while (resultSet.next());
 				
 				
 			} else {
-				output = "First name not found!";
+				output = "Name not found!";
 			}
 			
 			

@@ -1,5 +1,7 @@
 package Controller;
 
+import java.sql.SQLIntegrityConstraintViolationException;
+
 import Model.TestModel;
 import View.FirstPageScene;
 import javafx.event.ActionEvent;

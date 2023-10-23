@@ -1,6 +1,7 @@
 package Model;
 
 import java.sql.ResultSet;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 
 import Model.Database.Database_Handler;
@@ -106,7 +107,7 @@ public class TestModel {
 		String output = null;
 
 		try {
-			output = dbHandler.getFirstName(username);
+			output = dbHandler.getUserName(username);
 			
 		}catch (Exception e) {
 			output = e.getMessage();
@@ -371,11 +372,11 @@ public class TestModel {
 	public String exportCsvPost(String exportID, String exportFolder, String exportFilename) {
 		
 		String output = null;
-		int retID = 0;
+		int expID = 0;
 		String Username = null;
 		
 		try {
-			retID = post.validateIdData(exportID);
+			expID = post.validateIdData(exportID);
 		}catch (Invalid_ID_Exception e1) {
 			output = e1.getMessage();
 			return output;
@@ -383,7 +384,7 @@ public class TestModel {
 		
 		Username = Store_username.get(0);
 		
-		output = dbHandler.retrieve_Posts(Username,retID);
+		output = dbHandler.retrieve_Posts(Username,expID);
 				
 		return output;
 	}
