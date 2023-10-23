@@ -1,6 +1,7 @@
 package Model;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import Model.Database.Database_Handler;
 import Model.Exceptions.Invalid_ID_Exception;
@@ -50,8 +51,8 @@ public class TestModel {
 	}
 	
 	
-	public String save_Post_Data(String IDData, String contentData, String authorData, String likesData, String sharesData, String date_timeData) {
-		return dbHandler.Save_Posts(IDData, contentData, authorData, likesData, sharesData, date_timeData);
+	public String save_Post_Data(String Username, String IDData, String contentData, String authorData, String likesData, String sharesData, String date_timeData) {
+		return dbHandler.Save_Posts(Username, IDData, contentData, authorData, likesData, sharesData, date_timeData);
 	}
 	
 	
@@ -75,8 +76,15 @@ public class TestModel {
 		
 		if(savedPassword.equals(passwordLoginData)) {
 			output = "Access granted";
+			
+			if(Store_username.size() == 0) {
+				Store_username.add(usernameLoginData);
+			}
+			
+			else {
+				Store_username.set(0, usernameLoginData);
+			}
 		}
-		
 		if(savedPassword.equals("Username not found!")) {
 			output = "Username is invalid";
 		}
@@ -87,6 +95,10 @@ public class TestModel {
 		
 		return output;
 	}
+	
+	
+	
+	public static ArrayList<String> Store_username = new ArrayList<String>();
 	
 	
 	
@@ -205,6 +217,10 @@ public class TestModel {
 		
 		output = update_Personal_Data(current_username, new_username, new_password, new_first_name, new_last_name);
 		
+		if (output.equals("Personal data updated succesfully!")) {
+			Store_username.set(0, newUsernameData);
+		}
+		
 		return output;
 	}
 
@@ -220,6 +236,7 @@ public class TestModel {
 		int Likes = 0;
 		int Shares = 0;
 		String Date_time = null;
+		String Username = null;
 
 		
 		try {
@@ -273,7 +290,9 @@ public class TestModel {
 		String Likes1 = Integer.toString(Likes);
 		String Shares1 = Integer.toString(Shares);
 		
-		output = save_Post_Data(ID1, Content, Author, Likes1, Shares1, Date_time);
+		Username = Store_username.get(0);
+		
+		output = save_Post_Data(Username, ID1, Content, Author, Likes1, Shares1, Date_time);
 		
 		return output;
 		
@@ -286,6 +305,8 @@ public class TestModel {
 		
 		String output = null;
 		int ID = 0;
+		String Username = null;
+		
 		
 		try {
 			ID = operator.validateIdData(retrieveID);
@@ -294,7 +315,9 @@ public class TestModel {
 			return output;
 		}
 		
-		output = dbHandler.retrieve_Posts(ID);
+		Username = Store_username.get(0);
+		
+		output = dbHandler.retrieve_Posts(Username, ID);
 				
 		return output;
 		
@@ -306,6 +329,7 @@ public class TestModel {
 		
 		String output = null;
 		int ID = 0;
+		String Username = null;
 		
 		try {
 			ID = operator.validateIdData(deleteID);
@@ -313,8 +337,10 @@ public class TestModel {
 			output = e1.getMessage();
 			return output;
 		}
+		
+		Username = Store_username.get(0);
 
-		output = dbHandler.Remove_Posts(ID);
+		output = dbHandler.Remove_Posts(Username, ID);
 		
 		return output;
 	}
@@ -325,6 +351,7 @@ public class TestModel {
 		
 		String output = null;
 		int Number = 0;
+		String Username = null;
 		
 		try {
 			Number = operator.validateLikesPost(postNumber);
@@ -333,7 +360,9 @@ public class TestModel {
 			return output;
 		}
 		
-		output = dbHandler.retrieve_LikesPosts(Number);
+		Username = Store_username.get(0);
+		
+		output = dbHandler.retrieve_LikesPosts(Username, Number);
 		
 		return output;
 	}
@@ -344,6 +373,7 @@ public class TestModel {
 		
 		String output = null;
 		int retID = 0;
+		String Username = null;
 		
 		try {
 			retID = operator.validateIdData(exportID);
@@ -352,7 +382,9 @@ public class TestModel {
 			return output;
 		}
 		
-		output = dbHandler.retrieve_Posts(retID);
+		Username = Store_username.get(0);
+		
+		output = dbHandler.retrieve_Posts(Username,retID);
 				
 		return output;
 	}

@@ -88,6 +88,8 @@ public class Database_Handler {
 			
 			if (result == 1) {
 				outputMessage = "Personal data updated succesfully!";
+				rename_Post_Table(current_username, new_username);
+				
 			}
 			else {
 				outputMessage = "Invalid current username!";
@@ -212,11 +214,11 @@ public class Database_Handler {
 
 	
 	
-	public String Save_Posts(String ID, String content, String author, String likes, String shares, String date_time) {
+	public String Save_Posts(String username, String ID, String content, String author, String likes, String shares, String date_time) {
 		
 		String outputMessage = null;
 		
-		final String TABLE_NAME = "Post_Details";
+		final String TABLE_NAME = username + "_Post_Details";  
 		
 		try (Connection con = Database_Connection.getConnection();
 				
@@ -245,11 +247,11 @@ public class Database_Handler {
 	
 	
 	
-	public String Remove_Posts(int iD) {
+	public String Remove_Posts(String username, int iD) {
 		
 		String outputMessage = null;
 		
-		final String TABLE_NAME = "Post_Details";
+		final String TABLE_NAME = username + "_Post_Details"; 
 		
 		
 		try (Connection con = Database_Connection.getConnection();
@@ -278,10 +280,10 @@ public class Database_Handler {
 		
 		
 		
-	public String retrieve_Posts(int iD) {
+	public String retrieve_Posts(String username, int iD) {
 		
 		
-		final String TABLE_NAME = "Post_Details";
+		final String TABLE_NAME = username + "_Post_Details"; 
 		
 		ResultSet resultSet = null;
 		
@@ -321,10 +323,10 @@ public class Database_Handler {
 	
 	
 	
-	public String retrieve_LikesPosts(int number) {
+	public String retrieve_LikesPosts(String username, int number) {
 		
 		
-		final String TABLE_NAME = "Post_Details";
+		final String TABLE_NAME = username + "_Post_Details"; 
 		
 		ResultSet resultSet = null;
 		
