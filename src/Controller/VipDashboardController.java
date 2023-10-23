@@ -1,7 +1,5 @@
 package Controller;
 
-import Model.TestModel;
-import Model.Exceptions.Invalid_Password_Exception;
 import View.AddPostScene;
 import View.EditProfileScene;
 import View.ExportPostScene;
@@ -12,15 +10,14 @@ import View.RetrivePostScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class DashboardController {
-	
+public class VipDashboardController {
+
 	private Stage primaryStage;
 
 	private static String name;
@@ -39,7 +36,8 @@ public class DashboardController {
 	
 	
 	public static void setName(String name) {
-		DashboardController.name = name;
+		
+		VipDashboardController.name = name;
 	}
 	
 	
@@ -48,7 +46,6 @@ public class DashboardController {
 		try {
 			nameLabel.setText("Hello " + name);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -108,6 +105,7 @@ public class DashboardController {
 		primaryStage.show();		
 	}
 	
+	
 	@FXML
 	public void exportpostButtonHandler(ActionEvent event) {
 		
@@ -116,6 +114,28 @@ public class DashboardController {
 		primaryStage.setScene(exportPostScene.getScene());
 		
 		primaryStage.show();		
+	}
+	
+	
+	@FXML
+	public void visualizesharesButtonHandler(ActionEvent event) {
+		
+//		ExportPostScene exportPostScene = new ExportPostScene(primaryStage, name);
+//		primaryStage.setTitle(exportPostScene.getTitle());
+//		primaryStage.setScene(exportPostScene.getScene());
+//		
+//		primaryStage.show();		
+	}
+	
+	
+	@FXML
+	public void importpostsButtonHandler(ActionEvent event) {
+		
+//		ExportPostScene exportPostScene = new ExportPostScene(primaryStage, name);
+//		primaryStage.setTitle(exportPostScene.getTitle());
+//		primaryStage.setScene(exportPostScene.getScene());
+//		
+//		primaryStage.show();		
 	}
 	
 	
@@ -137,5 +157,4 @@ public class DashboardController {
 		}
 		
 	}
-	
 }

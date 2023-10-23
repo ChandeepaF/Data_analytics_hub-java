@@ -1,12 +1,23 @@
 package Controller;
 
-
-
-import java.awt.Label;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import Model.TestModel;
+import View.FirstPageScene;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class SignUpController {
+	
+	private Stage primaryStage;
+	
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
+	
 
 	@FXML
 	private TextField usernameTextField;
@@ -21,10 +32,7 @@ public class SignUpController {
 	private TextField lastnameTextField;
 	
 	@FXML
-	private Label outputLabelVerify;
-	
-	@FXML
-	private Label outputLabelSave;
+	private Label outputLabel;
 	
 	
 	@FXML
@@ -33,17 +41,21 @@ public class SignUpController {
 		String result = TestModel.getInstance().addPersonalData(usernameTextField.getText(),
 				passwordTextField.getText(),firstnameTextField.getText(),lastnameTextField.getText());
 		
-		outputLabelVerify.setText(result);
+		outputLabel.setText(result);
 	}
 	
 	
 	@FXML
-	public void saveToDatabaseHandler(ActionEvent event) {
+	public void previousButtonHandler(ActionEvent event) {
 		
-		String output = TestModel.getInstance().Save_Personal_Details(usernameTextField.getText(),
-				passwordTextField.getText(),firstnameTextField.getText(),lastnameTextField.getText());
+		FirstPageScene firstPageScene = new FirstPageScene(primaryStage);
+		primaryStage.setTitle(firstPageScene.getTitle());
+		primaryStage.setScene(firstPageScene.getScene());
 		
-		outputLabelSave.setText(output);
+		primaryStage.show();
 	}
 		
 }
+
+
+

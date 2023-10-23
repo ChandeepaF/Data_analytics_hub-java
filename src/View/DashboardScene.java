@@ -2,29 +2,32 @@ package View;
 
 import java.io.IOException;
 
-import Controller.ExportPostController;
+import Controller.DashboardController;
 import Controller.FirstPageController;
+import Model.TestModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class ExportPostScene {
+public class DashboardScene {
+	
+	String name = null;
 	
 	private Stage primaryStage;
-	private String name;
 	
 	private Scene scene;
 	
-	public ExportPostScene(Stage primaryStage, String name) {
+	public DashboardScene(Stage primaryStage, String name) {
 		this.primaryStage = primaryStage;
 		this.name = name;
 		scene = null;
 	}
 
+	
 	public String getTitle() {
-		return "Export a post";
+		return "Dashboard";
 	}
 	
 	public Scene getScene() {
@@ -33,7 +36,7 @@ public class ExportPostScene {
 			return scene;
 		}
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("export_post.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
 		
 		Parent parent = null;
 		try {
@@ -43,9 +46,10 @@ public class ExportPostScene {
 		}
 		
 		
-		ExportPostController controller = loader.getController();
+		DashboardController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
-		controller.setName(name);
+
+		controller.displayName(name);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		

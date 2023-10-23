@@ -2,29 +2,33 @@ package View;
 
 import java.io.IOException;
 
-import Controller.ExportPostController;
-import Controller.FirstPageController;
+import Controller.UpgradeVipController;
+import Controller.VipSignoutController;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class ExportPostScene {
+public class VipSignoutScene {
 	
 	private Stage primaryStage;
-	private String name;
 	
 	private Scene scene;
 	
-	public ExportPostScene(Stage primaryStage, String name) {
+	public VipSignoutScene(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		this.name = name;
 		scene = null;
 	}
 
+	
 	public String getTitle() {
-		return "Export a post";
+		return "Vip Signout";
 	}
 	
 	public Scene getScene() {
@@ -33,7 +37,7 @@ public class ExportPostScene {
 			return scene;
 		}
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("export_post.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("vip_signout.fxml"));
 		
 		Parent parent = null;
 		try {
@@ -43,9 +47,8 @@ public class ExportPostScene {
 		}
 		
 		
-		ExportPostController controller = loader.getController();
+		VipSignoutController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
-		controller.setName(name);
 		
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		

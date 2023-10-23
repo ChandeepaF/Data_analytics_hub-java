@@ -2,14 +2,15 @@ package Controller;
 
 import Model.TestModel;
 import View.DashboardScene;
+import View.VipSignoutScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class RemovePostController {
-	
+public class UpgradeVipController {
+
 	String name = null;
 	
 	private Stage primaryStage;
@@ -22,31 +23,26 @@ public class RemovePostController {
 		this.name = name;
 	}
 
-	@FXML
-	private TextField idTextField;
-	
-	@FXML
-	private Label outputLabel;
-	
 	
 	
 	@FXML
-	public void submitButtonHandler(ActionEvent event) {
+	public void subscribeButtonHandler(ActionEvent event) {
 		
-		String result = TestModel.getInstance().deleteExistingPost(idTextField.getText());
+		VipSignoutScene vipSignoutScene = new VipSignoutScene(primaryStage);
+		primaryStage.setTitle(vipSignoutScene.getTitle());
+		primaryStage.setScene(vipSignoutScene.getScene());
 		
-		outputLabel.setText(result);
+		primaryStage.show();
 	}
 	
 	
 	@FXML
-	public void previousButtonHandler(ActionEvent event) {
+	public void denyButtonHandler(ActionEvent event) {
 		
 		DashboardScene dashboardScene = new DashboardScene(primaryStage, name);
 		primaryStage.setTitle(dashboardScene.getTitle());
 		primaryStage.setScene(dashboardScene.getScene());
-
+		
 		primaryStage.show();
 	}
-	
 }

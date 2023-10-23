@@ -1,8 +1,26 @@
 package Controller;
 
 import Model.TestModel;
+import View.DashboardScene;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AddPostController {
+	
+	String name = null;
+	
+	private Stage primaryStage;
+	
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 
 
 	@FXML
@@ -24,10 +42,8 @@ public class AddPostController {
 	private TextField datetimeTextField;
 	
 	@FXML
-	private Label outputLabelVerify;
+	private Label outputLabel;
 	
-	@FXML
-	private Label outputLabelSave;
 	
 	
 	@FXML
@@ -37,18 +53,19 @@ public class AddPostController {
 				contentTextField.getText(),authorTextField.getText(),likesTextField.getText(),
 				sharesTextField.getText(),datetimeTextField.getText());
 		
-		outputLabelVerify.setText(result);
+		outputLabel.setText(result);
 	}
 	
 	
 	@FXML
-	public void saveToDatabaseHandler(ActionEvent event) {
+	public void previousButtonHandler(ActionEvent event) {
 		
-		String output = TestModel.getInstance().Save_Posts(idTextField.getText(),
-				contentTextField.getText(),authorTextField.getText(),likesTextField.getText(),
-				sharesTextField.getText(),datetimeTextField.getText());
+		DashboardScene dashboardScene = new DashboardScene(primaryStage, name);
+		primaryStage.setTitle(dashboardScene.getTitle());
+		primaryStage.setScene(dashboardScene.getScene());
+
+		primaryStage.show();
 		
-		outputLabelSave.setText(output);
 	}
 		
 }

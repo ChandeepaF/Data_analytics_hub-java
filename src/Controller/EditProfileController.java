@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class RemovePostController {
+public class EditProfileController {
 	
 	String name = null;
 	
@@ -22,18 +22,31 @@ public class RemovePostController {
 		this.name = name;
 	}
 
+
 	@FXML
-	private TextField idTextField;
+	private TextField currentusernameTextField;
+	
+	@FXML
+	private TextField usernameTextField;
+	
+	@FXML
+	private TextField passwordTextField;
+	
+	@FXML
+	private TextField firstnameTextField;
+	
+	@FXML
+	private TextField lastnameTextField;
 	
 	@FXML
 	private Label outputLabel;
 	
 	
-	
 	@FXML
 	public void submitButtonHandler(ActionEvent event) {
 		
-		String result = TestModel.getInstance().deleteExistingPost(idTextField.getText());
+		String result = TestModel.getInstance().editProfile(currentusernameTextField.getText(),usernameTextField.getText(),
+				passwordTextField.getText(),firstnameTextField.getText(),lastnameTextField.getText());
 		
 		outputLabel.setText(result);
 	}
@@ -48,5 +61,5 @@ public class RemovePostController {
 
 		primaryStage.show();
 	}
-	
+		
 }
