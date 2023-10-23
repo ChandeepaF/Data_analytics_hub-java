@@ -22,7 +22,6 @@ public class UpgradeVipController {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	
 	
 	@FXML
