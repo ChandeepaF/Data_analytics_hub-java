@@ -13,6 +13,8 @@ public class Database_Handler {
 		
 		String outputMessage = null;
 		
+		String type = "normal";
+		
 		final String TABLE_NAME = "User_Details";
 		
 		try (Connection con = Database_Connection.getConnection()){
@@ -30,11 +32,12 @@ public class Database_Handler {
 					outputMessage = "Username already exists!";
 				}
 				else{
-					try(PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO " + TABLE_NAME + " VALUES(?, ?, ?, ?)")){
+					try(PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO " + TABLE_NAME + " VALUES(?, ?, ?, ?, ?)")){
 						prepareStatement.setString(1, username);
 						prepareStatement.setString(2, password);
 						prepareStatement.setString(3, first_name);
 						prepareStatement.setString(4, last_name);
+						prepareStatement.setString(5, type);
 						
 						int result = prepareStatement.executeUpdate();
 						
@@ -139,6 +142,83 @@ public class Database_Handler {
 			}
 					
 		return outputMessage;
+		
+	}
+	
+	
+	public String changeVip(String Username) {
+		
+		final String TABLE_NAME = "User_Details";
+			
+		String output = null;
+		
+		String type = "vip";
+		
+		
+		try (Connection con = Database_Connection.getConnection();
+								
+				PreparedStatement prepareStatement = con.prepareStatement("UPDATE " + TABLE_NAME + " SET type = ? WHERE username = ?")){
+			prepareStatement.setString(1, type);
+			prepareStatement.setString(2, Username);
+		
+			
+			int result = prepareStatement.executeUpdate();
+			
+			if (result == 1) {
+				output = "Type updated succesfully!";
+				
+			}
+			else {
+				output = "Type not updated!";
+			}
+			
+			
+		} catch(SQLException e) {
+			output = e.getMessage();
+			e.printStackTrace();
+		}
+				
+		return output;
+	}
+	
+	
+	
+	public String checkUserType(String Username) {
+		
+		final String TABLE_NAME = "User_Details";
+		
+		ResultSet resultSet = null;
+		
+		String output = null;
+		
+		
+		try (Connection con = Database_Connection.getConnection();
+								
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE username = ?")){
+			prepareStatement.setString(1, Username);
+		
+			
+			resultSet = prepareStatement.executeQuery();
+			
+			if (resultSet.next()) {
+				
+				do {
+					output = resultSet.getString("type");
+				
+				} while (resultSet.next());
+				
+				
+			} else {
+				output = "Type not found!";
+			}
+			
+			
+		} catch(SQLException e) {
+			output = e.getMessage();
+			e.printStackTrace();
+		}
+				
+		return output;
 		
 	}
 			

@@ -6,6 +6,7 @@ import Model.Exceptions.Invalid_Username_Exception;
 import View.DashboardScene;
 import View.FirstPageScene;
 import View.UpgradeVipScene;
+import View.VipDashboardScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -38,14 +39,14 @@ public class LogInController {
 		String result = TestModel.getInstance().verify_Login_Data(usernameLoginTextField.getText(),
 				passwordLoginTextField.getText());
 		
+		String type = TestModel.getInstance().getUserType();
+		
 		String name = TestModel.getInstance().getName(usernameLoginTextField.getText());
 		
 		
 		if(result.equals("Access granted")) {
 			
-			
-			
-//			if(free)
+			if(type.equals("normal")){
 			
 			    DashboardController.setName(name);
 			
@@ -54,18 +55,22 @@ public class LogInController {
 				primaryStage.setScene(upgradeVipScene.getScene());
 				
 				primaryStage.show();
+				
+			}
 			
-//			(else)
+			if(type.equals("vip")) {
 				
-//				VipDashboardController.setName(name);
-//				VipDashboardScene vipDashboardScene = new VipDashboardScene(primaryStage, name);
-//				primaryStage.setTitle(vipDashboardScene.getTitle());
-//				primaryStage.setScene(vipDashboardScene.getScene());
-//				
-//				primaryStage.show();
+				VipDashboardController.setName(name);
 				
+				VipDashboardScene vipDashboardScene = new VipDashboardScene(primaryStage, name);
+				primaryStage.setTitle(vipDashboardScene.getTitle());
+				primaryStage.setScene(vipDashboardScene.getScene());
 				
+				primaryStage.show();
+				
+			}
 		}
+		
 		else {
 			outputLabel.setText(result);
 		}

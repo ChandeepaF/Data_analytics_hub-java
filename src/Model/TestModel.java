@@ -64,6 +64,8 @@ public class TestModel {
 	
 	
 	public static ArrayList<String> Store_username = new ArrayList<String>();
+	
+	public static ArrayList<String> Store_userType = new ArrayList<String>();
 
 	
 	
@@ -220,6 +222,63 @@ public class TestModel {
 		if (output.equals("Personal data updated succesfully!")) {
 			Store_username.set(0, newUsernameData);
 		}
+		
+		return output;
+	}
+	
+	
+	
+	public String getUserType() {
+		
+		String Username = null;
+		String type = null;
+		
+		Username = Store_username.get(0);
+		
+		type = dbHandler.checkUserType(Username);
+		
+
+		if(type.equals("vip")) {
+			
+			type = "vip";
+			
+			if(Store_userType.size() == 0) {
+				Store_userType.add(type);
+			}
+			
+			else {
+				Store_userType.set(0, type);
+			}
+		}
+		
+		
+		if(type.equals("normal")) {
+			
+			type = "normal";
+			
+			if(Store_userType.size() == 0) {
+				Store_userType.add(type);
+			}
+			
+			else {
+				Store_userType.set(0, type);
+			}
+		}
+		
+		return type;
+		
+	}
+	
+
+	
+	public String upgradeVip() {
+		
+		String Username = null;
+		String output = null;
+		
+		Username = Store_username.get(0); 
+		
+		output = dbHandler.changeVip(Username);
 		
 		return output;
 	}
@@ -388,6 +447,8 @@ public class TestModel {
 				
 		return output;
 	}
+
+
 	
 }
 

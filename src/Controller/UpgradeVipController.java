@@ -27,11 +27,16 @@ public class UpgradeVipController {
 	@FXML
 	public void subscribeButtonHandler(ActionEvent event) {
 		
-		VipSignoutScene vipSignoutScene = new VipSignoutScene(primaryStage);
-		primaryStage.setTitle(vipSignoutScene.getTitle());
-		primaryStage.setScene(vipSignoutScene.getScene());
+		String Result = TestModel.getInstance().upgradeVip();
 		
-		primaryStage.show();
+		if (Result.equals("Type updated succesfully!")) {
+		
+			VipSignoutScene vipSignoutScene = new VipSignoutScene(primaryStage);
+			primaryStage.setTitle(vipSignoutScene.getTitle());
+			primaryStage.setScene(vipSignoutScene.getScene());
+			
+			primaryStage.show();
+		}
 	}
 	
 	
