@@ -8,6 +8,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 
 public class Database_Handler {
+	
 
 	public String Save_Personal_Details(String username, String password, String first_name, String last_name) {
 		
@@ -31,7 +32,7 @@ public class Database_Handler {
 				if (existingUserCount > 0){
 					outputMessage = "Username already exists!";
 				}
-				else{
+				if(existingUserCount == 0){
 					try(PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO " + TABLE_NAME + " VALUES(?, ?, ?, ?, ?)")){
 						prepareStatement.setString(1, username);
 						prepareStatement.setString(2, password);
@@ -42,8 +43,10 @@ public class Database_Handler {
 						int result = prepareStatement.executeUpdate();
 						
 						if (result == 1) {
-							outputMessage = "Data saved succesfully";
 							create_Post_Table(username);
+							outputMessage = "Data saved successfully";
+							System.out.println(outputMessage);
+							
 						}
 					}
 				}
@@ -57,9 +60,9 @@ public class Database_Handler {
 			}
 					
 		return outputMessage;
-				
+		
 	}		
-	
+
 	
 	
 	public String create_Post_Table(String userName) {
@@ -80,6 +83,7 @@ public class Database_Handler {
 										+ "PRIMARY KEY (id))");
 			
 			outputMessage = "Table created sucesfully";
+			System.out.println(outputMessage);
 			
 		} catch (SQLException e) {
 			outputMessage = e.getMessage();

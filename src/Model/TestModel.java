@@ -1,6 +1,7 @@
 package Model;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 
@@ -162,6 +163,12 @@ public class TestModel {
 		}
 		
 		output = save_Personal_Data(Username, Password, FirstName, LastName);
+		
+		if(output.equals("Data saved successfully")) {
+			
+			dbHandler.create_Post_Table(Username);
+		}
+		
 		
 		return output;
 

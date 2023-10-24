@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class UpgradeVipScene {
 	
-	String name = null;
+	private String name;
 	
 	private Stage primaryStage;
 	

@@ -5,6 +5,7 @@ import View.DataVisualizationScene;
 import View.EditProfileScene;
 import View.ExportPostScene;
 import View.FirstPageScene;
+import View.ImportPostScene;
 import View.RemovePostScene;
 import View.RetriveLikesScene;
 import View.RetrivePostScene;
@@ -132,9 +133,9 @@ public class VipDashboardController {
 	@FXML
 	public void importpostsButtonHandler(ActionEvent event) {
 		
-		ExportPostScene exportPostScene = new ExportPostScene(primaryStage, name);
-		primaryStage.setTitle(exportPostScene.getTitle());
-		primaryStage.setScene(exportPostScene.getScene());
+		ImportPostScene importPostScene = new ImportPostScene(primaryStage, name);
+		primaryStage.setTitle(importPostScene.getTitle());
+		primaryStage.setScene(importPostScene.getScene());
 		
 		primaryStage.show();		
 	}
