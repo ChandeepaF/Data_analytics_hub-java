@@ -1,6 +1,7 @@
 package Controller;
 
 import View.AddPostScene;
+import View.DataVisualizationScene;
 import View.EditProfileScene;
 import View.ExportPostScene;
 import View.FirstPageScene;
@@ -120,22 +121,22 @@ public class VipDashboardController {
 	@FXML
 	public void visualizesharesButtonHandler(ActionEvent event) {
 		
-//		ExportPostScene exportPostScene = new ExportPostScene(primaryStage, name);
-//		primaryStage.setTitle(exportPostScene.getTitle());
-//		primaryStage.setScene(exportPostScene.getScene());
-//		
-//		primaryStage.show();		
+		DataVisualizationScene dataVisualizationScene = new DataVisualizationScene(primaryStage, name);
+		primaryStage.setTitle(dataVisualizationScene.getTitle());
+		primaryStage.setScene(dataVisualizationScene.getScene());
+		
+		primaryStage.show();		
 	}
 	
 	
 	@FXML
 	public void importpostsButtonHandler(ActionEvent event) {
 		
-//		ExportPostScene exportPostScene = new ExportPostScene(primaryStage, name);
-//		primaryStage.setTitle(exportPostScene.getTitle());
-//		primaryStage.setScene(exportPostScene.getScene());
-//		
-//		primaryStage.show();		
+		ExportPostScene exportPostScene = new ExportPostScene(primaryStage, name);
+		primaryStage.setTitle(exportPostScene.getTitle());
+		primaryStage.setScene(exportPostScene.getScene());
+		
+		primaryStage.show();		
 	}
 	
 	

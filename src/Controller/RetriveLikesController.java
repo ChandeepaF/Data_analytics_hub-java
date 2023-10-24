@@ -2,6 +2,7 @@ package Controller;
 
 import Model.TestModel;
 import View.DashboardScene;
+import View.VipDashboardScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -41,11 +42,27 @@ public class RetriveLikesController {
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
 		
-		DashboardScene dashboardScene = new DashboardScene(primaryStage, name);
-		primaryStage.setTitle(dashboardScene.getTitle());
-		primaryStage.setScene(dashboardScene.getScene());
-
-		primaryStage.show();
+		String User = TestModel.Store_userType.get(0);
+		
+		if (User.equals("normal")) {
+		
+			DashboardScene dashboardScene = new DashboardScene(primaryStage, name);
+			primaryStage.setTitle(dashboardScene.getTitle());
+			primaryStage.setScene(dashboardScene.getScene());
+	
+			primaryStage.show();
+			
+			}
+		
+		if (User.equals("vip")) {
+			
+			VipDashboardScene vipDashboardScene = new VipDashboardScene(primaryStage, name);
+			primaryStage.setTitle(vipDashboardScene.getTitle());
+			primaryStage.setScene(vipDashboardScene.getScene());
+	
+			primaryStage.show();
+			
+			}
 	}
 	
 }
