@@ -530,10 +530,55 @@ public class Database_Handler {
 	
 	
 	
-	public String retrieve_SharesPosts(String username, int number) {
+	public String retrieve_SharesPosts(String username) {
+		
+		String output= null;
+		
+		final String TABLE_NAME = username + "_Post_Details"; 
+		
+		int firstGroup = 0;
+		int secondGroup = 0;
+		int thirdGroup = 0;
 		
 		
+		try (Connection con = Database_Connection.getConnection();
+				
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT shares, COUNT(*) FROM " + TABLE_NAME + " GROUP BY shares")){
+		
+			
+			ResultSet resultSet = prepareStatement.executeQuery();
+			
+			while (resultSet.next()) {
+			
+				int shares = resultSet.getInt("shares");
+				int count = resultSet.getInt("COUNT(*)");
+				
+				if (shares >= 0 && shares <= 99) {
+					firstGroup = count;
+				}
+				
+				if (shares >= 100 && shares <= 999) {
+					secondGroup = count;
+				}
+				
+				if (shares >= 1000) {
+					thirdGroup = count;
+				}
+			}
+			
+			
+		} catch(SQLException e) {
+			output = e.getMessage();
+			e.printStackTrace();
+		}
+		
+		String firstGroup1 = Integer.toString(firstGroup);
+		String secondGroup1 = Integer.toString(secondGroup);
+		String thirdGroup1 = Integer.toString(thirdGroup);
+		
+		output = firstGroup1 + "," + secondGroup1 + "," + thirdGroup1;
+		
+		return output;
 	}
 
-		
 }
