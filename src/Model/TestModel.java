@@ -1,5 +1,8 @@
 package Model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -454,8 +457,109 @@ public class TestModel {
 				
 		return output;
 	}
-
-
 	
+	
+	
+	public String importCsvPosts(String path) {
+		
+		String output = null;
+		
+		int ID = 0;
+		String Content = null;
+		String Author = null;
+		int Likes = 0;
+		int Shares = 0;
+		String Date_time = null;
+		String Username = null;
+		
+		String line = " ";
+		String splitBy = ",";
+		int iteration = 0;
+		
+
+		try {
+			//To load the file
+			FileReader myreader = new FileReader(path);
+			BufferedReader br = new BufferedReader(myreader);
+			
+			while ((line = br.readLine()) != null){
+				//To skip the first line which contains the header
+				if(iteration == 0){
+					iteration++;
+					continue;
+				}
+				
+				{String[] posts = line.split(splitBy);
+				
+								
+				try {
+					ID = post.validateIdData(posts[0]);
+				}catch (Invalid_ID_Exception e1) {
+					output = e1.getMessage();
+					return output;
+				}
+				
+				
+				try {
+					Content = post.validateContentData(posts[1]);
+				}catch (Exception e2) {
+					output = e2.getMessage();
+					return output;
+				}
+				
+				
+				try {
+					Author = post.validateAuthorData(posts[2]);
+				}catch (Exception e3) {
+					output = e3.getMessage();
+					return output;
+				}
+				
+				
+				try {
+					Likes = post.validateLikesData(posts[3]);
+				}catch (Invalid_Likes_Exception e4) {
+					output = e4.getMessage();
+					return output;
+				}
+				
+				
+				try {
+					Shares = post.validateSharesData(posts[4]);
+				}catch (Invalid_Shares_Exception e5) {
+					output = e5.getMessage();
+					return output;
+				}
+				
+				
+				try {
+					Date_time = post.validateDateTimeData(posts[5]);
+				}catch (Invalid_DateFormat_Exception e6) {
+					output = e6.getMessage();
+					return output;
+				}
+				
+				String ID1 = Integer.toString(ID);
+				String Likes1 = Integer.toString(Likes);
+				String Shares1 = Integer.toString(Shares);
+				
+				Username = Store_username.get(0);
+				
+				output = save_Post_Data(Username, ID1, Content, Author, Likes1, Shares1, Date_time);
+				
+				}
+			}
+			
+			
+		} catch(IOException e) {
+			System.out.println("File cannot be found!");;
+			e.printStackTrace();
+				
+		}
+		
+	return output; 
+	
+	}
+
 }
 

@@ -1,5 +1,7 @@
 package Controller;
 
+import java.io.File;
+
 import Model.TestModel;
 import View.DashboardScene;
 import View.VipDashboardScene;
@@ -7,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class ImportPostController {
@@ -32,10 +36,22 @@ public class ImportPostController {
 	
 	
 	@FXML
-	public void importButtonHandler(ActionEvent event) {
+	public void choosepostsButtonHandler(ActionEvent event) {
 		
+		FileChooser fileChooser = new FileChooser();
+		
+		fileChooser.getExtensionFilters().add(new ExtensionFilter("posts", "*.csv"));
+		
+		File file = fileChooser.showOpenDialog(primaryStage);
+		
+		if(file != null) {
+			
+			String type = TestModel.getInstance().importCsvPosts(file.getAbsolutePath());
+
+		}
 		
 	}
+	
 	
 	
 	@FXML

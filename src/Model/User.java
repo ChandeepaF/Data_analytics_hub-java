@@ -58,5 +58,53 @@ public class User {
 		return lastnameData;
 	}
 	
+	
+	
+//	public void read_file() {
+//		
+//		String line = " ";
+//		String splitBy = ",";
+//		int iteration = 0;
+//		
+//
+//		try {
+//			//To load the file
+//			// FileReader myreader = new FileReader("C:\\Users\\Chandeepa Fernando\\Desktop\\Advanced Programming\\posts.csv");
+//			FileReader myreader = new FileReader("posts.csv");
+//			BufferedReader br = new BufferedReader(myreader);
+//			
+//			while ((line = br.readLine()) != null){
+//				//To skip the first line which contains the header
+//				if(iteration == 0){
+//					iteration++;
+//					continue;
+//				}
+//				{String[] posts = line.split(splitBy);
+//				
+//				//Defining the values read from the file to its appropriate attributes
+//				this.ID = Integer.parseInt(posts[0]);
+//				this.content = posts[1];
+//				this.author = posts[2];
+//				this.likes = Integer.parseInt(posts[3]);
+//				this.shares = Integer.parseInt(posts[4]);
+//				this.date_time = posts[5];
+//				
+//				
+//				//Calling the method to add the data to the Hashmap
+//				Operations.add_file_data(ID, content, author, likes, shares, date_time);
+//				
+//				
+//			}
+//			}
+//			
+//			
+//			} catch(IOException e) {
+//				System.out.println("File cannot be found!");;
+//				e.printStackTrace();
+//				
+//
+//		} 
+//		
+//	}
 		
 }
