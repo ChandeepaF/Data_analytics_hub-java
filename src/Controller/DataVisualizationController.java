@@ -7,6 +7,7 @@ import View.DashboardScene;
 import View.VipDashboardScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -32,11 +33,11 @@ public class DataVisualizationController {
 
 	
 	@FXML
-	private Label outputLabel;
+	private PieChart pieChart;
 	
 		
 	@FXML
-	public void generateButtonHandler(ActionEvent event) {
+	public void generatechartButtonHandler(ActionEvent event) {
 		
 
 //		imageView.setImage(new Image(new FileInputStream(file)));

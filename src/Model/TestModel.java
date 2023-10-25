@@ -601,6 +601,37 @@ public class TestModel {
 	return output; 
 	
 	}
+	
+	
+	
+	public String dataVisualization() {
+		
+		String output = null;
+		
+		String Username = null;
+		String shareValues = null;
+		
+		Username = Store_username.get(0);
+		
+		shareValues = dbHandler.retrieve_SharesPosts(Username);
+		
+		
+		String [] token_shares = shareValues.split(",");
+		
+//		int firstGroup = Integer.parseInt(token_shares[0]);
+//		int secondGroup = Integer.parseInt(token_shares[1]);
+//		int thirdGroup = Integer.parseInt(token_shares[2]);
+//		
+		String firstGroup1 = token_shares[0];
+		String secondGroup1 = token_shares[1];
+		String thirdGroup1 = token_shares[2];
+		
+		output = firstGroup1 + secondGroup1 + thirdGroup1;
+		
+		return output;
+		
+		
+	}
 
 }
 
