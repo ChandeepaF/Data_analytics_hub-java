@@ -38,13 +38,13 @@ public class ExportPostController {
 	private TextField idTextField;
 	
 	@FXML
-	private TextField folderTextField;
-	
-	@FXML
 	private TextField filenameTextField;
 	
 	@FXML
 	private Label outputLabel;
+	
+	@FXML
+	private Label pathLabel;
 	
 		
 	
@@ -58,6 +58,8 @@ public class ExportPostController {
 		if(file != null) {
 			
 			folderPath = file.getAbsolutePath();
+			
+			pathLabel.setText(folderPath);
 			
 		}
 		

@@ -36,6 +36,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="384.0" layoutY="246.0" mnemonicParsing="false" onAction="#choosefolderButtonHandler" prefHeight="31.0" prefWidth="287.0" text="Folder to Save" />
+      <Button layoutX="454.0" layoutY="246.0" mnemonicParsing="false" onAction="#choosefolderButtonHandler" prefHeight="31.0" prefWidth="217.0" text="Folder to Save" />
+      <Label fx:id="pathLabel" layoutX="99.0" layoutY="262.0" prefHeight="21.0" prefWidth="330.0" textFill="#4b2ecd" />
    </children>
 </AnchorPane>

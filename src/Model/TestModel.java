@@ -1,7 +1,9 @@
 package Model;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -231,6 +233,7 @@ public class TestModel {
 		
 		if (output.equals("Personal data updated succesfully!")) {
 			Store_username.set(0, newUsernameData);
+			dbHandler.rename_Post_Table(current_username, new_username);
 		}
 		
 		return output;
@@ -443,8 +446,9 @@ public class TestModel {
 		String output = null;
 		int expID = 0;
 		String Username = null;
+		String Post = null;
 		
-		String filName = exportFilename + ".csv";
+		String fileName = exportFilename + ".csv";
 		
 		
 		try {
@@ -456,12 +460,42 @@ public class TestModel {
 		
 		Username = Store_username.get(0);
 		
-		output = dbHandler.retrieve_Posts(Username,expID);
+		Post = dbHandler.export_Posts(Username,expID);
+		
+		
+		try {
+			
+			File folder = new File(exportFolder);
+			File file = new File(folder, fileName);
+			
+			if(!folder.exists()) {
+				folder.mkdirs();
+				output = "Unable to locate folder";
+			}
+			
+			FileWriter writer = new FileWriter(file);
+			
+			
+			if (Post != null) {
 				
+				writer.write("ID, Content, Author, Likes, Shares, Date/Time \n");
+				
+				writer.write(Post);
+				
+				writer.close();
+				
+				output = "Post saved to file!";
+			}else {
+				output = "Nothing to write";
+			}
+			
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+			output = "Unable to save posts!";
+		}
+		
 		return output;
-		
-		
-		
 		
 	}
 	

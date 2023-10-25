@@ -96,7 +96,6 @@ public class Database_Handler {
 	
 	public String updatePersonalDetails(String current_username, String new_username, String new_password, String new_first_name, String new_last_name) {
 		
-		
 		String outputMessage = null;
 		
 		final String TABLE_NAME = "User_Details";
@@ -128,7 +127,6 @@ public class Database_Handler {
 						
 						if (result == 1) {
 							outputMessage = "Personal data updated succesfully!";
-							rename_Post_Table(current_username, new_username);
 							
 						}
 						else {
@@ -148,6 +146,7 @@ public class Database_Handler {
 		return outputMessage;
 		
 	}
+	
 	
 	
 	public String changeVip(String Username) {
@@ -444,6 +443,48 @@ public class Database_Handler {
 	
 	
 	
+	public String export_Posts(String username, int iD) {
+		
+		
+		final String TABLE_NAME = username + "_Post_Details"; 
+		
+		ResultSet resultSet = null;
+		
+		String output = null;
+		
+		
+		try (Connection con = Database_Connection.getConnection();
+				
+				PreparedStatement prepareStatement = con.prepareStatement("SELECT * FROM " + TABLE_NAME + " WHERE id = ?")){
+			prepareStatement.setInt(1, iD);
+		
+			
+			resultSet = prepareStatement.executeQuery();
+			
+			if (resultSet.next()) {
+				
+				do {
+					output = resultSet.getInt("id") + "," + resultSet.getString("content") + "," + resultSet.getString("author") + "," + resultSet.getInt("likes") + 
+							"," + resultSet.getInt("shares") + "," + resultSet.getString("date_time");
+				
+				} while (resultSet.next());
+				
+			} else {
+				output = "Post not found";
+			}
+			
+			
+		} catch(SQLException e) {
+			output = e.getMessage();
+			e.printStackTrace();
+		}
+				
+		return output;
+			
+		}
+	
+	
+	
 	public String retrieve_LikesPosts(String username, int number) {
 		
 		
@@ -467,7 +508,7 @@ public class Database_Handler {
 				output = "";
 				
 				do {
-					output += String.format("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s\n",
+					output += String.format("ID: %d | Content: %s | Author: %s | Likes: %d | Shares: %d | Date/Time: %s \n",
 							resultSet.getInt("id"), resultSet.getString("content"), resultSet.getString("author"), resultSet.getInt("likes"),
 							resultSet.getInt("shares"), resultSet.getString("date_time"));
 				
@@ -485,6 +526,13 @@ public class Database_Handler {
 				
 		return output;
 			
+	}
+	
+	
+	
+	public String retrieve_SharesPosts(String username, int number) {
+		
+		
 	}
 
 		
