@@ -18,6 +18,10 @@ import Model.Exceptions.Invalid_Password_Exception;
 import Model.Exceptions.Invalid_PostNumber_Exception;
 import Model.Exceptions.Invalid_Shares_Exception;
 import Model.Exceptions.Invalid_Username_Exception;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.PieChart.Data;
 import Model.Exceptions.Invalid_DateFormat_Exception;
 import Model.Exceptions.Invalid_Firstname_Exception;
 
@@ -72,7 +76,7 @@ public class TestModel {
 	public static ArrayList<String> Store_username = new ArrayList<String>();
 	
 	public static ArrayList<String> Store_userType = new ArrayList<String>();
-
+	
 	
 	
 	public String verify_Login_Data(String usernameLoginData, String passwordLoginData) throws Invalid_Username_Exception, Invalid_Password_Exception{
@@ -604,12 +608,13 @@ public class TestModel {
 	
 	
 	
-	public String dataVisualization() {
+	public ObservableList<Data> dataVisualization() {
 		
 		String output = null;
 		
 		String Username = null;
 		String shareValues = null;
+		
 		
 		Username = Store_username.get(0);
 		
@@ -618,18 +623,19 @@ public class TestModel {
 		
 		String [] token_shares = shareValues.split(",");
 		
-//		int firstGroup = Integer.parseInt(token_shares[0]);
-//		int secondGroup = Integer.parseInt(token_shares[1]);
-//		int thirdGroup = Integer.parseInt(token_shares[2]);
-//		
-		String firstGroup1 = token_shares[0];
-		String secondGroup1 = token_shares[1];
-		String thirdGroup1 = token_shares[2];
+		int firstGroup = Integer.parseInt(token_shares[0]);
+		int secondGroup = Integer.parseInt(token_shares[1]);
+		int thirdGroup = Integer.parseInt(token_shares[2]);
+
 		
-		output = firstGroup1 + secondGroup1 + thirdGroup1;
+		ObservableList<PieChart.Data> pieChartData = 
+				FXCollections.observableArrayList(
+						new PieChart.Data("0 - 99 Shares", firstGroup),
+						new PieChart.Data("100 - 999 Shares", secondGroup),
+						new PieChart.Data("Above 1000 Shares", thirdGroup));
 		
-		return output;
 		
+		return pieChartData;
 		
 	}
 

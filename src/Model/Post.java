@@ -11,8 +11,8 @@ public class Post {
 
 	public int validateIdData(String IDData) throws Invalid_ID_Exception {
 		
-		if(IDData == null) {
-			throw new Invalid_ID_Exception("ID is null");
+		if(IDData == null || IDData.trim().isEmpty()) {
+			throw new Invalid_ID_Exception("Enter a ID");
 		}
 		
 		int intID = 0;

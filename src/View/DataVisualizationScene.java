@@ -2,6 +2,7 @@ package View;
 
 import java.io.IOException;
 
+import Controller.DataVisualizationController;
 import Controller.EditProfileController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,7 +43,7 @@ public class DataVisualizationScene {
 		}
 		
 		
-		EditProfileController controller = loader.getController();
+		DataVisualizationController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		controller.setName(name);
 		

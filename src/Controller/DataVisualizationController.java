@@ -5,9 +5,12 @@ import java.io.FileInputStream;
 import Model.TestModel;
 import View.DashboardScene;
 import View.VipDashboardScene;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.PieChart.Data;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -23,26 +26,30 @@ public class DataVisualizationController {
 	@FXML
 	private ImageView imageView;
 	
+	@FXML
+	private PieChart pieChart;
+	
+	
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
+	
 	
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	
-	@FXML
-	private PieChart pieChart;
 	
-		
 	@FXML
 	public void generatechartButtonHandler(ActionEvent event) {
 		
-
-//		imageView.setImage(new Image(new FileInputStream(file)));
+		ObservableList<Data> pieChartData = TestModel.getInstance().dataVisualization();
 		
-
+		pieChart.setData(pieChartData);
+		pieChart.setTitle("Distribution of Shares");
+		
+		pieChart.setLabelLineLength(10);	
 		
 	}
 	

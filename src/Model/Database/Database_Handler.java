@@ -554,15 +554,15 @@ public class Database_Handler {
 				int count = resultSet.getInt("COUNT(*)");
 				
 				if (shares >= 0 && shares <= 99) {
-					firstGroup = count;
+					firstGroup += count;
 				}
 				
 				if (shares >= 100 && shares <= 999) {
-					secondGroup = count;
+					secondGroup += count;
 				}
 				
 				if (shares >= 1000) {
-					thirdGroup = count;
+					thirdGroup += count;
 				}
 			}
 			
