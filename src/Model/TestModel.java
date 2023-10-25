@@ -444,6 +444,9 @@ public class TestModel {
 		int expID = 0;
 		String Username = null;
 		
+		String filName = exportFilename + ".csv";
+		
+		
 		try {
 			expID = post.validateIdData(exportID);
 		}catch (Invalid_ID_Exception e1) {
@@ -456,6 +459,10 @@ public class TestModel {
 		output = dbHandler.retrieve_Posts(Username,expID);
 				
 		return output;
+		
+		
+		
+		
 	}
 	
 	

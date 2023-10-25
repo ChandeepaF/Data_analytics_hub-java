@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ExportPostController">
    <children>
       <Label layoutX="297.0" layoutY="38.0" text="Export a Post">
@@ -14,24 +13,18 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="121.0" layoutY="162.0" text="Post ID">
+      <Label layoutX="121.0" layoutY="164.0" text="Export Post ID">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="idTextField" layoutX="219.0" layoutY="162.0" />
-      <Button layoutX="565.0" layoutY="411.0" mnemonicParsing="false" onAction="#submitButtonHandler" text="Submit">
+      <TextField fx:id="idTextField" layoutX="284.0" layoutY="164.0" />
+      <Button layoutX="562.0" layoutY="433.0" mnemonicParsing="false" onAction="#submitButtonHandler" text="Submit">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
       <Button layoutX="41.0" layoutY="570.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
-      <Label layoutX="121.0" layoutY="253.0" text="Folder to Save">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="folderTextField" layoutX="277.0" layoutY="253.0" />
       <Label layoutX="121.0" layoutY="340.0" text="Filename">
          <font>
             <Font size="20.0" />
@@ -43,5 +36,6 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Button layoutX="384.0" layoutY="246.0" mnemonicParsing="false" onAction="#choosefolderButtonHandler" prefHeight="31.0" prefWidth="287.0" text="Folder to Save" />
    </children>
 </AnchorPane>

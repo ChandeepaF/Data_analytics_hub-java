@@ -46,7 +46,7 @@ public class ImportPostController {
 		
 		if(file != null) {
 			
-			String type = TestModel.getInstance().importCsvPosts(file.getAbsolutePath());
+			String filePath = TestModel.getInstance().importCsvPosts(file.getAbsolutePath());
 
 		}
 		
