@@ -1,6 +1,8 @@
 package Model;
 
 import Model.Exceptions.Invalid_DateFormat_Exception;
+import Model.Exceptions.Invalid_Filename_Exception;
+import Model.Exceptions.Invalid_Folder_Exception;
 import Model.Exceptions.Invalid_ID_Exception;
 import Model.Exceptions.Invalid_Likes_Exception;
 import Model.Exceptions.Invalid_PostNumber_Exception;
@@ -154,18 +156,17 @@ public class Post {
 	}
 	
 	
-	
 		
-	public int validateLikesPost(String postNumber) throws Invalid_PostNumber_Exception {
+	public int validateLikesPost(String postNumberData) throws Invalid_PostNumber_Exception {
 		
-		if(postNumber == null || postNumber.trim().isEmpty()) {
+		if(postNumberData == null || postNumberData.trim().isEmpty()) {
 			throw new Invalid_PostNumber_Exception("Post number is empty");
 		}
 		
 		int intPosts = 0;
 		
 		try {
-			intPosts = Integer.parseInt(postNumber);
+			intPosts = Integer.parseInt(postNumberData);
 			
 		}catch(NumberFormatException e) {
 			throw new Invalid_PostNumber_Exception("Amount of posts is not a number");
@@ -177,5 +178,27 @@ public class Post {
 		
 		return intPosts;
 	}	
+	
+	
+	
+	public String validateExportFolder(String folderData) throws Invalid_Folder_Exception {
+		
+		if(folderData == null || folderData.trim().isEmpty()) {
+			throw new Invalid_Folder_Exception("Folder not selected!");
+		}
+		
+		return folderData;
+	}
+	
+	
+	
+	public String validateExportFilename(String filenameData) throws Invalid_Filename_Exception {
+		
+		if(filenameData == null || filenameData.trim().isEmpty()) {
+			throw new Invalid_Filename_Exception("Filename is empty!");
+		}
+		
+		return filenameData;
+	}
 	
 }

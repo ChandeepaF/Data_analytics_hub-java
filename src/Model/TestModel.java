@@ -23,7 +23,9 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
 import Model.Exceptions.Invalid_DateFormat_Exception;
+import Model.Exceptions.Invalid_Filename_Exception;
 import Model.Exceptions.Invalid_Firstname_Exception;
+import Model.Exceptions.Invalid_Folder_Exception;
 
 public class TestModel {
 
@@ -468,10 +470,10 @@ public class TestModel {
 		
 		String output = null;
 		int expID = 0;
+		String expFoldername = null;
+		String expFilename = null;
 		String Username = null;
 		String Post = null;
-		
-		String fileName = exportFilename + ".csv";
 		
 		
 		try {
@@ -481,41 +483,66 @@ public class TestModel {
 			return output;
 		}
 		
+		
+		try {
+			expFoldername = post.validateExportFolder(exportFolder);
+		}catch (Invalid_Folder_Exception e20) {
+			output = e20.getMessage();
+			return output;
+		}
+		
+		
+		try {
+			expFilename = post.validateExportFilename(exportFilename);
+		}catch (Invalid_Filename_Exception e21) {
+			output = e21.getMessage();
+			return output;
+		}
+		
+		
+		String fileName = expFilename + ".csv";
+		
 		Username = Store_username.get(0);
 		
 		Post = dbHandler.export_Posts(Username,expID);
 		
-		
-		try {
+		if(Post.equals("Post not found!")) {
 			
-			File folder = new File(exportFolder);
-			File file = new File(folder, fileName);
-			
-			if(!folder.exists()) {
-				folder.mkdirs();
-				output = "Unable to locate folder";
-			}
-			
-			FileWriter writer = new FileWriter(file);
-			
-			
-			if (Post != null) {
-				
-				writer.write("ID, Content, Author, Likes, Shares, Date/Time \n");
-				
-				writer.write(Post);
-				
-				writer.close();
-				
-				output = "Post saved to file!";
-			}else {
-				output = "Nothing to write";
-			}
-			
+			output = "Post not found. Invalid ID!";
+			return output;
 		}
-		catch (IOException e) {
-			e.printStackTrace();
-			output = "Unable to save posts!";
+		
+		else {
+		
+			try {
+				
+				File folder = new File(expFoldername);
+				File file = new File(folder, fileName);
+				
+				if(!folder.exists()) {
+					folder.mkdirs();
+					output = "Unable to locate folder";
+				}
+				
+				FileWriter writer = new FileWriter(file);
+				
+				
+				if (Post != null) {
+					
+					writer.write("ID, Content, Author, Likes, Shares, Date/Time \n");
+					
+					writer.write(Post);
+					
+					writer.close();
+					
+					output = "Post saved to file!";
+				}
+				
+			}
+			catch (IOException e) {
+				e.printStackTrace();
+				output = "Unable to save posts!";
+			}
 		}
 		
 		return output;
@@ -617,7 +644,7 @@ public class TestModel {
 			
 			
 		} catch(IOException e) {
-			System.out.println("File cannot be found!");;
+			output = "File cannot be found!";
 			e.printStackTrace();
 				
 		}

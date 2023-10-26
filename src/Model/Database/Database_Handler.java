@@ -82,7 +82,6 @@ public class Database_Handler {
 										+ "PRIMARY KEY (id))");
 			
 			outputMessage = "Table created sucesfully";
-			System.out.println(outputMessage);
 			
 		} catch (SQLException e) {
 			outputMessage = e.getMessage();
@@ -491,7 +490,7 @@ public class Database_Handler {
 				} while (resultSet.next());
 				
 			} else {
-				output = "Post not found";
+				output = "Post not found!";
 			}
 			
 			
