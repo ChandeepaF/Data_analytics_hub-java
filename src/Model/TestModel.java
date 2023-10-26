@@ -37,7 +37,7 @@ public class TestModel {
 	
 	private Database_Handler dbHandler;
 	
-	private TestModel() {
+	public TestModel() {
 		post = new Post();
 		user = new User();
 		dbHandler = new Database_Handler();
@@ -221,15 +221,7 @@ public class TestModel {
 		}
 		
 		else {
-			
-			try {
-				current_username = user.validateUsernameData(currentUsernameData);
-			}catch (Invalid_Username_Exception e7) {
-				output = e7.getMessage();
-				return output;
-			}
-			
-			
+						
 			try {
 				current_username = user.validateUsernameData(currentUsernameData);
 			}catch (Invalid_Username_Exception e7) {
@@ -270,7 +262,7 @@ public class TestModel {
 			
 			output = update_Personal_Data(current_username, new_username, new_password, new_first_name, new_last_name);
 			
-			if (output.equals("Personal data updated succesfully!")) {
+			if (output.equals("Personal data updated successfully!")) {
 				Store_username.set(0, newUsernameData);
 				dbHandler.rename_Post_Table(current_username, new_username);
 			}
@@ -437,28 +429,6 @@ public class TestModel {
 	
 	
 	
-	public String deleteExistingPost(String deleteID) {
-		
-		String output = null;
-		int ID = 0;
-		String Username = null;
-		
-		try {
-			ID = post.validateIdData(deleteID);
-		}catch (Invalid_ID_Exception e1) {
-			output = e1.getMessage();
-			return output;
-		}
-		
-		Username = Store_username.get(0);
-
-		output = dbHandler.Remove_Posts(Username, ID);
-		
-		return output;
-	}
-	
-	
-	
 	public String retrieveTopLikes(String postNumber) {
 		
 		String output = null;
@@ -481,6 +451,28 @@ public class TestModel {
 	
 	
 	
+	public String deleteExistingPost(String deleteID) {
+		
+		String output = null;
+		int ID = 0;
+		String Username = null;
+		
+		try {
+			ID = post.validateIdData(deleteID);
+		}catch (Invalid_ID_Exception e1) {
+			output = e1.getMessage();
+			return output;
+		}
+		
+		Username = Store_username.get(0);
+
+		output = dbHandler.Remove_Posts(Username, ID);
+		
+		return output;
+	}
+	
+	
+
 	public String exportCsvPost(String exportID, String exportFolder, String exportFilename) {
 		
 		String output = null;

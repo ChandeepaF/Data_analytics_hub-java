@@ -35,9 +35,14 @@ public class User {
 			throw new Invalid_Firstname_Exception("First name is empty");
 		}
 		
-		char firstname = firstnameData.charAt(0);
-		if(!Character.isLetter(firstname)) {
-			throw new Invalid_Firstname_Exception("Invalid first name");
+		for (int i = 0; i< firstnameData.length(); i++) {
+			
+			char firstname = firstnameData.charAt(i);
+			
+			if(!Character.isLetter(firstname)) {
+				throw new Invalid_Firstname_Exception("Invalid first name");
+			}
+			
 		}
 		
 		return firstnameData;
@@ -50,20 +55,16 @@ public class User {
 			throw new Invalid_Lastname_Exception("Last name is empty");
 		}
 		
-		char lastname = lastnameData.charAt(0);
-		if(!Character.isLetter(lastname)) {
-			throw new Invalid_Lastname_Exception("Invalid last name");
+		for (int i=0; i < lastnameData.length(); i++) {
+			
+			char lastname = lastnameData.charAt(i);
+			
+			if(!Character.isLetter(lastname)) {
+				throw new Invalid_Lastname_Exception("Invalid last name");
+			}
 		}
 		
 		return lastnameData;
 	}
-	
-	
-//	public String checkUsernames(String currentUsername, String newUsername) throws Invalid_Username_Exception{
-//		
-//		if (currentUsername.equals(newUsername)) {
-//			throw new Invalid_Username_Exception("Current username & New username are the same!");
-//		}
-//	}
 		
 }

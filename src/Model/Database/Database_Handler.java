@@ -124,7 +124,7 @@ public class Database_Handler {
 						int result = prepareStatement.executeUpdate();
 						
 						if (result == 1) {
-							outputMessage = "Personal data updated succesfully!";
+							outputMessage = "Personal data updated successfully!";
 							
 						}
 						else {
