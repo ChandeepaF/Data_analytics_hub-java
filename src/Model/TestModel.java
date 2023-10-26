@@ -79,33 +79,52 @@ public class TestModel {
 	
 	
 	
-	public String verify_Login_Data(String usernameLoginData, String passwordLoginData) throws Invalid_Username_Exception, Invalid_Password_Exception{
+	public String verify_Login_Data(String usernameLoginData, String passwordLoginData) throws Invalid_Username_Exception, Invalid_Password_Exception {
 		
 		String output = null;
 		String savedPassword = null;
+		String loginUsername = null;
+		String loginPassword = null;
+
 		
 		try {
-			savedPassword =  dbHandler.validate_Login_Details(usernameLoginData);
+			loginUsername = user.validateUsernameData(usernameLoginData);
+		}catch (Invalid_Username_Exception e7) {
+			output = e7.getMessage();
+			return output;
+		}
+		
+		
+		try {
+			loginPassword = user.validatePasswordData(passwordLoginData);
+		}catch (Invalid_Password_Exception e8) {
+			output = e8.getMessage();
+			return output;
+		}
+		
+		
+		try {
+			savedPassword =  dbHandler.validate_Login_Details(loginUsername);
 		}catch (Exception e) {
 			throw new Invalid_Username_Exception("Invalid username");
 		}
 		
-		if(savedPassword.equals(passwordLoginData)) {
+		if(savedPassword.equals(loginPassword)) {
 			output = "Access granted";
 			
 			if(Store_username.size() == 0) {
-				Store_username.add(usernameLoginData);
+				Store_username.add(loginUsername);
 			}
 			
 			else {
-				Store_username.set(0, usernameLoginData);
+				Store_username.set(0, loginUsername);
 			}
 		}
 		if(savedPassword.equals("Username not found!")) {
 			output = "Username is invalid";
 		}
 
-		if(!savedPassword.equals(passwordLoginData) && !savedPassword.equals("Username not found!")) {
+		if(!savedPassword.equals(loginPassword) && !savedPassword.equals("Username not found!")) {
 			output = "Password is invalid";
 		}
 		

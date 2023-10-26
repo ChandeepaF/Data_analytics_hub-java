@@ -45,7 +45,6 @@ public class Database_Handler {
 						if (result == 1) {
 							create_Post_Table(username);
 							outputMessage = "Data saved successfully";
-							System.out.println(outputMessage);
 							
 						}
 					}

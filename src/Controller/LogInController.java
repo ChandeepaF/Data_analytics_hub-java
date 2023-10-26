@@ -7,11 +7,14 @@ import View.DashboardScene;
 import View.FirstPageScene;
 import View.UpgradeVipScene;
 import View.VipDashboardScene;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class LogInController {
 	
@@ -39,12 +42,18 @@ public class LogInController {
 		String result = TestModel.getInstance().verify_Login_Data(usernameLoginTextField.getText(),
 				passwordLoginTextField.getText());
 		
-		String type = TestModel.getInstance().getUserType();
-		
-		String name = TestModel.getInstance().getName(usernameLoginTextField.getText());
-		
 		
 		if(result.equals("Access granted")) {
+			
+			String type = TestModel.getInstance().getUserType();
+			
+			String name = TestModel.getInstance().getName(usernameLoginTextField.getText());
+			
+			
+			outputLabel.setText(result);
+			
+			Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), e -> {
+			
 			
 			if(type.equals("normal")){
 			
@@ -69,6 +78,9 @@ public class LogInController {
 				primaryStage.show();
 				
 			}
+			}));
+			
+			timeline.play();
 		}
 		
 		else {
