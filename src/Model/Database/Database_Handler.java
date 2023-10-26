@@ -403,7 +403,7 @@ public class Database_Handler {
 			int result = prepareStatement.executeUpdate();
 			
 			if (result == 1) {
-				outputMessage = "Post deleted succesfully";
+				outputMessage = "Post deleted successfully!";
 			}
 			else {
 				outputMessage = "Post not found";
