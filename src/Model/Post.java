@@ -117,39 +117,45 @@ public class Post {
 			throw new Invalid_DateFormat_Exception("Invalid time format");
 		}
 		
-		String[] tokens = date_timeData.split(" ");
-		
-		String tokens1 = tokens[0];
-		String tokens2 = tokens[1];
-		
-		String[] tokens3 = tokens1.split("/");
-		String[] tokens4 = tokens2.split(":");
-		
-		int date = Integer.parseInt(tokens3[0]);
-		int month = Integer.parseInt(tokens3[1]);
-		int year = Integer.parseInt(tokens3[2]);
-		
-		int hours = Integer.parseInt(tokens4[0]);
-		int minutes = Integer.parseInt(tokens4[1]);
-		
-		if(date > 31) {
-			throw new Invalid_DateFormat_Exception("Invalid date");
-		}
-		
-		if(month > 12) {
-			throw new Invalid_DateFormat_Exception("Invalid month");
-		}
-		
-		if(year > 2023) {
-			throw new Invalid_DateFormat_Exception("Invalid year");
-		}
-		
-		if(hours > 24) {
-			throw new Invalid_DateFormat_Exception("Invalid hours");
-		}
-		
-		if(minutes > 59) {
-			throw new Invalid_DateFormat_Exception("Invalid minutes");
+		try {
+			String[] tokens = date_timeData.split(" ");
+			
+			String tokens1 = tokens[0];
+			String tokens2 = tokens[1];
+			
+			String[] tokens3 = tokens1.split("/");
+			String[] tokens4 = tokens2.split(":");
+			
+			int date = Integer.parseInt(tokens3[0]);
+			int month = Integer.parseInt(tokens3[1]);
+			int year = Integer.parseInt(tokens3[2]);
+			
+			int hours = Integer.parseInt(tokens4[0]);
+			int minutes = Integer.parseInt(tokens4[1]);
+			
+			if(date > 31) {
+				throw new Invalid_DateFormat_Exception("Invalid date");
+			}
+			
+			if(month > 12) {
+				throw new Invalid_DateFormat_Exception("Invalid month");
+			}
+			
+			if(year > 2023) {
+				throw new Invalid_DateFormat_Exception("Invalid year");
+			}
+			
+			if(hours > 24) {
+				throw new Invalid_DateFormat_Exception("Invalid hours");
+			}
+			
+			if(minutes > 59) {
+				throw new Invalid_DateFormat_Exception("Invalid minutes");
+			}
+			
+		}catch(Exception e){
+			
+			throw new Invalid_DateFormat_Exception("Invalid Date & Time format");
 		}
 		
 		return date_timeData;

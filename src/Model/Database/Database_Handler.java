@@ -367,7 +367,7 @@ public class Database_Handler {
 						int result = prepareStatement.executeUpdate();
 				
 						if (result == 1) {
-							outputMessage = "Post saved succesfully";
+							outputMessage = "Post saved successfully!";
 						}
 				    }
 				    }

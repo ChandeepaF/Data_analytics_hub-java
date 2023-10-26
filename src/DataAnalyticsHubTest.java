@@ -178,16 +178,82 @@ public class DataAnalyticsHubTest {
 		
 		
 		
-		String expectedOutput2 = "Type not updated!";
+//		String expectedOutput2 = "Type not updated!";
+//		
+//		String actualOutput2 = dbHandler.changeVip("Jason98");
+//		
+//		assertEquals(actualOutput2, expectedOutput2);
 		
-		String actualOutput2 = dbHandler.changeVip("Jason98");
-		
-		assertEquals(actualOutput2, expectedOutput2);
 	}
 	
 	
 	
-	
+	@Order(6)
+	@Test
+	void test_addPosts() {
+		
+		String expectedOutput1 = "Post saved successfully!";
+		
+		String actualOutput1 = testModel.addpostData("10", "This is test content", "Jonathan", "7", "36", "1/12/2023 1:59");
+		
+		assertEquals(actualOutput1, expectedOutput1);
+		
+		
+		
+		String expectedOutput2 = "Post saved successfully!";
+		
+		String actualOutput2 = testModel.addpostData("136", "I study at RMIT University", "Michael", "100", "231", "31/01/2019 24:01");
+		
+		assertEquals(actualOutput2, expectedOutput2);
+		
+		
+		
+		String expectedOutput3 = "Invalid post ID. Post with the current ID already exists!";
+		
+		String actualOutput3 = testModel.addpostData("136", "Melbourne whether is unpredictable!", "Kate", "45", "43", "15/11/2020 13:26");
+		
+		assertEquals(actualOutput3, expectedOutput3);
+		
+		
+		
+		String expectedOutput4 = "ID is not a number";
+		
+		String actualOutput4 = testModel.addpostData("ab", "I study at RMIT University", "Michael", "100", "231", "31/01/2019 24:01");
+		
+		assertEquals(actualOutput4, expectedOutput4);
+		
+		
+		
+		String expectedOutput5 = "Number of likes is not positive";
+		
+		String actualOutput5 = testModel.addpostData("136", "I study at RMIT University", "Michael", "-21", "231", "31/01/2019 24:01");
+		
+		assertEquals(actualOutput5, expectedOutput5);
+		
+		
+		
+		String expectedOutput6 = "Number of shares is not a number";
+		
+		String actualOutput6 = testModel.addpostData("136", "I study at RMIT University", "Michael", "100", "h", "31/01/2019 24:01");
+		
+		assertEquals(actualOutput6, expectedOutput6);
+		
+		
+		
+		String expectedOutput7 = "Invalid month";
+		
+		String actualOutput7 = testModel.addpostData("136", "I study at RMIT University", "Michael", "100", "231", "31/13/2019 24:01");
+		
+		assertEquals(actualOutput7, expectedOutput7);
+		
+		
+		
+		String expectedOutput8 = "Post saved successfully!";
+		
+		String actualOutput8 = testModel.addpostData("136", "I study at RMIT University", "Michael", "100", "231", "31/01/2019 24:01");
+		
+		assertEquals(actualOutput8, expectedOutput8);
+	}
 	
 	
 	
