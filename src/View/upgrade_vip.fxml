@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UpgradeVipController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UpgradeVipController">
    <children>
-      <Button layoutX="42.0" layoutY="146.0" mnemonicParsing="false" onAction="#subscribeButtonHandler" prefHeight="31.0" prefWidth="523.0" text="Would you like to subscribe to the application for a monthly fee of $0?" textFill="#412ba1">
+      <Button layoutX="114.0" layoutY="242.0" mnemonicParsing="false" onAction="#subscribeButtonHandler" prefHeight="31.0" prefWidth="523.0" text="Would you like to subscribe to the application for a monthly fee of $0?" textFill="#412ba1">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Button>
-      <Button layoutX="136.0" layoutY="247.0" mnemonicParsing="false" onAction="#denyButtonHandler" prefHeight="31.0" prefWidth="329.0" text="No Thanks, I will continue as a normal user." textFill="#cd3a3a">
+      <Button layoutX="204.0" layoutY="395.0" mnemonicParsing="false" onAction="#denyButtonHandler" prefHeight="31.0" prefWidth="329.0" text="No Thanks, I will continue as a normal user." textFill="#cd3a3a">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Button>
-      <Label layoutX="151.0" layoutY="40.0" text="Upgrade to a VIP user!" underline="true">
+      <Label layoutX="226.0" layoutY="43.0" text="Upgrade to a VIP user!">
          <font>
             <Font size="30.0" />
          </font>

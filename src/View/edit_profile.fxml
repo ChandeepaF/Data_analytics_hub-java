@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EditProfileController">
    <children>
       <Label layoutX="288.0" layoutY="47.0" prefHeight="58.0" prefWidth="217.0" text="Edit User Profile">
          <font>
@@ -47,16 +47,16 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="38.0" layoutY="590.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
+      <Button layoutX="38.0" layoutY="606.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
       <Label layoutX="139.0" layoutY="204.0" text="Current Username">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
       <TextField fx:id="currentusernameTextField" layoutX="361.0" layoutY="204.0" prefHeight="31.0" prefWidth="217.0" />
-      <Label fx:id="outputLabel" layoutX="211.0" layoutY="544.0" prefHeight="30.0" prefWidth="331.0">
+      <Label fx:id="outputLabel" layoutX="54.0" layoutY="544.0" prefHeight="30.0" prefWidth="530.0">
          <font>
-            <Font size="20.0" />
+            <Font size="18.0" />
          </font>
       </Label>
    </children>

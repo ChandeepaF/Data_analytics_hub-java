@@ -5,44 +5,44 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DashboardController">
    <children>
-      <Label layoutX="269.0" layoutY="22.0" text="Dashboard" underline="true">
+      <Label layoutX="291.0" layoutY="21.0" text="Dashboard" underline="true">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <Button layoutX="111.0" layoutY="201.0" mnemonicParsing="false" onAction="#retrievepostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Retrieve a Post">
+      <Button layoutX="111.0" layoutY="211.0" mnemonicParsing="false" onAction="#retrievepostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Retrieve a Post">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="111.0" layoutY="292.0" mnemonicParsing="false" onAction="#addpostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Add a Post">
+      <Button layoutX="111.0" layoutY="325.0" mnemonicParsing="false" onAction="#addpostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Add a Post">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="61.0" layoutY="460.0" mnemonicParsing="false" onAction="#retrievelikesButtonHandler" prefHeight="45.0" prefWidth="299.0" text="Retrieve Posts with Most Likes">
+      <Button layoutX="61.0" layoutY="553.0" mnemonicParsing="false" onAction="#retrievelikesButtonHandler" prefHeight="45.0" prefWidth="299.0" text="Retrieve Posts with Most Likes">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="111.0" layoutY="380.0" mnemonicParsing="false" onAction="#removepostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Remove a Post">
+      <Button layoutX="111.0" layoutY="435.0" mnemonicParsing="false" onAction="#removepostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Remove a Post">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="445.0" layoutY="225.0" mnemonicParsing="false" onAction="#exportpostButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Export a Post">
+      <Button layoutX="460.0" layoutY="211.0" mnemonicParsing="false" onAction="#exportpostButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Export a Post">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="405.0" layoutY="316.0" mnemonicParsing="false" onAction="#changedetailsButtonHandler" prefHeight="45.0" prefWidth="225.0" text="Change User Details">
+      <Button layoutX="420.0" layoutY="335.0" mnemonicParsing="false" onAction="#changedetailsButtonHandler" prefHeight="45.0" prefWidth="225.0" text="Change User Details">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="445.0" layoutY="404.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Log Out">
+      <Button layoutX="558.0" layoutY="565.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Log Out">
          <font>
             <Font size="20.0" />
          </font>

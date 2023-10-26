@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.TestModel;
+import Model.Exceptions.Invalid_Username_Exception;
 import View.DashboardScene;
 import View.VipDashboardScene;
 import javafx.event.ActionEvent;
@@ -44,7 +45,7 @@ public class EditProfileController {
 	
 	
 	@FXML
-	public void submitButtonHandler(ActionEvent event) {
+	public void submitButtonHandler(ActionEvent event) throws Invalid_Username_Exception {
 		
 		String result = TestModel.getInstance().editProfile(currentusernameTextField.getText(),usernameTextField.getText(),
 				passwordTextField.getText(),firstnameTextField.getText(),lastnameTextField.getText());

@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.VipSignoutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.VipSignoutController">
    <children>
-      <Label layoutX="41.0" layoutY="40.0" text="Congratulations! VIP functionalities are now activated" underline="true">
+      <Label layoutX="74.0" layoutY="56.0" text="Congratulations! VIP functionalities are now activated!!" underline="true">
          <font>
-            <Font size="22.0" />
+            <Font size="25.0" />
          </font>
       </Label>
-      <Button layoutX="47.0" layoutY="238.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="44.0" prefWidth="506.0" text="Please log out and log in to access VIP functionalities." textFill="#3b28b9">
+      <Button layoutX="116.0" layoutY="315.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="44.0" prefWidth="518.0" text="Please log out and log in to access VIP functionalities !" textFill="#3b28b9">
          <font>
             <Font size="20.0" />
          </font>

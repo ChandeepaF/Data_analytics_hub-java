@@ -140,7 +140,7 @@ public class TestModel {
 		String output = null;
 
 		try {
-			output = dbHandler.getUserName(username);
+			output = dbHandler.getNameUser(username);
 			
 		}catch (Exception e) {
 			output = e.getMessage();
@@ -206,7 +206,7 @@ public class TestModel {
 	
 
 	
-	public String editProfile(String currentUsernameData, String newUsernameData, String newPasswordData, String newFirstnameData, String newLastnameData) {
+	public String editProfile(String currentUsernameData, String newUsernameData, String newPasswordData, String newFirstnameData, String newLastnameData) throws Invalid_Username_Exception {
 		
 		String output = null;
 		
@@ -216,49 +216,64 @@ public class TestModel {
 		String new_first_name = null;
 		String new_last_name = null;
 		
-		try {
-			current_username = user.validateUsernameData(currentUsernameData);
-		}catch (Invalid_Username_Exception e7) {
-			output = e7.getMessage();
-			return output;
+		if (currentUsernameData.equals(newUsernameData)) {
+			return "Current username & New username are the same! Enter again.";
 		}
 		
-		
-		try {
-			new_username = user.validateUsernameData(newUsernameData);
-		}catch (Invalid_Username_Exception e7) {
-			output = e7.getMessage();
-			return output;
-		}
-		
-		try {
-			new_password = user.validatePasswordData(newPasswordData);
-		}catch (Invalid_Password_Exception e8) {
-			output = e8.getMessage();
-			return output;
-		}
-		
-		
-		try {
-			new_first_name = user.validateFirstNameData(newFirstnameData);
-		}catch (Invalid_Firstname_Exception e9) {
-			output = e9.getMessage();
-			return output;
-		}
-		
-		
-		try {
-			new_last_name = user.validateLastNameData(newLastnameData);
-		}catch (Invalid_Lastname_Exception e10) {
-			output = e10.getMessage();
-			return output;
-		}
-		
-		output = update_Personal_Data(current_username, new_username, new_password, new_first_name, new_last_name);
-		
-		if (output.equals("Personal data updated succesfully!")) {
-			Store_username.set(0, newUsernameData);
-			dbHandler.rename_Post_Table(current_username, new_username);
+		else {
+			
+			try {
+				current_username = user.validateUsernameData(currentUsernameData);
+			}catch (Invalid_Username_Exception e7) {
+				output = e7.getMessage();
+				return output;
+			}
+			
+			
+			try {
+				current_username = user.validateUsernameData(currentUsernameData);
+			}catch (Invalid_Username_Exception e7) {
+				output = e7.getMessage();
+				return output;
+			}
+			
+			
+			try {
+				new_username = user.validateUsernameData(newUsernameData);
+			}catch (Invalid_Username_Exception e7) {
+				output = e7.getMessage();
+				return output;
+			}
+			
+			try {
+				new_password = user.validatePasswordData(newPasswordData);
+			}catch (Invalid_Password_Exception e8) {
+				output = e8.getMessage();
+				return output;
+			}
+			
+			
+			try {
+				new_first_name = user.validateFirstNameData(newFirstnameData);
+			}catch (Invalid_Firstname_Exception e9) {
+				output = e9.getMessage();
+				return output;
+			}
+			
+			
+			try {
+				new_last_name = user.validateLastNameData(newLastnameData);
+			}catch (Invalid_Lastname_Exception e10) {
+				output = e10.getMessage();
+				return output;
+			}
+			
+			output = update_Personal_Data(current_username, new_username, new_password, new_first_name, new_last_name);
+			
+			if (output.equals("Personal data updated succesfully!")) {
+				Store_username.set(0, newUsernameData);
+				dbHandler.rename_Post_Table(current_username, new_username);
+			}
 		}
 		
 		return output;
@@ -505,6 +520,7 @@ public class TestModel {
 		Username = Store_username.get(0);
 		
 		Post = dbHandler.export_Posts(Username,expID);
+		
 		
 		if(Post.equals("Post not found!")) {
 			

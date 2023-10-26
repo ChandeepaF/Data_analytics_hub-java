@@ -57,5 +57,13 @@ public class User {
 		
 		return lastnameData;
 	}
+	
+	
+//	public String checkUsernames(String currentUsername, String newUsername) throws Invalid_Username_Exception{
+//		
+//		if (currentUsername.equals(newUsername)) {
+//			throw new Invalid_Username_Exception("Current username & New username are the same!");
+//		}
+//	}
 		
 }

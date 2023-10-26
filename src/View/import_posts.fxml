@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ImportPostController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ImportPostController">
    <children>
       <Label layoutX="307.0" layoutY="41.0" text="Import Posts">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Button layoutX="119.0" layoutY="180.0" mnemonicParsing="false" onAction="#choosepostsButtonHandler" prefHeight="44.0" prefWidth="377.0" text="Browse Posts on your computer">
+      <Button layoutX="204.0" layoutY="256.0" mnemonicParsing="false" onAction="#choosepostsButtonHandler" prefHeight="44.0" prefWidth="377.0" text="Browse Posts on your computer">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="26.0" layoutY="525.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
-      <Label fx:id="outputLabel" layoutX="290.0" layoutY="334.0" prefHeight="27.0" prefWidth="416.0" textFill="#3230bc">
+      <Button layoutX="28.0" layoutY="552.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
+      <Label fx:id="outputLabel" layoutX="78.0" layoutY="385.0" prefHeight="27.0" prefWidth="602.0" textFill="#3230bc">
          <font>
             <Font size="18.0" />
          </font>

@@ -291,7 +291,7 @@ public class Database_Handler {
 	
 	
 	
-	public String getUserName(String username) {
+	public String getNameUser(String username) {
 		
 		final String TABLE_NAME = "User_Details";
 		

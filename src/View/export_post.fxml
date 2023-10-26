@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ExportPostController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ExportPostController">
    <children>
       <Label layoutX="297.0" layoutY="38.0" text="Export a Post">
          <font>
@@ -19,24 +19,24 @@
          </font>
       </Label>
       <TextField fx:id="idTextField" layoutX="284.0" layoutY="164.0" />
-      <Button layoutX="562.0" layoutY="433.0" mnemonicParsing="false" onAction="#submitButtonHandler" text="Submit">
+      <Button layoutX="563.0" layoutY="507.0" mnemonicParsing="false" onAction="#submitButtonHandler" text="Submit">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
       <Button layoutX="41.0" layoutY="570.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
-      <Label layoutX="121.0" layoutY="340.0" text="Filename">
+      <Label layoutX="118.0" layoutY="403.0" text="Filename">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="filenameTextField" layoutX="227.0" layoutY="340.0" />
+      <TextField fx:id="filenameTextField" layoutX="224.0" layoutY="403.0" />
       <Label fx:id="outputLabel" layoutX="103.0" layoutY="440.0" prefHeight="30.0" prefWidth="349.0" textFill="#4533b9">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="454.0" layoutY="246.0" mnemonicParsing="false" onAction="#choosefolderButtonHandler" prefHeight="31.0" prefWidth="217.0" text="Folder to Save" />
-      <Label fx:id="pathLabel" layoutX="99.0" layoutY="262.0" prefHeight="21.0" prefWidth="330.0" textFill="#4b2ecd" />
+      <Button layoutX="453.0" layoutY="277.0" mnemonicParsing="false" onAction="#choosefolderButtonHandler" prefHeight="31.0" prefWidth="217.0" text="Folder to Save" />
+      <Label fx:id="pathLabel" layoutX="103.0" layoutY="282.0" prefHeight="21.0" prefWidth="330.0" textFill="#4b2ecd" />
    </children>
 </AnchorPane>

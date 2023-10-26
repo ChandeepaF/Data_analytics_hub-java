@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddPostController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddPostController">
    <children>
-      <Label layoutX="254.0" layoutY="48.0" text="Add a New Post">
+      <Label layoutX="269.0" layoutY="43.0" text="Add a New Post">
          <font>
             <Font size="30.0" />
          </font>
@@ -50,12 +49,12 @@
       <TextField fx:id="likesTextField" layoutX="221.0" layoutY="332.0" prefHeight="31.0" prefWidth="87.0" />
       <TextField fx:id="sharesTextField" layoutX="221.0" layoutY="393.0" prefHeight="31.0" prefWidth="87.0" />
       <TextField fx:id="datetimeTextField" layoutX="221.0" layoutY="452.0" prefHeight="31.0" prefWidth="203.0" />
-      <Label fx:id="outputLabel" layoutX="147.0" layoutY="523.0" prefHeight="26.0" prefWidth="287.0" textFill="#3b3fb9">
+      <Label fx:id="outputLabel" layoutX="121.0" layoutY="523.0" prefHeight="26.0" prefWidth="413.0" textFill="#3b3fb9">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="546.0" layoutY="514.0" mnemonicParsing="false" onAction="#submitButtonHandler" prefHeight="45.0" prefWidth="105.0" text="Submit">
+      <Button layoutX="586.0" layoutY="514.0" mnemonicParsing="false" onAction="#submitButtonHandler" prefHeight="45.0" prefWidth="105.0" text="Submit">
          <font>
             <Font size="20.0" />
          </font>

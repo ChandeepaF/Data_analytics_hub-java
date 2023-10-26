@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RetriveLikesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RetriveLikesController">
    <children>
-      <Label layoutX="208.0" layoutY="37.0" text="Retrieve Posts with Most Likes">
+      <Label layoutX="187.0" layoutY="37.0" text="Retrieve Posts with Most Likes">
          <font>
             <Font size="30.0" />
          </font>
@@ -19,14 +19,14 @@
          </font>
       </Label>
       <TextField fx:id="idTextField" layoutX="220.0" layoutY="150.0" />
-      <Label layoutX="58.0" layoutY="232.0" text="Post" textFill="#2b33bf" underline="true">
+      <Label layoutX="62.0" layoutY="211.0" text="Post :" textFill="#2b33bf" underline="true">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="outputLabel" layoutX="58.0" layoutY="280.0" prefHeight="278.0" prefWidth="722.0" textFill="#2b33bf">
+      <Label fx:id="outputLabel" layoutX="32.0" layoutY="261.0" prefHeight="297.0" prefWidth="708.0" textFill="#2b33bf">
          <font>
-            <Font size="20.0" />
+            <Font size="19.0" />
          </font>
       </Label>
       <Button layoutX="550.0" layoutY="143.0" mnemonicParsing="false" onAction="#submitButtonHandler" text="Submit">
@@ -34,6 +34,6 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="591.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
+      <Button layoutX="32.0" layoutY="611.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
    </children>
 </AnchorPane>
