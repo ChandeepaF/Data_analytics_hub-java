@@ -35,8 +35,8 @@ public class Post {
 	
 	public String validateContentData(String contentData) throws Exception {
 		
-		if(contentData == null) {
-			throw new Exception("ID is null");
+		if(contentData == null || contentData.trim().isEmpty()) {
+			throw new Exception("Content is null");
 		}
 		
 		return contentData;
@@ -46,8 +46,8 @@ public class Post {
 	
 	public String validateAuthorData(String authorData) throws Exception {
 		
-		if(authorData == null) {
-			throw new Exception("ID is null");
+		if(authorData == null || authorData.trim().isEmpty()) {
+			throw new Exception("Author is null");
 		}
 		
 		return authorData;
@@ -56,7 +56,7 @@ public class Post {
 	
 	public int validateLikesData(String likesData) throws Invalid_Likes_Exception {
 		
-		if(likesData == null) {
+		if(likesData == null || likesData.trim().isEmpty()) {
 			throw new Invalid_Likes_Exception("Number of likes is null");
 		}
 		
@@ -80,7 +80,7 @@ public class Post {
 	
 	public int validateSharesData(String sharesData) throws Invalid_Shares_Exception {
 		
-		if(sharesData == null) {
+		if(sharesData == null || sharesData.trim().isEmpty()) {
 			throw new Invalid_Shares_Exception("Number of shares is null");
 		}
 		
@@ -103,7 +103,7 @@ public class Post {
 	
 	public String validateDateTimeData(String date_timeData) throws Invalid_DateFormat_Exception {
 		
-		if(date_timeData == null) {
+		if(date_timeData == null || date_timeData.trim().isEmpty()) {
 			throw new Invalid_DateFormat_Exception("Date & time is null");
 		}
 		
@@ -158,7 +158,7 @@ public class Post {
 		
 	public int validateLikesPost(String postNumber) throws Invalid_PostNumber_Exception {
 		
-		if(postNumber == null) {
+		if(postNumber == null || postNumber.trim().isEmpty()) {
 			throw new Invalid_PostNumber_Exception("Post number is null");
 		}
 		

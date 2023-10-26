@@ -11,7 +11,7 @@ public class User {
 	
 	public String validateUsernameData(String usernameData) throws Invalid_Username_Exception {
 			
-		if(usernameData == null) {
+		if(usernameData == null || usernameData.trim().isEmpty()) {
 			throw new Invalid_Username_Exception("Username is null");
 		}
 		
@@ -21,7 +21,7 @@ public class User {
 	
 	public String validatePasswordData(String passwordData) throws Invalid_Password_Exception {
 		
-		if(passwordData == null) {
+		if(passwordData == null || passwordData.trim().isEmpty()) {
 			throw new Invalid_Password_Exception("Password is null");
 		}
 		
@@ -31,7 +31,7 @@ public class User {
 	
 	public String validateFirstNameData(String firstnameData) throws Invalid_Firstname_Exception {
 		
-		if(firstnameData == null) {
+		if(firstnameData == null || firstnameData.trim().isEmpty()) {
 			throw new Invalid_Firstname_Exception("First name is null");
 		}
 		
@@ -46,7 +46,7 @@ public class User {
 	
 	public String validateLastNameData(String lastnameData) throws Invalid_Lastname_Exception {
 		
-		if(lastnameData == null) {
+		if(lastnameData == null || lastnameData.trim().isEmpty()) {
 			throw new Invalid_Lastname_Exception("Last name is null");
 		}
 		

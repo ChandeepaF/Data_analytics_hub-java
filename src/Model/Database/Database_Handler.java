@@ -340,28 +340,50 @@ public class Database_Handler {
 		
 		final String TABLE_NAME = username + "_Post_Details";  
 		
-		try (Connection con = Database_Connection.getConnection();
+		try (Connection con = Database_Connection.getConnection()){
+			
+			try(PreparedStatement checkStatement = con.prepareStatement("SELECT COUNT(*) FROM " + TABLE_NAME + " WHERE id = ?")){
+				checkStatement.setString(1, ID);
 				
-				PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO " + TABLE_NAME + " VALUES(?, ?, ?, ?, ?, ?)")){
-			prepareStatement.setString(1, ID);
-			prepareStatement.setString(2, content);
-			prepareStatement.setString(3, author);
-			prepareStatement.setString(4, likes);
-			prepareStatement.setString(5, shares);
-			prepareStatement.setString(6, date_time);
-			
-			int result = prepareStatement.executeUpdate();
-			
-			if (result == 1) {
-				outputMessage = "Post saved succesfully";
-			}
-			
-		} catch(SQLException e) {
-			outputMessage = e.getMessage();
-			e.printStackTrace();
-		}
 				
-		return outputMessage;
+				ResultSet resultSet = checkStatement.executeQuery();
+				
+				resultSet.next();
+				
+				int existingPostCount = resultSet.getInt(1);
+				
+				if (existingPostCount > 0) {
+					outputMessage = "Invalid post ID. Post with the current ID already exists!";
+				}
+				
+				if (existingPostCount == 0) {
+				
+				    try(PreparedStatement prepareStatement = con.prepareStatement("INSERT INTO " + TABLE_NAME + " VALUES(?, ?, ?, ?, ?, ?)")){
+						prepareStatement.setString(1, ID);
+						prepareStatement.setString(2, content);
+						prepareStatement.setString(3, author);
+						prepareStatement.setString(4, likes);
+						prepareStatement.setString(5, shares);
+						prepareStatement.setString(6, date_time);
+				
+						int result = prepareStatement.executeUpdate();
+				
+						if (result == 1) {
+							outputMessage = "Post saved succesfully";
+						}
+				    }
+				    }
+			
+				} catch(SQLException e) {
+					outputMessage = e.getMessage();
+					e.printStackTrace();
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+						
+			return outputMessage;
 				
 	}		
 	
