@@ -43,7 +43,7 @@ public class FirstPageScene {
 		FirstPageController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		
-		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
+		Scene scene = new Scene(parent);
 		
 		return scene;
 		
