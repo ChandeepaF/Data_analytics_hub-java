@@ -1,20 +1,20 @@
 package Model;
 
-import Model.Exceptions.Invalid_DateFormat_Exception;
-import Model.Exceptions.Invalid_Filename_Exception;
-import Model.Exceptions.Invalid_Folder_Exception;
-import Model.Exceptions.Invalid_ID_Exception;
-import Model.Exceptions.Invalid_Likes_Exception;
-import Model.Exceptions.Invalid_PostNumber_Exception;
-import Model.Exceptions.Invalid_Shares_Exception;
+import Model.Exceptions.InvalidDateFormatException;
+import Model.Exceptions.InvalidFilenameException;
+import Model.Exceptions.InvalidFolderException;
+import Model.Exceptions.InvalidIdException;
+import Model.Exceptions.InvalidLikesException;
+import Model.Exceptions.InvalidPostNumberException;
+import Model.Exceptions.InvalidSharesException;
 
 public class Post {
 
 
-	public int validateIdData(String IDData) throws Invalid_ID_Exception {
+	public int validateIdData(String IDData) throws InvalidIdException {
 		
 		if(IDData == null || IDData.trim().isEmpty()) {
-			throw new Invalid_ID_Exception("ID is empty");
+			throw new InvalidIdException("ID is empty");
 		}
 		
 		int intID = 0;
@@ -23,11 +23,11 @@ public class Post {
 			intID = Integer.parseInt(IDData);
 			
 		}catch(NumberFormatException e) {
-			throw new Invalid_ID_Exception("ID is not a number");
+			throw new InvalidIdException("ID is not a number");
 		}
 		
 		if(intID <= 0) {
-			throw new Invalid_ID_Exception("ID is not positive");
+			throw new InvalidIdException("ID is not positive");
 		}
 		
 		return intID;
@@ -56,10 +56,10 @@ public class Post {
 	}
 	
 	
-	public int validateLikesData(String likesData) throws Invalid_Likes_Exception {
+	public int validateLikesData(String likesData) throws InvalidLikesException {
 		
 		if(likesData == null || likesData.trim().isEmpty()) {
-			throw new Invalid_Likes_Exception("Number of likes is empty");
+			throw new InvalidLikesException("Number of likes is empty");
 		}
 		
 		int intLikes = 0;
@@ -67,11 +67,11 @@ public class Post {
 			intLikes = Integer.parseInt(likesData);
 			
 		}catch(NumberFormatException e) {
-			throw new Invalid_Likes_Exception("Number of likes is not a number");
+			throw new InvalidLikesException("Number of likes is not a number");
 		}
 		
 		if(intLikes <= 0) {
-			throw new Invalid_Likes_Exception("Number of likes is not positive");
+			throw new InvalidLikesException("Number of likes is not positive");
 		}
 		
 		return intLikes;
@@ -80,10 +80,10 @@ public class Post {
 	
 	
 	
-	public int validateSharesData(String sharesData) throws Invalid_Shares_Exception {
+	public int validateSharesData(String sharesData) throws InvalidSharesException {
 		
 		if(sharesData == null || sharesData.trim().isEmpty()) {
-			throw new Invalid_Shares_Exception("Number of shares is empty");
+			throw new InvalidSharesException("Number of shares is empty");
 		}
 		
 		int intShares = 0;
@@ -91,11 +91,11 @@ public class Post {
 			intShares = Integer.parseInt(sharesData);
 			
 		}catch(NumberFormatException e) {
-			throw new Invalid_Shares_Exception("Number of shares is not a number");
+			throw new InvalidSharesException("Number of shares is not a number");
 		}
 		
 		if(intShares <= 0) {
-			throw new Invalid_Shares_Exception("Number of shares is not positive");
+			throw new InvalidSharesException("Number of shares is not positive");
 		}
 		
 		return intShares;
@@ -103,18 +103,18 @@ public class Post {
 	
 	
 	
-	public String validateDateTimeData(String date_timeData) throws Invalid_DateFormat_Exception {
+	public String validateDateTimeData(String date_timeData) throws InvalidDateFormatException {
 		
 		if(date_timeData == null || date_timeData.trim().isEmpty()) {
-			throw new Invalid_DateFormat_Exception("Date & time is empty");
+			throw new InvalidDateFormatException("Date & time is empty");
 		}
 		
 		if(!date_timeData.contains("/")) {
-			throw new Invalid_DateFormat_Exception("Invalid date format");
+			throw new InvalidDateFormatException("Invalid date format");
 		}
 		
 		if(!date_timeData.contains(":")) {
-			throw new Invalid_DateFormat_Exception("Invalid time format");
+			throw new InvalidDateFormatException("Invalid time format");
 		}
 		
 		
@@ -134,23 +134,23 @@ public class Post {
 		int minutes = Integer.parseInt(tokens4[1]);
 		
 		if(date > 31) {
-			throw new Invalid_DateFormat_Exception("Invalid date");
+			throw new InvalidDateFormatException("Invalid date");
 		}
 		
 		if(month > 12) {
-			throw new Invalid_DateFormat_Exception("Invalid month");
+			throw new InvalidDateFormatException("Invalid month");
 		}
 		
 		if(year > 2023) {
-			throw new Invalid_DateFormat_Exception("Invalid year");
+			throw new InvalidDateFormatException("Invalid year");
 		}
 		
 		if(hours > 24) {
-			throw new Invalid_DateFormat_Exception("Invalid hours");
+			throw new InvalidDateFormatException("Invalid hours");
 		}
 		
 		if(minutes > 59) {
-			throw new Invalid_DateFormat_Exception("Invalid minutes");
+			throw new InvalidDateFormatException("Invalid minutes");
 		}	
 			
 
@@ -160,10 +160,10 @@ public class Post {
 	
 	
 		
-	public int validateLikesPost(String postNumberData) throws Invalid_PostNumber_Exception {
+	public int validateLikesPost(String postNumberData) throws InvalidPostNumberException {
 		
 		if(postNumberData == null || postNumberData.trim().isEmpty()) {
-			throw new Invalid_PostNumber_Exception("Post number is empty");
+			throw new InvalidPostNumberException("Post number is empty");
 		}
 		
 		int intPosts = 0;
@@ -172,11 +172,11 @@ public class Post {
 			intPosts = Integer.parseInt(postNumberData);
 			
 		}catch(NumberFormatException e) {
-			throw new Invalid_PostNumber_Exception("Amount of posts is not a number");
+			throw new InvalidPostNumberException("Amount of posts is not a number");
 		}
 		
 		if(intPosts <= 0) {
-			throw new Invalid_PostNumber_Exception("ID is not positive");
+			throw new InvalidPostNumberException("ID is not positive");
 		}
 		
 		return intPosts;
@@ -184,10 +184,10 @@ public class Post {
 	
 	
 	
-	public String validateExportFolder(String folderData) throws Invalid_Folder_Exception {
+	public String validateExportFolder(String folderData) throws InvalidFolderException {
 		
 		if(folderData == null || folderData.trim().isEmpty()) {
-			throw new Invalid_Folder_Exception("Folder Invalid!");
+			throw new InvalidFolderException("Folder Invalid!");
 		}
 		
 		return folderData;
@@ -195,10 +195,10 @@ public class Post {
 	
 	
 	
-	public String validateExportFilename(String filenameData) throws Invalid_Filename_Exception {
+	public String validateExportFilename(String filenameData) throws InvalidFilenameException {
 		
 		if(filenameData == null || filenameData.trim().isEmpty()) {
-			throw new Invalid_Filename_Exception("Filename is empty!");
+			throw new InvalidFilenameException("Filename is empty!");
 		}
 		
 		return filenameData;

@@ -2,7 +2,7 @@ package Controller;
 
 import java.io.File;
 
-import Model.TestModel;
+import Model.HubModel;
 import View.DashboardScene;
 import View.VipDashboardScene;
 import javafx.event.ActionEvent;
@@ -46,7 +46,7 @@ public class ImportPostController {
 		
 		if(file != null) {
 			
-			String filePath = TestModel.getInstance().importCsvPosts(file.getAbsolutePath());
+			String filePath = HubModel.getInstance().importCsvPosts(file.getAbsolutePath());
 			
 			outputLabel.setText(filePath);
 

@@ -1,8 +1,8 @@
 package Controller;
 
-import Model.TestModel;
-import Model.Exceptions.Invalid_Password_Exception;
-import Model.Exceptions.Invalid_Username_Exception;
+import Model.HubModel;
+import Model.Exceptions.InvalidPasswordException;
+import Model.Exceptions.InvalidUsernameException;
 import View.DashboardScene;
 import View.FirstPageScene;
 import View.UpgradeVipScene;
@@ -37,17 +37,17 @@ public class LogInController {
 	
 	
 	@FXML
-	public void verifyButtonHandler(ActionEvent event) throws Invalid_Username_Exception,Invalid_Password_Exception {
+	public void verifyButtonHandler(ActionEvent event) throws InvalidUsernameException,InvalidPasswordException {
 		
-		String result = TestModel.getInstance().verify_Login_Data(usernameLoginTextField.getText(),
+		String result = HubModel.getInstance().verifyLoginData(usernameLoginTextField.getText(),
 				passwordLoginTextField.getText());
 		
 		
 		if(result.equals("Access granted")) {
 			
-			String type = TestModel.getInstance().getUserType();
+			String type = HubModel.getInstance().getUserType();
 			
-			String name = TestModel.getInstance().getName(usernameLoginTextField.getText());
+			String name = HubModel.getInstance().getName(usernameLoginTextField.getText());
 			
 			
 			outputLabel.setText(result);

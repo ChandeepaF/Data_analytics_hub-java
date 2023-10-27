@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.TestModel;
+import Model.HubModel;
 import View.DashboardScene;
 import View.VipDashboardScene;
 import javafx.event.ActionEvent;
@@ -50,7 +50,7 @@ public class AddPostController {
 	@FXML
 	public void submitButtonHandler(ActionEvent event) {
 		
-		String result = TestModel.getInstance().addpostData(idTextField.getText(),
+		String result = HubModel.getInstance().addpostData(idTextField.getText(),
 				contentTextField.getText(),authorTextField.getText(),likesTextField.getText(),
 				sharesTextField.getText(),datetimeTextField.getText());
 		
@@ -61,7 +61,7 @@ public class AddPostController {
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
 		
-		String User = TestModel.Store_userType.get(0);
+		String User = HubModel.Store_userType.get(0);
 		
 		if (User.equals("normal")) {
 		

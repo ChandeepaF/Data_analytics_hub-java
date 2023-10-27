@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.TestModel;
+import Model.HubModel;
 import View.DashboardScene;
 import View.VipDashboardScene;
 import javafx.event.ActionEvent;
@@ -34,7 +34,7 @@ public class RemovePostController {
 	@FXML
 	public void submitButtonHandler(ActionEvent event) {
 		
-		String result = TestModel.getInstance().deleteExistingPost(idTextField.getText());
+		String result = HubModel.getInstance().deleteExistingPost(idTextField.getText());
 		
 		outputLabel.setText(result);
 	}
@@ -43,7 +43,7 @@ public class RemovePostController {
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
 		
-		String User = TestModel.Store_userType.get(0);
+		String User = HubModel.Store_userType.get(0);
 		
 		if (User.equals("normal")) {
 		

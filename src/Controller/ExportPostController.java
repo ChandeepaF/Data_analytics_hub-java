@@ -2,7 +2,7 @@ package Controller;
 
 import java.io.File;
 
-import Model.TestModel;
+import Model.HubModel;
 import View.DashboardScene;
 import View.VipDashboardScene;
 import javafx.event.ActionEvent;
@@ -70,7 +70,7 @@ public class ExportPostController {
 	@FXML
 	public void submitButtonHandler(ActionEvent event) {
 		
-		String result = TestModel.getInstance().exportCsvPost(idTextField.getText(), folderPath, filenameTextField.getText());
+		String result = HubModel.getInstance().exportCsvPost(idTextField.getText(), folderPath, filenameTextField.getText());
 		
 		outputLabel.setText(result);
 		
@@ -81,7 +81,7 @@ public class ExportPostController {
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
 		
-		String User = TestModel.Store_userType.get(0);
+		String User = HubModel.Store_userType.get(0);
 		
 		if (User.equals("normal")) {
 		

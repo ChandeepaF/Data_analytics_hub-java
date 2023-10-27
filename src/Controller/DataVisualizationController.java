@@ -2,7 +2,7 @@ package Controller;
 
 import java.io.FileInputStream;
 
-import Model.TestModel;
+import Model.HubModel;
 import View.DashboardScene;
 import View.VipDashboardScene;
 import javafx.collections.FXCollections;
@@ -44,7 +44,7 @@ public class DataVisualizationController {
 	@FXML
 	public void generatechartButtonHandler(ActionEvent event) {
 		
-		ObservableList<Data> pieChartData = TestModel.getInstance().dataVisualization();
+		ObservableList<Data> pieChartData = HubModel.getInstance().dataVisualization();
 		
 		pieChart.setData(pieChartData);
 		pieChart.setTitle("Distribution of Shares");

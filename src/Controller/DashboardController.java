@@ -1,7 +1,7 @@
 package Controller;
 
-import Model.TestModel;
-import Model.Exceptions.Invalid_Password_Exception;
+import Model.HubModel;
+import Model.Exceptions.InvalidPasswordException;
 import View.AddPostScene;
 import View.EditProfileScene;
 import View.ExportPostScene;

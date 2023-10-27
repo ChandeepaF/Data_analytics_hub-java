@@ -1,38 +1,38 @@
 package Model;
 
-import Model.Exceptions.Invalid_Firstname_Exception;
-import Model.Exceptions.Invalid_ID_Exception;
-import Model.Exceptions.Invalid_Lastname_Exception;
-import Model.Exceptions.Invalid_Password_Exception;
-import Model.Exceptions.Invalid_Username_Exception;
+import Model.Exceptions.InvalidFirstnameException;
+import Model.Exceptions.InvalidIdException;
+import Model.Exceptions.InvalidLastnameException;
+import Model.Exceptions.InvalidPasswordException;
+import Model.Exceptions.InvalidUsernameException;
 
 public class User {
 
 	
-	public String validateUsernameData(String usernameData) throws Invalid_Username_Exception {
+	public String validateUsernameData(String usernameData) throws InvalidUsernameException {
 			
 		if(usernameData == null || usernameData.trim().isEmpty()) {
-			throw new Invalid_Username_Exception("Username is empty");
+			throw new InvalidUsernameException("Username is empty");
 		}
 		
 		return usernameData;
 	}
 			
 	
-	public String validatePasswordData(String passwordData) throws Invalid_Password_Exception {
+	public String validatePasswordData(String passwordData) throws InvalidPasswordException {
 		
 		if(passwordData == null || passwordData.trim().isEmpty()) {
-			throw new Invalid_Password_Exception("Password is empty");
+			throw new InvalidPasswordException("Password is empty");
 		}
 		
 		return passwordData;
 	}
 	
 	
-	public String validateFirstNameData(String firstnameData) throws Invalid_Firstname_Exception {
+	public String validateFirstNameData(String firstnameData) throws InvalidFirstnameException {
 		
 		if(firstnameData == null || firstnameData.trim().isEmpty()) {
-			throw new Invalid_Firstname_Exception("First name is empty");
+			throw new InvalidFirstnameException("First name is empty");
 		}
 		
 		for (int i = 0; i< firstnameData.length(); i++) {
@@ -40,7 +40,7 @@ public class User {
 			char firstname = firstnameData.charAt(i);
 			
 			if(!Character.isLetter(firstname)) {
-				throw new Invalid_Firstname_Exception("Invalid first name");
+				throw new InvalidFirstnameException("Invalid first name");
 			}
 			
 		}
@@ -49,10 +49,10 @@ public class User {
 	}
 	
 	
-	public String validateLastNameData(String lastnameData) throws Invalid_Lastname_Exception {
+	public String validateLastNameData(String lastnameData) throws InvalidLastnameException {
 		
 		if(lastnameData == null || lastnameData.trim().isEmpty()) {
-			throw new Invalid_Lastname_Exception("Last name is empty");
+			throw new InvalidLastnameException("Last name is empty");
 		}
 		
 		for (int i=0; i < lastnameData.length(); i++) {
@@ -60,7 +60,7 @@ public class User {
 			char lastname = lastnameData.charAt(i);
 			
 			if(!Character.isLetter(lastname)) {
-				throw new Invalid_Lastname_Exception("Invalid last name");
+				throw new InvalidLastnameException("Invalid last name");
 			}
 		}
 		

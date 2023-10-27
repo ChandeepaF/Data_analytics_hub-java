@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import Controller.DashboardController;
 import Controller.FirstPageController;
-import Model.TestModel;
+import Model.HubModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

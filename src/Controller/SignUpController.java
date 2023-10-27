@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.TestModel;
+import Model.HubModel;
 import View.FirstPageScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,7 +36,7 @@ public class SignUpController {
 	@FXML
 	public void submitButtonHandler(ActionEvent event) {
 		
-		String result = TestModel.getInstance().addPersonalData(usernameTextField.getText(),
+		String result = HubModel.getInstance().addPersonalData(usernameTextField.getText(),
 				passwordTextField.getText(),firstnameTextField.getText(),lastnameTextField.getText());
 		
 		outputLabel.setText(result);

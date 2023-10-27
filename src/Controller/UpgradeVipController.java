@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.TestModel;
+import Model.HubModel;
 import View.DashboardScene;
 import View.VipSignoutScene;
 import javafx.event.ActionEvent;
@@ -27,7 +27,7 @@ public class UpgradeVipController {
 	@FXML
 	public void subscribeButtonHandler(ActionEvent event) {
 		
-		String Result = TestModel.getInstance().upgradeVip();
+		String Result = HubModel.getInstance().upgradeVip();
 		
 		if (Result.equals("Type updated succesfully!")) {
 		
