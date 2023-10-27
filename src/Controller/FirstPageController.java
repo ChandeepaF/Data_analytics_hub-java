@@ -9,25 +9,19 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class FirstPageController {
+	
+	// This is the first page that the user will see upon starting the application
 
+	// Defining the primary stage
 	private Stage primaryStage;
 	
+	// Setting the primary stage
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
 	
 	
-	@FXML
-	public void loginButton(ActionEvent event) {
-		
-		LogInScene logInScene = new LogInScene(primaryStage);
-		primaryStage.setTitle(logInScene.getTitle());
-		primaryStage.setScene(logInScene.getScene());
-		
-		primaryStage.show();
-	}
-		
-	
+	// To switch to the "SignUpScene" where the user can enter their personal details and sign up to the application 
 	@FXML
 	public void signupButton(ActionEvent event) {
 		
@@ -38,4 +32,17 @@ public class FirstPageController {
 		primaryStage.show();
 	}
 	
+	
+	
+	// To switch to the "LogInScene" where the user can enter the login details and login to the application 
+	@FXML
+	public void loginButton(ActionEvent event) {
+		
+		LogInScene logInScene = new LogInScene(primaryStage);
+		primaryStage.setTitle(logInScene.getTitle());
+		primaryStage.setScene(logInScene.getScene());
+		
+		primaryStage.show();
+	}
+		
 }

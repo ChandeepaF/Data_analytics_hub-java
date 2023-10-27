@@ -65,6 +65,7 @@ public class VipDashboardController {
 	public void changedetailsButtonHandler(ActionEvent event) {
 		
 		// The scene will switch to the "EditProfileScene" which allows to update user details, upon clicking of the button
+		// The primaryStage is passed onto it along with the name of the user
 		EditProfileScene editProfileScene = new EditProfileScene(primaryStage, name);
 		primaryStage.setTitle(editProfileScene.getTitle());
 		primaryStage.setScene(editProfileScene.getScene());
