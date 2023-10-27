@@ -152,10 +152,10 @@ public class DashboardController {
 		// The following message is contained in the small window that is displayed, requesting to confirm
 		alert.setContentText("Are you sure you want to exit?: ");
 		
-		// "showAndWait()" is called to display the message and wait for users response to see if the "ok" button is clicked 
+		// "showAndWait()" is called to display the message and wait for users response to see if the "OK" button is clicked 
 		if(alert.showAndWait().get() == ButtonType.OK) {
 			
-			// If the "ok" button is clicked, it will redirect to the "FirstPageScene" which allows the user to login again
+			// If the "OK" button is clicked, it will redirect to the "FirstPageScene" which allows the user to login again
 			FirstPageScene firstPageScene = new FirstPageScene(primaryStage);
 			primaryStage.setTitle(firstPageScene.getTitle());
 			primaryStage.setScene(firstPageScene.getScene());
