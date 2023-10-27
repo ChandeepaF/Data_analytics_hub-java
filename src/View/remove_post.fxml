@@ -19,12 +19,12 @@
          </font>
       </Label>
       <TextField fx:id="idTextField" layoutX="218.0" layoutY="178.0" />
-      <Button layoutX="548.0" layoutY="171.0" mnemonicParsing="false" onAction="#submitButtonHandler" text="Submit">
+      <Button layoutX="548.0" layoutY="171.0" mnemonicParsing="false" onAction="#submitButtonHandler" text="Submit" textFill="#412ba1">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="26.0" layoutY="555.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
+      <Button layoutX="26.0" layoutY="555.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" textFill="#cd3a3a" />
       <Label fx:id="outputLabel" layoutX="163.0" layoutY="323.0" prefHeight="27.0" prefWidth="399.0" textFill="#3230bc">
          <font>
             <Font size="18.0" />

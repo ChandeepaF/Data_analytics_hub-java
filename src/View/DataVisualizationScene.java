@@ -60,7 +60,7 @@ public class DataVisualizationScene {
 		controller.setName(name);
 		
 		// A new scene object is created  
-		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
+		Scene scene = new Scene(parent,750,700,Color.LIGHTBLUE);
 		
 		return scene;
 		

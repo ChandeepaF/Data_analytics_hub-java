@@ -7,62 +7,57 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.VipDashboardController">
    <children>
-      <Label layoutX="260.0" layoutY="26.0" text="Vip Dashboard" underline="true">
+      <Label layoutX="261.0" layoutY="14.0" text="Vip Dashboard" underline="true">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <Button layoutX="109.0" layoutY="199.0" mnemonicParsing="false" onAction="#retrievepostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Retrieve a Post">
+      <Button layoutX="107.0" layoutY="184.0" mnemonicParsing="false" onAction="#retrievepostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Retrieve a Post" textFill="#1dad44">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="109.0" layoutY="309.0" mnemonicParsing="false" onAction="#addpostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Add a Post">
+      <Button layoutX="107.0" layoutY="294.0" mnemonicParsing="false" onAction="#addpostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Add a Post" textFill="#1dad44">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="48.0" layoutY="517.0" mnemonicParsing="false" onAction="#retrievelikesButtonHandler" prefHeight="45.0" prefWidth="299.0" text="Retrieve Posts with Most Likes">
+      <Button layoutX="46.0" layoutY="502.0" mnemonicParsing="false" onAction="#retrievelikesButtonHandler" prefHeight="45.0" prefWidth="299.0" text="Retrieve Posts with Most Likes" textFill="#616ac9">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="109.0" layoutY="411.0" mnemonicParsing="false" onAction="#removepostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Remove a Post">
+      <Button layoutX="107.0" layoutY="396.0" mnemonicParsing="false" onAction="#removepostButtonHandler" prefHeight="45.0" prefWidth="176.0" text="Remove a Post" textFill="#1dad44">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="475.0" layoutY="411.0" mnemonicParsing="false" onAction="#exportpostButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Export a Post">
+      <Button layoutX="473.0" layoutY="396.0" mnemonicParsing="false" onAction="#exportpostButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Export a Post" textFill="#bf6e2d">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="435.0" layoutY="517.0" mnemonicParsing="false" onAction="#changedetailsButtonHandler" prefHeight="45.0" prefWidth="225.0" text="Change User Details">
+      <Button layoutX="433.0" layoutY="502.0" mnemonicParsing="false" onAction="#changedetailsButtonHandler" prefHeight="45.0" prefWidth="225.0" text="Change User Details" textFill="#461061">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="575.0" layoutY="623.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Log Out">
+      <Button layoutX="560.0" layoutY="590.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="45.0" prefWidth="145.0" text="Log Out" textFill="#c21818">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label layoutX="210.0" layoutY="111.0" text="Welcome" textFill="#1c32bf">
+      <Label fx:id="nameLabel" layoutX="164.0" layoutY="94.0" prefHeight="36.0" prefWidth="343.0" textFill="#1c32bf">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="nameLabel" layoutX="332.0" layoutY="111.0" prefHeight="36.0" prefWidth="176.0" textFill="#1c32bf">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Button layoutX="435.0" layoutY="199.0" mnemonicParsing="false" onAction="#visualizesharesButtonHandler" prefHeight="45.0" prefWidth="225.0" text="Visualize Shares">
+      <Button layoutX="433.0" layoutY="184.0" mnemonicParsing="false" onAction="#visualizesharesButtonHandler" prefHeight="45.0" prefWidth="225.0" text="Visualize Shares" textFill="#616ac9">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="435.0" layoutY="309.0" mnemonicParsing="false" onAction="#importpostsButtonHandler" prefHeight="45.0" prefWidth="225.0" text="Import Posts">
+      <Button layoutX="433.0" layoutY="294.0" mnemonicParsing="false" onAction="#importpostsButtonHandler" prefHeight="45.0" prefWidth="225.0" text="Import Posts" textFill="#bf6e2d">
          <font>
             <Font size="20.0" />
          </font>

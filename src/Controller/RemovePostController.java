@@ -41,6 +41,7 @@ public class RemovePostController {
 		
 		// The "deleteExistingPost" method is called to get and pass on the ID of the post to be deleted
 		String result = HubModel.getInstance().deleteExistingPost(idTextField.getText());
+		
 		// The result from the above method is displayed to the user
 		outputLabel.setText(result);
 	}

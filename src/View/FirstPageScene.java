@@ -55,7 +55,7 @@ public class FirstPageScene {
 		controller.setPrimaryStage(primaryStage);
 		
 		// A new scene object is created  
-		Scene scene = new Scene(parent);
+		Scene scene = new Scene(parent,750,700,Color.LIGHTBLUE);
 		
 		return scene;
 		

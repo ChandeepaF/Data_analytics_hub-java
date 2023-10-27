@@ -54,11 +54,11 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="586.0" layoutY="514.0" mnemonicParsing="false" onAction="#submitButtonHandler" prefHeight="45.0" prefWidth="105.0" text="Submit">
+      <Button layoutX="586.0" layoutY="514.0" mnemonicParsing="false" onAction="#submitButtonHandler" prefHeight="45.0" prefWidth="105.0" text="Submit" textFill="#412ba1">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="37.0" layoutY="590.0" mnemonicParsing="false" onAction="#previousButtonHandler" prefHeight="16.0" prefWidth="105.0" text="&lt;&lt; Previous" />
+      <Button layoutX="37.0" layoutY="590.0" mnemonicParsing="false" onAction="#previousButtonHandler" prefHeight="16.0" prefWidth="105.0" text="&lt;&lt; Previous" textFill="#cd3a3a" />
    </children>
 </AnchorPane>

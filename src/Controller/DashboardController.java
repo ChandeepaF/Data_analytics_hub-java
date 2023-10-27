@@ -26,7 +26,7 @@ public class DashboardController {
 	// Defining the primary stage
 	private Stage primaryStage;
 
-	// Defining the name
+	// Defining the name of the user
 	private static String name;
 	
 	public void setPrimaryStage(Stage primaryStage) {
@@ -49,11 +49,11 @@ public class DashboardController {
 	}
 	
 	
-	// displayName method is defined to set the name to the nameLabel whcih is supposed to display the name of the user 
+	// "displayName" method is defined to set the name to the nameLabel that is supposed to display the name of the user 
 	public void displayName(String name) {
 		
 		try {
-			nameLabel.setText("Hello " + name);
+			nameLabel.setText("Welcome " + name);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -65,6 +65,7 @@ public class DashboardController {
 	public void changedetailsButtonHandler(ActionEvent event) {
 		
 		// The scene will switch to the "EditProfileScene" which allows to update user details, upon clicking of the button
+		// The primaryStage is passed onto it along with the name of the user
 		EditProfileScene editProfileScene = new EditProfileScene(primaryStage, name);
 		primaryStage.setTitle(editProfileScene.getTitle());
 		primaryStage.setScene(editProfileScene.getScene());

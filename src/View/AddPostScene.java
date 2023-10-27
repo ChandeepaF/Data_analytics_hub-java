@@ -34,6 +34,7 @@ public class AddPostScene {
 		return "Add a Post";
 	}
 	
+	
 	// To define the scene
 	public Scene getScene() {
 		
@@ -52,13 +53,15 @@ public class AddPostScene {
 			e.printStackTrace();
 		}
 		
-		// An "" object is created and the controller is added to the scene. The primary stage and the name of the user are passed along
+		
+		// An "AddPostController" object is created and the controller is added to the scene. 
+		// The primary stage and the name of the user are passed along
 		AddPostController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		controller.setName(name);
 		
-		// A new scene is created
-		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
+		// A new scene object is created  
+		Scene scene = new Scene(parent,750,700,Color.LIGHTBLUE);
 		
 		return scene;
 		

@@ -15,6 +15,6 @@
       </Label>
       <PieChart fx:id="pieChart" layoutX="215.0" layoutY="115.0" prefHeight="529.0" prefWidth="500.0" />
       <Button layoutX="37.0" layoutY="235.0" mnemonicParsing="false" onAction="#generatechartButtonHandler" prefHeight="31.0" prefWidth="149.0" text="Generate Pie Chart" textFill="#3025a1" />
-      <Button layoutX="19.0" layoutY="629.0" mnemonicParsing="false" onAction="#previousButtonHandler" prefHeight="31.0" prefWidth="108.0" text="&lt;&lt; Previous" textFill="#1a1a1b" />
+      <Button layoutX="19.0" layoutY="629.0" mnemonicParsing="false" onAction="#previousButtonHandler" prefHeight="31.0" prefWidth="108.0" text="&lt;&lt; Previous" textFill="#cd3a3a" />
    </children>
 </AnchorPane>

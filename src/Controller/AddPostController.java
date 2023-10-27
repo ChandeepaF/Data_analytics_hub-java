@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class AddPostController {
 	
-	// initiating the name to be passed on to the add post controller
+	// Initiating the name to be passed on to the add post controller
 	String name = null;
 	
 	// Defining the primary stage

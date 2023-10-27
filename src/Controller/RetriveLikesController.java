@@ -6,6 +6,7 @@ import View.VipDashboardScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -41,8 +42,11 @@ public class RetriveLikesController {
 		
 		// The "retrieveTopLikes" method is called to get and pass on the number of posts to be retrieved according to the likes
 		String result = HubModel.getInstance().retrieveTopLikes(idTextField.getText());
+		
 		// The result from the above method is displayed to the user
+		// Wrap text functionality is used to ensure that all test are displayed within the visible area
 		outputLabel.setText(result);
+
 	}
 	
 	

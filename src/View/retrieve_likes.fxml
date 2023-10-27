@@ -24,16 +24,16 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="outputLabel" layoutX="32.0" layoutY="261.0" prefHeight="297.0" prefWidth="708.0" textFill="#2b33bf">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Button layoutX="550.0" layoutY="143.0" mnemonicParsing="false" onAction="#submitButtonHandler" text="Submit">
+      <Button layoutX="550.0" layoutY="143.0" mnemonicParsing="false" onAction="#submitButtonHandler" text="Submit" textFill="#412ba1">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="32.0" layoutY="611.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" />
+      <Button layoutX="29.0" layoutY="637.0" mnemonicParsing="false" onAction="#previousButtonHandler" text="&lt;&lt; Previous" textFill="#cd3a3a" />
+      <Label fx:id="outputLabel" layoutX="12.0" layoutY="255.0" prefHeight="369.0" prefWidth="729.0" textFill="#432cb5" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
