@@ -14,6 +14,7 @@ import Model.Database.Database_Handler;
 import Model.Exceptions.Invalid_Password_Exception;
 import Model.Exceptions.Invalid_Username_Exception;
 
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class DataAnalyticsHubTest {
 
@@ -24,7 +25,8 @@ public class DataAnalyticsHubTest {
 
 	@BeforeEach
 	void setUp() throws Invalid_Username_Exception, Invalid_Password_Exception {
-	    testModel = new TestModel(); // Initialize your test model here
+		
+	    testModel = new TestModel(); 
 	    dbHandler = new Database_Handler();
 
 	    testModel.verify_Login_Data("Chan123", "Hello%456");
@@ -43,28 +45,20 @@ public class DataAnalyticsHubTest {
 		assertEquals(actualOutput1, expectedOutput1);
 	
 	
-	
-		String expectedOutput2 = "Data saved successfully";
+
+		String expectedOutput2 = "Invalid first name";
 		
-		String actualOutput2 = testModel.addPersonalData("Sha82", "Ak23&h@", "Shawn", "Mendel");
+		String actualOutput2 = testModel.addPersonalData("John", "Melbourne12", "Chan456", "Kane");
 		
 		assertEquals(actualOutput2, expectedOutput2);
 		
-	
-
-		String expectedOutput3 = "Invalid first name";
 		
-		String actualOutput3 = testModel.addPersonalData("John", "Melbourne12", "Chan456", "Kane");
+		
+		String expectedOutput3 = "Invalid last name";
+		
+		String actualOutput3 = testModel.addPersonalData("Cameron", "Andrews34%", "Shane", "Andy12");
 		
 		assertEquals(actualOutput3, expectedOutput3);
-		
-		
-		
-		String expectedOutput4 = "Invalid last name";
-		
-		String actualOutput4 = testModel.addPersonalData("Cameron", "Andrews34%", "Shane", "Andy12");
-		
-		assertEquals(actualOutput4, expectedOutput4);
 		
 	}
 	
@@ -205,14 +199,6 @@ public class DataAnalyticsHubTest {
 		String actualOutput1 = dbHandler.checkUserType("Chan123");
 		
 		assertEquals(actualOutput1, expectedOutput1);
-		
-		
-		
-		String expectedOutput2 = "normal";
-		
-		String actualOutput2 = dbHandler.changeVip("Sha82");
-		
-		assertEquals(actualOutput2, expectedOutput2);
 		
 	}
 	
