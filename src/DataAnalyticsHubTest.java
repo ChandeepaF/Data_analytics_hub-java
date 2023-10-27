@@ -172,7 +172,7 @@ public class DataAnalyticsHubTest {
 	@Test
 	void test_upgradeVip() {
 		
-		String expectedOutput1 = "Type updated succesfully!";
+		String expectedOutput1 = "Type updated successfully!";
 		
 		String actualOutput1 = dbHandler.changeVip("Chan123");
 		

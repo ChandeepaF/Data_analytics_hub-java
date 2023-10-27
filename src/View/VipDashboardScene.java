@@ -12,12 +12,16 @@ import javafx.stage.Stage;
 
 public class VipDashboardScene {
 
-String name = null;
+	// Initializing the user's name
+	String name = null;
 	
+	// Defining the primary stage
 	private Stage primaryStage;
 	
+	// Defining the scene to be passed onto the stage
 	private Scene scene;
 	
+	// Defining the constructor for the above attributes
 	public VipDashboardScene(Stage primaryStage, String name) {
 		this.primaryStage = primaryStage;
 		this.name = name;
@@ -25,16 +29,21 @@ String name = null;
 	}
 
 	
+	// To define the title of the scene
 	public String getTitle() {
 		return "Vip Dashboard";
 	}
 	
+	
+	// To define the scene
 	public Scene getScene() {
 		
+		// To make sure that the same scene is not loaded twice
 		if(scene != null) {
 			return scene;
 		}
 		
+		// To load the relevant fxml file 
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("vip_dashboard.fxml"));
 		
 		Parent parent = null;
@@ -45,11 +54,15 @@ String name = null;
 		}
 		
 		
+		// An "VipDashboardController" object is created and the controller is added to the scene. 
+		// The primary stage and the name of the user are passed along
 		VipDashboardController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 
+		// The "displayName" method in the controller is called to display the name of the user
 		controller.displayName(name);
 		
+		// A new scene object is created  
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		
 		return scene;

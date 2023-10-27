@@ -11,10 +11,13 @@ import javafx.stage.Stage;
 
 public class UpgradeVipController {
 
+	// Initiating the name to be passed on to the add post controller
 	String name = null;
 	
+	// Defining the primary stage
 	private Stage primaryStage;
 	
+	// Setting the primary stage
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
@@ -24,13 +27,18 @@ public class UpgradeVipController {
 	}
 	
 	
+	// The button to subscribe as a vip user. ActionEvent captures the click of the submit button 
 	@FXML
 	public void subscribeButtonHandler(ActionEvent event) {
 		
+		// The "upgradeVip" method is called to upgrade the user to a vip member
 		String Result = HubModel.getInstance().upgradeVip();
 		
-		if (Result.equals("Type updated succesfully!")) {
+		// If the type is updated successfully, the user will be redirected to the "VipSignoutScene"
+		// Here, the user will be asked to log out and log back in
+		if (Result.equals("Type updated successfully!")) {
 		
+			// The primaryStage is passed onto the "VipSignoutScene"
 			VipSignoutScene vipSignoutScene = new VipSignoutScene(primaryStage);
 			primaryStage.setTitle(vipSignoutScene.getTitle());
 			primaryStage.setScene(vipSignoutScene.getScene());
@@ -40,9 +48,11 @@ public class UpgradeVipController {
 	}
 	
 	
+	// The button to deny the upgrade to a vip user. ActionEvent captures the click of the submit button 
 	@FXML
 	public void denyButtonHandler(ActionEvent event) {
 		
+		// The user will then be directed to the Dashboard of the normal user
 		DashboardScene dashboardScene = new DashboardScene(primaryStage, name);
 		primaryStage.setTitle(dashboardScene.getTitle());
 		primaryStage.setScene(dashboardScene.getScene());

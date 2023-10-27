@@ -12,27 +12,38 @@ import javafx.stage.Stage;
 
 public class ExportPostScene {
 	
+	// Defining the primary stage
 	private Stage primaryStage;
+	
+	// Defining the user's name
 	private String name;
 	
+	// Defining the scene to be passed onto the stage
 	private Scene scene;
 	
+	// Defining the constructor for the above attributes
 	public ExportPostScene(Stage primaryStage, String name) {
 		this.primaryStage = primaryStage;
 		this.name = name;
 		scene = null;
 	}
 
+	
+	// To define the title of the scene
 	public String getTitle() {
 		return "Export a post";
 	}
 	
+	
+	// To define the scene
 	public Scene getScene() {
 		
+		// To make sure that the same scene is not loaded twice
 		if(scene != null) {
 			return scene;
 		}
 		
+		// To load the relevant fxml file 
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("export_post.fxml"));
 		
 		Parent parent = null;
@@ -43,10 +54,13 @@ public class ExportPostScene {
 		}
 		
 		
+		// An "ExportPostController" object is created and the controller is added to the scene. 
+		// The primary stage and the name of the user are passed along
 		ExportPostController controller = loader.getController();
 		controller.setPrimaryStage(primaryStage);
 		controller.setName(name);
 		
+		// A new scene object is created  
 		Scene scene = new Scene(parent,600,600,Color.LIGHTBLUE);
 		
 		return scene;

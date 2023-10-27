@@ -444,7 +444,7 @@ public class HubModel {
 		
 		Username = Store_username.get(0);
 		
-		output = dbHandler.retrieveLikesPosts(Username, Number);
+		output = dbHandler.retrievePostLikes(Username, Number);
 		
 		return output;
 	}

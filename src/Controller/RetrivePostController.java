@@ -11,10 +11,13 @@ import javafx.stage.Stage;
 
 public class RetrivePostController {
 	
+	// Initiating the name to be passed on to the add post controller
 	String name = null;
 	
+	// Defining the primary stage
 	private Stage primaryStage;
 	
+	// Setting the primary stage
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
@@ -23,6 +26,8 @@ public class RetrivePostController {
 		this.name = name;
 	}
 
+	
+	// To import the different nodes that are present in the fxml file in scene builder
 	@FXML
 	private TextField idTextField;
 	
@@ -30,20 +35,25 @@ public class RetrivePostController {
 	private Label outputLabel;
 	
 		
+	// The button to submit the ID of the post to be retrieved. ActionEvent captures the click of the submit button 
 	@FXML
 	public void submitButtonHandler(ActionEvent event) {
 		
+		// The "retrieveExistingPost" method is called to get and pass on the ID of the post to be retrieved
 		String result = HubModel.getInstance().retrieveExistingPost(idTextField.getText());
-		
+		// The result from the above method is displayed to the user
 		outputLabel.setText(result);
 	}
 	
 	
+	// The previous button to switch back to the previous scene which is the dashboard 
 	@FXML
 	public void previousButtonHandler(ActionEvent event) {
 		
+		// Method to get the type of user from the HubModel
 		String User = HubModel.Store_userType.get(0);
 		
+		// If the user is a "normal" user, the scene will switch to the normal dashboard
 		if (User.equals("normal")) {
 		
 			DashboardScene dashboardScene = new DashboardScene(primaryStage, name);
@@ -54,6 +64,7 @@ public class RetrivePostController {
 			
 			}
 		
+		// If the user is a "vip" user, the scene will switch to the vip dashboard
 		if (User.equals("vip")) {
 			
 			VipDashboardScene vipDashboardScene = new VipDashboardScene(primaryStage, name);
